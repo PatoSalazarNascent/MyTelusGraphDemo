@@ -26,8 +26,8 @@ internal class ChartView: CustomView {
     
     internal func initializeLineChart(lineChart: LineChart, gridType: GridType) {
         
-        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
-        gridView.addGrid(gridType)
+//        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
+//        gridView.addGrid(gridType)
         
         createHorizontalAxis(horizontalConfig: lineChart.xConfig)
         createVerticalAxis(verticalConfig: lineChart.yConfig)
@@ -38,13 +38,14 @@ internal class ChartView: CustomView {
     private func createHorizontalAxis(horizontalConfig: LineChartAxisConfig) {
         
         let segmentDistance = horizontalConfig.maxValue / horizontalConfig.numberOfSegments
-        let segmentValues = Array(0...horizontalConfig.numberOfSegments).map({ $0 * segmentDistance })
+        let segmentValues = Array(1...horizontalConfig.numberOfSegments).map({ $0 * segmentDistance })
         
         for (index, value) in segmentValues.enumerated() {
+            
             let horizontalAxisView = HorizontalAxisView()
             
             if index == 0 {
-                horizontalAxisView.bind(initValue: "\(value)", value: "\(value)")
+                horizontalAxisView.bind(initValue: "\(horizontalConfig.minValue)\(horizontalConfig.unitOfMeasure ?? "")", value: "\(value)\(horizontalConfig.unitOfMeasure ?? "")")
             }
             else {
                 horizontalAxisView.bind(value: "\(value) \(horizontalConfig.unitOfMeasure ?? "")")
@@ -58,11 +59,18 @@ internal class ChartView: CustomView {
     private func createVerticalAxis(verticalConfig: LineChartAxisConfig) {
         
         let segmentDistance = verticalConfig.maxValue / verticalConfig.numberOfSegments
-        let segmentValues = Array(0...verticalConfig.numberOfSegments).map({ $0 * segmentDistance })
+        let segmentValues = Array(1...verticalConfig.numberOfSegments).map({ $0 * segmentDistance })
         
-        for value in segmentValues.reversed() {
+        for (index, value) in segmentValues.reversed().enumerated() {
             let verticalAxisView = VerticalAxisView()
-            verticalAxisView.bind(value: "\(value) \(verticalConfig.unitOfMeasure ?? "")")
+            
+            if index == segmentValues.count - 1 {
+                verticalAxisView.bind(initValue: "\(verticalConfig.minValue)\(verticalConfig.unitOfMeasure ?? "")", value: "\(value)\(verticalConfig.unitOfMeasure ?? "")")
+            }
+            else {
+                verticalAxisView.bind(value: "\(value)\(verticalConfig.unitOfMeasure ?? "")")
+            }
+            
             verticalAxis.addArrangedSubview(verticalAxisView)
         }
     }

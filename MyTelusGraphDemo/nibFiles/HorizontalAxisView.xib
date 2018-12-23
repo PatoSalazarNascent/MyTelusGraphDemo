@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HorizontalAxisView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
-                <outlet property="initValue" destination="Alf-YS-gak" id="PyG-l8-KWa"/>
+                <outlet property="minValue" destination="Alf-YS-gak" id="7Ng-MY-vLz"/>
                 <outlet property="value" destination="emy-0d-gdw" id="d8Z-mw-j0u"/>
             </connections>
         </placeholder>

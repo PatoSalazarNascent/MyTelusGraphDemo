@@ -5,7 +5,7 @@ internal class HorizontalAxisView: CustomView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet weak var initValue: UILabel!
+    @IBOutlet weak var minValue: UILabel!
     @IBOutlet weak var value: UILabel!
     
     // MARK: Constructors
@@ -24,12 +24,12 @@ internal class HorizontalAxisView: CustomView {
     
     internal func bind(value: String) {
         self.value.text = value
-        self.initValue.isHidden = true
+        self.minValue.isHidden = true
     }
     
     internal func bind(initValue: String, value: String) {
         
-        self.initValue.text = initValue
+        self.minValue.text = initValue
         self.value.text = value
     }
     

@@ -7,7 +7,8 @@ internal class VerticalAxisView: CustomView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet weak var value: UILabel!
+    @IBOutlet private weak var minValue: UILabel!
+    @IBOutlet private weak var value: UILabel!
     
     // MARK: Constructors
     
@@ -25,8 +26,12 @@ internal class VerticalAxisView: CustomView {
     
     internal func bind(value: String) {
         self.value.text = value
+        self.minValue.isHidden = true
     }
     
-    // MARK: Private Methods
+    internal func bind(initValue: String, value: String) {
+        self.minValue.text = initValue
+        self.value.text = value
+    }
 }
 
