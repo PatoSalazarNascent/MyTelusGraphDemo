@@ -36,11 +36,7 @@ internal class ChartView: CustomView {
     // MARK Private Methods
     
     private func createHorizontalAxis(horizontalConfig: LineChartAxisConfig) {
-        
-        let segmentDistance = horizontalConfig.maxValue / horizontalConfig.numberOfSegments
-        let segmentValues = Array(1...horizontalConfig.numberOfSegments).map({ $0 * segmentDistance })
-        
-        for (index, value) in segmentValues.enumerated() {
+        for (index, value) in horizontalConfig.segmentValues.enumerated() {
             
             let horizontalAxisView = HorizontalAxisView()
             
@@ -58,13 +54,10 @@ internal class ChartView: CustomView {
     
     private func createVerticalAxis(verticalConfig: LineChartAxisConfig) {
         
-        let segmentDistance = verticalConfig.maxValue / verticalConfig.numberOfSegments
-        let segmentValues = Array(1...verticalConfig.numberOfSegments).map({ $0 * segmentDistance })
-        
-        for (index, value) in segmentValues.reversed().enumerated() {
+        for (index, value) in verticalConfig.segmentValues.reversed().enumerated() {
             let verticalAxisView = VerticalAxisView()
             
-            if index == segmentValues.count - 1 {
+            if index == verticalConfig.segmentValues.count - 1 {
                 verticalAxisView.bind(initValue: "\(verticalConfig.minValue)\(verticalConfig.unitOfMeasure ?? "")", value: "\(value)\(verticalConfig.unitOfMeasure ?? "")")
             }
             else {

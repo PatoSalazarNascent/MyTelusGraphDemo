@@ -101,7 +101,6 @@
 		44BB5FCC21CD4F3100C7068A = {
 			isa = PBXGroup;
 			children = (
-				44BB602821CE002F00C7068A /* CustomView.swift */,
 				44BB5FD721CD4F3100C7068A /* MyTelusGraphDemo */,
 				44BB5FEC21CD4F3200C7068A /* MyTelusGraphDemoTests */,
 				44BB5FF721CD4F3200C7068A /* MyTelusGraphDemoUITests */,
@@ -157,6 +156,7 @@
 		44BB600621CD4F5200C7068A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44BB602821CE002F00C7068A /* CustomView.swift */,
 				44BB601721CD505400C7068A /* DrawableView.swift */,
 				44BB601621CD505400C7068A /* GridView.swift */,
 				44BB601821CD505500C7068A /* ChartView.swift */,

@@ -17,4 +17,9 @@ internal class LineChartAxisConfig {
         self.unitOfMeasure = unitOfMeasure
         self.title = title
     }
+    
+    internal var segmentValues: [Int] {
+        let segmentDistance = maxValue / numberOfSegments
+        return Array((minValue + 1)...numberOfSegments).map({ $0 * segmentDistance })
+    }
 }
