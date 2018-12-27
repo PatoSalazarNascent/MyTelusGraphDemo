@@ -24,10 +24,9 @@ internal class ChartView: CustomView {
     
     // MARK: Internal Methods
     
-    internal func initializeLineChart(lineChart: LineChart, gridType: GridType) {
-        
-//        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
-//        gridView.addGrid(gridType)
+    internal func initializeLineChart(lineChart: LineChart, gridType: GridType) {        
+        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
+        gridView.addGrid(gridType)
         
         createAxis(config: lineChart.xConfig, type: .horizontal)
         createAxis(config: lineChart.yConfig, type: .vertical)
