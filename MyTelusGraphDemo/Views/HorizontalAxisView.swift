@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class HorizontalAxisView: CustomView {
+internal class HorizontalAxisView: CustomView, AxisView {
     
     // MARK: IBOUtlets
     
@@ -22,16 +22,13 @@ internal class HorizontalAxisView: CustomView {
     
     // MARK: Internal Methods
     
-    internal func bind(value: String) {
-        self.value.text = value
+    internal func bindFirstSegment(minValue: Int, segmentValue: Int, unitOfMeasure: String?) {
+        self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
+        self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
+    }
+    
+    internal func bindSegmentValue(value: Int, unitOfMeasure: String?) {
+        self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
     }
-    
-    internal func bind(initValue: String, value: String) {
-        
-        self.minValue.text = initValue
-        self.value.text = value
-    }
-    
-    // MARK: Private Methods
 }

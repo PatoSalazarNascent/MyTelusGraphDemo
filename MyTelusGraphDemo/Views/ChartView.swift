@@ -29,42 +29,33 @@ internal class ChartView: CustomView {
 //        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
 //        gridView.addGrid(gridType)
         
-        createHorizontalAxis(horizontalConfig: lineChart.xConfig)
-        createVerticalAxis(verticalConfig: lineChart.yConfig)
+        createAxis(config: lineChart.xConfig, type: .horizontal)
+        createAxis(config: lineChart.yConfig, type: .vertical)
     }
     
     // MARK Private Methods
     
-    private func createHorizontalAxis(horizontalConfig: LineChartAxisConfig) {
-        for (index, value) in horizontalConfig.segmentValues.enumerated() {
-            
-            let horizontalAxisView = HorizontalAxisView()
-            
-            if index == 0 {
-                horizontalAxisView.bind(initValue: "\(horizontalConfig.minValue)\(horizontalConfig.unitOfMeasure ?? "")", value: "\(value)\(horizontalConfig.unitOfMeasure ?? "")")
-            }
-            else {
-                horizontalAxisView.bind(value: "\(value) \(horizontalConfig.unitOfMeasure ?? "")")
-            }
-            
-            horizontalAxis.addArrangedSubview(horizontalAxisView)
-        }
-    }
     
-    
-    private func createVerticalAxis(verticalConfig: LineChartAxisConfig) {
+    private func createAxis(config: LineChartAxisConfig, type: AxisType) {
         
-        for (index, value) in verticalConfig.segmentValues.reversed().enumerated() {
-            let verticalAxisView = VerticalAxisView()
+        let segmnetedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
+        
+        let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
+        
+        for (index, value) in segmnetedValues {
             
-            if index == verticalConfig.segmentValues.count - 1 {
-                verticalAxisView.bind(initValue: "\(verticalConfig.minValue)\(verticalConfig.unitOfMeasure ?? "")", value: "\(value)\(verticalConfig.unitOfMeasure ?? "")")
+            let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
+            
+            if index == initialIndex {
+                axisView.bindFirstSegment(minValue: config.minValue, segmentValue: value, unitOfMeasure: config.unitOfMeasure)
             }
             else {
-                verticalAxisView.bind(value: "\(value)\(verticalConfig.unitOfMeasure ?? "")")
+              axisView.bindSegmentValue(value: value, unitOfMeasure: config.unitOfMeasure)
             }
             
-            verticalAxis.addArrangedSubview(verticalAxisView)
+            if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {
+                stackview.addArrangedSubview(view)
+            }
         }
     }
 }

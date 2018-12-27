@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 
-internal class VerticalAxisView: CustomView {
-    
+internal class VerticalAxisView: CustomView, AxisView {
+
     // MARK: Instance Properties
     
     // MARK: IBOUtlets
@@ -24,14 +24,14 @@ internal class VerticalAxisView: CustomView {
     
     // MARK: Internal Methods
     
-    internal func bind(value: String) {
-        self.value.text = value
-        self.minValue.isHidden = true
+    internal func bindFirstSegment(minValue: Int, segmentValue: Int, unitOfMeasure: String?) {
+        self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
+        self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
     }
     
-    internal func bind(initValue: String, value: String) {
-        self.minValue.text = initValue
-        self.value.text = value
+    internal func bindSegmentValue(value: Int, unitOfMeasure: String?) {
+        self.value.text = "\(value)\(unitOfMeasure ?? "")"
+        self.minValue.isHidden = true
     }
 }
 
