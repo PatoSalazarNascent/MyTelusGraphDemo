@@ -15,6 +15,14 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         initializeLineChart()
+        
+        chartView.drawLineChart(data: [
+            LineChartData(x: 0, y: 0),
+            LineChartData(x: 4, y: 2),
+            LineChartData(x: 8, y: 4),
+            LineChartData(x: 12, y: 2),
+            LineChartData(x: 16, y: 6),
+        ])
     }
     
     // MARK: Private Method

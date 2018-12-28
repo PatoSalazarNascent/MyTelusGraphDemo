@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChartView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
+                <outlet property="drawableView" destination="hRW-Cl-IaP" id="Gb9-ld-jCj"/>
                 <outlet property="gridView" destination="kzp-FA-x8k" id="yjK-pb-tkP"/>
                 <outlet property="horizontalAxis" destination="oQg-Pb-Jza" id="9Kn-1w-GHM"/>
                 <outlet property="verticalAxis" destination="ICB-S3-mDG" id="wMa-EE-rLZ"/>
@@ -45,18 +46,18 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" id="4g9-c3-5H3"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="J6a-f2-oVr"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="Nv2-sM-Sbf"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBA-Tf-yY0"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="XBO-MU-3WS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hRW-Cl-IaP" secondAttribute="trailing" id="eZq-7J-gxX"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="c8r-kV-4Ch"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ICB-S3-mDG" secondAttribute="bottom" constant="30" id="eun-5p-IA0"/>
                 <constraint firstAttribute="bottom" secondItem="oQg-Pb-Jza" secondAttribute="bottom" id="i4E-19-lF1"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iHQ-hq-h3d"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="lfv-vG-hyO"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qr0-Ym-LiF"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="bottom" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="quR-Eo-pSn"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="vP6-zd-MpL"/>
-                <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="hRW-Cl-IaP" secondAttribute="bottom" id="vyG-rc-CD6"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xZQ-df-vXM"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="top" id="xmB-3h-NnB"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="zE2-NX-GR4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

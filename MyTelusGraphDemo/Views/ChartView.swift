@@ -7,9 +7,11 @@ internal class ChartView: CustomView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet private weak var gridView: GridView!
     @IBOutlet private weak var verticalAxis: UIStackView!
     @IBOutlet private weak var horizontalAxis: UIStackView!
+    @IBOutlet private weak var gridView: GridView!
+    @IBOutlet private weak var drawableView: DrawableView!
+    
     
     internal override init() {
         super.init()
@@ -26,10 +28,15 @@ internal class ChartView: CustomView {
     
     internal func initializeLineChart(lineChart: LineChart, gridType: GridType) {        
         gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
+        drawableView.initDrawableView(horizontalMaxValue: lineChart.xConfig.maxValue, verticalMaxValue: lineChart.yConfig.maxValue)
         gridView.addGrid(gridType)
         
         createAxis(config: lineChart.xConfig, type: .horizontal)
         createAxis(config: lineChart.yConfig, type: .vertical)
+    }
+    
+    internal func drawLineChart(data: [LineChartData]) {
+       drawableView.drawLineChart(data: data)
     }
     
     // MARK Private Methods

@@ -5,10 +5,8 @@ import UIKit
 internal class DrawableView: UIView {
     
     // MARK: Properties
-    
-    private var xValuesCount: CGFloat?
-    private var yValuesCount: CGFloat?
-    let path = UIBezierPath()
+    private var horizontalMaxValue: Int?
+    private var verticalMaxValue: Int?
     
     // MARK: Constructor
     
@@ -25,53 +23,50 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func initDrawable(xCount: CGFloat, yCount: CGFloat) {
-        self.xValuesCount = xCount
-        self.yValuesCount = yCount
+    internal func initDrawableView(horizontalMaxValue: Int, verticalMaxValue: Int) {
+        self.horizontalMaxValue = horizontalMaxValue
+        self.verticalMaxValue = verticalMaxValue
     }
     
-    internal func drawLineChart(data: [(x: CGFloat, y: CGFloat)]) {
+    internal func drawLineChart(data: [LineChartData]) {
         
-        guard let xCount = xValuesCount, let yCount = yValuesCount else {
-            fatalError("x or y value count is missing and grid can't be created")
+        guard let xMaxValue = horizontalMaxValue, let yMaxValue = verticalMaxValue else {
+            fatalError("x or y value count is missing and line can't be created")
+        }
+        
+        let sortData = data.sorted(by: { $1.x > $0.x })
+        
+        let xDistance = frame.width / CGFloat(xMaxValue)
+        let yDistance = frame.height / CGFloat(yMaxValue)
+        
+        let path = UIBezierPath()
+        
+        for (index, dataPoint) in sortData.enumerated() {
+            
+            let xCoord = dataPoint.x * xDistance
+            let yCoord = frame.height - (dataPoint.y * yDistance)
+            
+            if index == 0 {
+                path.move(to: CGPoint(x: xCoord, y: yCoord))
+            }
+            else {
+                path.addLine(to: CGPoint(x: xCoord, y: yCoord))
+            }
         }
         
         let shapeLayer = CAShapeLayer()
-        let path = UIBezierPath()
-
-        path.move(to: CGPoint(x: 0, y: bounds.height / 2))
-        path.addLine(to: CGPoint(x: bounds.width / 2, y: bounds.height / 2))
-        //path.addLine(to: CGPoint(x: bounds.width , y: bounds.height / 2))
-        UIColor.purple.setStroke()
-        path.lineWidth = 2
-        path.stroke()
+        shapeLayer.strokeColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        shapeLayer.lineWidth = 4
+        shapeLayer.path = path.cgPath
         
-
+        layer.addSublayer(shapeLayer)
         
-    }
-    
-    internal func test() {
-        let path = UIBezierPath()
-        
-        path.move(to: CGPoint(x: 0, y: bounds.height))
-        path.addLine(to: CGPoint(x: 50, y: bounds.height / 1.4))
-        path.addLine(to: CGPoint(x: 60, y: bounds.height / 1.8))
-        path.addLine(to: CGPoint(x: 70, y: bounds.height / 2))
-        path.addLine(to: CGPoint(x: 75, y: bounds.height / 2.5))
-        path.addLine(to: CGPoint(x: 80, y: bounds.height / 3))
-        path.addLine(to: CGPoint(x: 90, y: bounds.height / 4))
-        path.addLine(to: CGPoint(x: 100, y: bounds.height / 5))
-        path.addLine(to: CGPoint(x: bounds.width, y: bounds.height / 5.5))
-        UIColor.purple.setStroke()
-        path.lineWidth = 2
-        path.stroke()
-    }
-    
-    // MARK: Private Methods
-    
-    internal override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        //test()
+        // animate it
+//        
+//        layer.addSublayer(shapeLayer)
+//        let animation = CABasicAnimation(keyPath: "strokeEnd")
+//        animation.fromValue = 0
+//        animation.duration = 0.8
+//        shapeLayer.add(animation, forKey: "MyAnimation")
     }
 }
