@@ -34,6 +34,9 @@ internal class DrawableView: UIView {
             fatalError("x or y value count is missing and line can't be created")
         }
         
+        setNeedsLayout()
+        layoutIfNeeded()
+
         let sortData = data.sorted(by: { $1.x > $0.x })
         
         let xDistance = frame.width / CGFloat(xMaxValue)
@@ -56,17 +59,18 @@ internal class DrawableView: UIView {
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 4
         shapeLayer.path = path.cgPath
         
         layer.addSublayer(shapeLayer)
         
         // animate it
-//        
-//        layer.addSublayer(shapeLayer)
-//        let animation = CABasicAnimation(keyPath: "strokeEnd")
-//        animation.fromValue = 0
-//        animation.duration = 0.8
-//        shapeLayer.add(animation, forKey: "MyAnimation")
+        
+        layer.addSublayer(shapeLayer)
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.duration = 0.8
+        shapeLayer.add(animation, forKey: "MyAnimation")
     }
 }
