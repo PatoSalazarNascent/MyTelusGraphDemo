@@ -70,7 +70,7 @@ internal class DrawableView: UIView {
         layer.addSublayer(shapeLayer)
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
-        animation.duration = 0.8
+        animation.duration = 0.3
         shapeLayer.add(animation, forKey: "MyAnimation")
     }
 }

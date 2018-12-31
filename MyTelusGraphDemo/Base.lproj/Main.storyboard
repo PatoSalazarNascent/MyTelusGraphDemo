@@ -29,7 +29,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gGR-QF-tmF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3Zd-qu-g4r"/>
-                            <constraint firstItem="gGR-QF-tmF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HDk-2E-sM5"/>
+                            <constraint firstItem="gGR-QF-tmF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CYB-un-JDo"/>
                             <constraint firstItem="gGR-QF-tmF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="QYw-Oz-iEo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGR-QF-tmF" secondAttribute="trailing" constant="4" id="UXG-jA-z05"/>
                         </constraints>

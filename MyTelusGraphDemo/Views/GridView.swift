@@ -60,10 +60,14 @@ internal class GridView: UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
             view.backgroundColor = UIColor.lightGray
             
-            view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-            view.topAnchor.constraint(equalTo: topAnchor, constant: (frame.height / CGFloat(yCount)) * CGFloat(index)).isActive = true
-            view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+            let yAsDouble = Double(yCount)
+
+            let multiplier = index == 0 ? 0.01 : CGFloat(Double(index) * Double(2.0 / yAsDouble))
+            
+            NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: multiplier, constant: 0).isActive = true
+            NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 1).isActive = true
+            NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         }
     }
 }
