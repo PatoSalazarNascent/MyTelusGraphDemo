@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     
     private func initializeLineChart() {
         
-        let xConfig = LineChartAxisConfig(minValue: 0, maxValue: 16, numberOfSegments: 2, unitOfMeasure: nil, title: "Bill Cycle")
-        let yConfig = LineChartAxisConfig(minValue: 4, maxValue: 6, numberOfSegments: 6, unitOfMeasure: "GB", title: "Data Used")
+        let xConfig = LineChartAxisConfig(minValue: 2, maxValue: 6, numberOfSegments: 2, unitOfMeasure: nil, title: "Bill Cycle")
+        let yConfig = LineChartAxisConfig(minValue: 2, maxValue: 6, numberOfSegments: 2, unitOfMeasure: "GB", title: "Data Used")
         
         let lineChart = LineChart(xConfig: xConfig, yConfig: yConfig)
         
