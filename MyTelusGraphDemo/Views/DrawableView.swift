@@ -28,7 +28,7 @@ internal class DrawableView: UIView {
         self.verticalMaxValue = verticalMaxValue
     }
     
-    internal func drawLineChart(data: [LineChartData]) {
+    internal func drawLineChart(data: [LineGraphData]) {
         
         guard let xMaxValue = horizontalMaxValue, let yMaxValue = verticalMaxValue else {
             fatalError("x or y value count is missing and line can't be created")

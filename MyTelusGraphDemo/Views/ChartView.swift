@@ -26,7 +26,7 @@ internal class ChartView: CustomView {
     
     // MARK: Internal Methods
     
-    internal func initializeLineChart(lineChart: LineChart, gridType: GridType) {        
+    internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
         gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
         drawableView.initDrawableView(horizontalMaxValue: lineChart.xConfig.maxValue, verticalMaxValue: lineChart.yConfig.maxValue)
         gridView.addGrid(gridType)
@@ -35,14 +35,14 @@ internal class ChartView: CustomView {
         createAxis(config: lineChart.yConfig, type: .vertical)
     }
     
-    internal func drawLineChart(data: [LineChartData]) {
+    internal func drawLineChart(data: [LineGraphData]) {
        drawableView.drawLineChart(data: data)
     }
     
     // MARK Private Methods
     
     
-    private func createAxis(config: LineChartAxisConfig, type: AxisType) {
+    private func createAxis(config: LineGraphAxisConfig, type: AxisType) {
         
         let segmnetedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
         

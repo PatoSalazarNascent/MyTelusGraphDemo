@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4429438921D5EC6A00DB6804 /* LineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineChartData.swift */; };
+		2D9A16017EA0519E2C9F7466 /* Pods_MyTelusGraphDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */; };
+		4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineGraphData.swift */; };
 		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
 		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
@@ -25,8 +26,8 @@
 		44BB601E21CD505500C7068A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB601821CD505500C7068A /* ChartView.swift */; };
 		44BB601F21CD505500C7068A /* HorizontalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB601921CD505500C7068A /* HorizontalAxisView.swift */; };
 		44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602121CD513900C7068A /* VerticalAxisView.swift */; };
-		44BB602421CD6A2800C7068A /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602321CD6A2800C7068A /* LineChart.swift */; };
-		44BB602721CD6ACA00C7068A /* LineChartAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602621CD6ACA00C7068A /* LineChartAxis.swift */; };
+		44BB602421CD6A2800C7068A /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602321CD6A2800C7068A /* LineGraph.swift */; };
+		44BB602721CD6ACA00C7068A /* LineGraphAxisConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602621CD6ACA00C7068A /* LineGraphAxisConfig.swift */; };
 		44BB602921CE002F00C7068A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602821CE002F00C7068A /* CustomView.swift */; };
 		44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06821D4A0C50001C7CE /* AxisView.swift */; };
 		44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06B21D4A2230001C7CE /* Enums.swift */; };
@@ -50,7 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4429438821D5EC6A00DB6804 /* LineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartData.swift; sourceTree = "<group>"; };
+		1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTelusGraphDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4429438821D5EC6A00DB6804 /* LineGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphData.swift; sourceTree = "<group>"; };
 		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,11 +76,13 @@
 		44BB601821CD505500C7068A /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		44BB601921CD505500C7068A /* HorizontalAxisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalAxisView.swift; sourceTree = "<group>"; };
 		44BB602121CD513900C7068A /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
-		44BB602321CD6A2800C7068A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
-		44BB602621CD6ACA00C7068A /* LineChartAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartAxis.swift; sourceTree = "<group>"; };
+		44BB602321CD6A2800C7068A /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		44BB602621CD6ACA00C7068A /* LineGraphAxisConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphAxisConfig.swift; sourceTree = "<group>"; };
 		44BB602821CE002F00C7068A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		44DEC06821D4A0C50001C7CE /* AxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
 		44DEC06B21D4A2230001C7CE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		8A26EBA0893C02570F330A44 /* Pods-MyTelusGraphDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTelusGraphDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9E9584C45930B68DB170794F /* Pods-MyTelusGraphDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTelusGraphDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D9A16017EA0519E2C9F7466 /* Pods_MyTelusGraphDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C87EBEE5592900D5E236D63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A26EBA0893C02570F330A44 /* Pods-MyTelusGraphDemo.debug.xcconfig */,
+				9E9584C45930B68DB170794F /* Pods-MyTelusGraphDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		443455F321DFBD7100A91FBF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,8 @@
 				44BB5FEC21CD4F3200C7068A /* MyTelusGraphDemoTests */,
 				44BB5FF721CD4F3200C7068A /* MyTelusGraphDemoUITests */,
 				44BB5FD621CD4F3100C7068A /* Products */,
+				2C87EBEE5592900D5E236D63 /* Pods */,
+				EC6E6514AEDEE87848431F69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,9 +222,9 @@
 		44BB602521CD6A2E00C7068A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				44BB602321CD6A2800C7068A /* LineChart.swift */,
-				44BB602621CD6ACA00C7068A /* LineChartAxis.swift */,
-				4429438821D5EC6A00DB6804 /* LineChartData.swift */,
+				44BB602321CD6A2800C7068A /* LineGraph.swift */,
+				44BB602621CD6ACA00C7068A /* LineGraphAxisConfig.swift */,
+				4429438821D5EC6A00DB6804 /* LineGraphData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +245,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		EC6E6514AEDEE87848431F69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44BB5FFD21CD4F3200C7068A /* Build configuration list for PBXNativeTarget "MyTelusGraphDemo" */;
 			buildPhases = (
+				5B17D03DF97AECB10EB9DF29 /* [CP] Check Pods Manifest.lock */,
 				44BB5FD121CD4F3100C7068A /* Sources */,
 				44BB5FD221CD4F3100C7068A /* Frameworks */,
 				44BB5FD321CD4F3100C7068A /* Resources */,
+				BC42D2FBF27B71F1EBDB20F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -358,6 +384,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B17D03DF97AECB10EB9DF29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyTelusGraphDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC42D2FBF27B71F1EBDB20F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		44BB5FD121CD4F3100C7068A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -366,11 +439,11 @@
 				44BB601D21CD505500C7068A /* DrawableView.swift in Sources */,
 				44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */,
 				443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */,
-				44BB602721CD6ACA00C7068A /* LineChartAxis.swift in Sources */,
+				44BB602721CD6ACA00C7068A /* LineGraphAxisConfig.swift in Sources */,
 				44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */,
-				4429438921D5EC6A00DB6804 /* LineChartData.swift in Sources */,
+				4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */,
 				44BB601E21CD505500C7068A /* ChartView.swift in Sources */,
-				44BB602421CD6A2800C7068A /* LineChart.swift in Sources */,
+				44BB602421CD6A2800C7068A /* LineGraph.swift in Sources */,
 				44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */,
 				44BB602921CE002F00C7068A /* CustomView.swift in Sources */,
 				44BB601421CD501B00C7068A /* ViewExtensions.swift in Sources */,
@@ -550,6 +623,7 @@
 		};
 		44BB5FFE21CD4F3200C7068A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A26EBA0893C02570F330A44 /* Pods-MyTelusGraphDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -568,6 +642,7 @@
 		};
 		44BB5FFF21CD4F3200C7068A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E9584C45930B68DB170794F /* Pods-MyTelusGraphDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,6 +1,6 @@
 import Foundation
 
-internal class LineChartAxisConfig {
+internal class LineGraphAxisConfig {
     
     // MARK: Properies
     

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class LineChartData {
+internal class LineGraphData {
     
     let x: CGFloat
     let y: CGFloat

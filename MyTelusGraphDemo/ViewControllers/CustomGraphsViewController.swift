@@ -23,11 +23,11 @@ internal class CustomGraphsViewController: UIViewController {
     
     private func initializeLineGraph() {
         
-        let horizontalAxisConfig = LineChartAxisConfig(minValue: 2, maxValue: 14, numberOfSegments: 2, unitOfMeasure: nil, title: "Data")
+        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 2, maxValue: 14, numberOfSegments: 2, unitOfMeasure: nil, title: "Data")
         
-        let verticalAxisConfig = LineChartAxisConfig(minValue: 0, maxValue: 14, numberOfSegments: 2, unitOfMeasure: "GB", title: "Days")
+        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 14, numberOfSegments: 2, unitOfMeasure: "GB", title: "Days")
         
-        let lineChart = LineChart(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
+        let lineChart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
         
         lineGraph.initializeLineChart(lineChart: lineChart, gridType: .horizontal)
     }
