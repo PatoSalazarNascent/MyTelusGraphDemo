@@ -1,8 +1,8 @@
 import UIKit
 
 internal protocol AxisView {
-    func bindFirstSegment(minValue: Int, segmentValue: Int, unitOfMeasure: String?)
-    func bindSegmentValue(value: Int, unitOfMeasure: String?)
+    func bindFirstSegment(minValue: String, segmentValue: String, unitOfMeasure: String?)
+    func bindSegmentValue(value: String, unitOfMeasure: String?)
 }
 
 extension AxisView where Self: UIView {}

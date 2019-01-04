@@ -53,10 +53,10 @@ internal class ChartView: CustomView {
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
             if index == initialIndex {
-                axisView.bindFirstSegment(minValue: config.minValue, segmentValue: value, unitOfMeasure: config.unitOfMeasure)
+                axisView.bindFirstSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             else {
-              axisView.bindSegmentValue(value: value, unitOfMeasure: config.unitOfMeasure)
+                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             
             if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {

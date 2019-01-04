@@ -22,12 +22,12 @@ internal class HorizontalAxisView: CustomView, AxisView {
     
     // MARK: Internal Methods
     
-    internal func bindFirstSegment(minValue: Int, segmentValue: Int, unitOfMeasure: String?) {
+    internal func bindFirstSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
     }
     
-    internal func bindSegmentValue(value: Int, unitOfMeasure: String?) {
+    internal func bindSegmentValue(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
     }
