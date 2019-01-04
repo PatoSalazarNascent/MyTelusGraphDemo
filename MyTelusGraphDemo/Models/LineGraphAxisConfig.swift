@@ -20,6 +20,7 @@ internal class LineGraphAxisConfig {
     
     internal var segmentValues: [Int] {
         let segmentDistance = (maxValue - minValue) / numberOfSegments
-        return Array(stride(from: minValue, through: maxValue, by: segmentDistance))
+        let values = Array(stride(from: minValue, through: maxValue, by: segmentDistance)).filter({ $0 != minValue})
+        return values
     }
 }

@@ -23,7 +23,7 @@ internal class CustomGraphsViewController: UIViewController {
     
     private func initializeLineGraph() {
         
-        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 3, maxValue: 7, numberOfSegments: 2, unitOfMeasure: nil, title: "Data")
+        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 6, maxValue: 12, numberOfSegments: 3, unitOfMeasure: nil, title: "Data")
         
         let verticalAxisConfig = LineGraphAxisConfig(minValue: 3, maxValue: 7, numberOfSegments: 2, unitOfMeasure: "GB", title: "Days")
         
