@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VsI-rK-bYn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,37 +10,59 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Libraries-->
+        <scene sceneID="TeW-GC-Feh">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyTelusGraphDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="1LW-gE-27P" customClass="LibraryGraphsViewController" customModule="MyTelusGraphDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wIi-GB-Ag2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGR-QF-tmF" customClass="ChartView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                                <rect key="frame" x="4" y="133.5" width="367" height="400"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="axB-C5-d1H"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="gGR-QF-tmF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3Zd-qu-g4r"/>
-                            <constraint firstItem="gGR-QF-tmF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CYB-un-JDo"/>
-                            <constraint firstItem="gGR-QF-tmF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="QYw-Oz-iEo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gGR-QF-tmF" secondAttribute="trailing" constant="4" id="UXG-jA-z05"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1Gu-Rr-PHM"/>
                     </view>
-                    <connections>
-                        <outlet property="chartView" destination="gGR-QF-tmF" id="o3f-bV-DmK"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Libraries" image="library" selectedImage="library" id="vJe-Br-u2J" userLabel="Library"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf4-RJ-QLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="484" y="425"/>
+        </scene>
+        <!--Custom-->
+        <scene sceneID="Dhp-vR-FRq">
+            <objects>
+                <viewController id="gfP-cr-MyV" customClass="CustomGraphsViewController" customModule="MyTelusGraphDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdi-pL-GRG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eG7-GQ-yFc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Custom" image="lineGraph" selectedImage="lineGraph" id="6T9-3Z-NZ3" userLabel="Custom"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8zZ-Rk-DnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="-245"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NVU-mx-O8X">
+            <objects>
+                <tabBarController id="VsI-rK-bYn" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TDy-3l-e2I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gfP-cr-MyV" kind="relationship" relationship="viewControllers" id="CHF-Xa-LMU"/>
+                        <segue destination="1LW-gE-27P" kind="relationship" relationship="viewControllers" id="QWL-Ye-1ye"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2S-Rw-fZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503" y="77"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="library" width="30" height="30"/>
+        <image name="lineGraph" width="30" height="30"/>
+    </resources>
 </document>

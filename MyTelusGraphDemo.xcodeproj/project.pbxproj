@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4429438921D5EC6A00DB6804 /* LineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineChartData.swift */; };
+		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
+		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDB21CD4F3100C7068A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FDA21CD4F3100C7068A /* ViewController.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		4429438821D5EC6A00DB6804 /* LineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartData.swift; sourceTree = "<group>"; };
+		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
+		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44BB5FDA21CD4F3100C7068A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		443455F321DFBD7100A91FBF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */,
+				443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		44BB5FCC21CD4F3100C7068A = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		44BB5FD721CD4F3100C7068A /* MyTelusGraphDemo */ = {
 			isa = PBXGroup;
 			children = (
+				443455F321DFBD7100A91FBF /* ViewControllers */,
 				44DEC06A21D4A2110001C7CE /* Enums */,
 				44DEC06721D4A0A60001C7CE /* Protocols */,
 				44BB602521CD6A2E00C7068A /* Models */,
@@ -354,6 +368,7 @@
 			files = (
 				44BB601D21CD505500C7068A /* DrawableView.swift in Sources */,
 				44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */,
+				443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */,
 				44BB602721CD6ACA00C7068A /* LineChartAxis.swift in Sources */,
 				44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */,
 				4429438921D5EC6A00DB6804 /* LineChartData.swift in Sources */,
@@ -366,6 +381,7 @@
 				44BB601C21CD505500C7068A /* GridView.swift in Sources */,
 				44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */,
 				44BB601F21CD505500C7068A /* HorizontalAxisView.swift in Sources */,
+				443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
