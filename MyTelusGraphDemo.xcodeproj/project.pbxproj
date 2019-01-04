@@ -11,7 +11,6 @@
 		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
 		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
-		44BB5FDB21CD4F3100C7068A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FDA21CD4F3100C7068A /* ViewController.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
 		44BB5FE321CD4F3200C7068A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FE121CD4F3200C7068A /* LaunchScreen.storyboard */; };
@@ -56,7 +55,6 @@
 		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44BB5FDA21CD4F3100C7068A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44BB5FDD21CD4F3100C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44BB5FDF21CD4F3200C7068A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44BB5FE221CD4F3200C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				44BB600921CD4F7000C7068A /* Extensions */,
 				44BB600621CD4F5200C7068A /* Views */,
 				44BB5FD821CD4F3100C7068A /* AppDelegate.swift */,
-				44BB5FDA21CD4F3100C7068A /* ViewController.swift */,
 				44BB5FDC21CD4F3100C7068A /* Main.storyboard */,
 				44BB5FDF21CD4F3200C7068A /* Assets.xcassets */,
 				44BB5FE121CD4F3200C7068A /* LaunchScreen.storyboard */,
@@ -374,7 +371,6 @@
 				4429438921D5EC6A00DB6804 /* LineChartData.swift in Sources */,
 				44BB601E21CD505500C7068A /* ChartView.swift in Sources */,
 				44BB602421CD6A2800C7068A /* LineChart.swift in Sources */,
-				44BB5FDB21CD4F3100C7068A /* ViewController.swift in Sources */,
 				44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */,
 				44BB602921CE002F00C7068A /* CustomView.swift in Sources */,
 				44BB601421CD501B00C7068A /* ViewExtensions.swift in Sources */,
