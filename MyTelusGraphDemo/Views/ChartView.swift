@@ -44,11 +44,11 @@ internal class ChartView: CustomView {
     
     private func createAxis(config: LineGraphAxisConfig, type: AxisType) {
         
-        let segmnetedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
+        let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
         
         let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
         
-        for (index, value) in segmnetedValues {
+        for (index, value) in segmentedValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
