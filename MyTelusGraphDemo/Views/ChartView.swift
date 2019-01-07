@@ -27,6 +27,17 @@ internal class ChartView: CustomView {
     // MARK: Internal Methods
     
     internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
+        commonGraphInit(lineChart: lineChart, gridType: gridType)
+    }
+    
+    internal func drawLineChart(data: [LineGraphData]) {
+       drawableView.drawLineChart(data: data)
+    }
+    
+    // MARK Private Methods
+    
+    
+    private func commonGraphInit(lineChart: LineGraph, gridType: GridType) {
         gridView.initGrid(horizontalSegmentsCount: lineChart.xConfig.numberOfSegments, verticalSegmentsCount: lineChart.yConfig.numberOfSegments)
         
         drawableView.initDrawableView(horizontalAxisMinValue: lineChart.xConfig.minValue, horizontalAxisMaxValue: lineChart.xConfig.maxValue, verticalAxisMinValue: lineChart.yConfig.minValue, verticalAxisMaxValue: lineChart.yConfig.maxValue)
@@ -39,13 +50,6 @@ internal class ChartView: CustomView {
         setNeedsLayout()
         layoutIfNeeded()
     }
-    
-    internal func drawLineChart(data: [LineGraphData]) {
-       drawableView.drawLineChart(data: data)
-    }
-    
-    // MARK Private Methods
-    
     
     private func createAxis(config: LineGraphAxisConfig, type: AxisType) {
         
