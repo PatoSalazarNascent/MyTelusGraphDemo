@@ -43,57 +43,52 @@ internal class GridView: UIView {
         
         switch type {
         case .horizontal:
-            createHorizontalGrid(verticalCount: verticalCount)
+            createGrid(lineCount: verticalCount, type: .horizontal)
         case .vertical:
-            createVerticalGrid(horizontalCount: horizontalCount)
+            createGrid(lineCount: horizontalCount, type: .vertical)
         case .fullGrid:
-            createFullGrid(verticalCount: verticalCount, horizontalCount: horizontalCount)
+            createGrid(lineCount: verticalCount, type: .horizontal)
+            createGrid(lineCount: horizontalCount, type: .vertical)
         }
         
     }
     
     // MARK: Private Methods
     
-    private func createHorizontalGrid(verticalCount: Int) {
-    
-        for value in 0...verticalCount {
-            let view = UIView()
-            addSubview(view)
-
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = UIColor.lightGray
-            
-            let multiplier = value == 0 ? 0.001 : CGFloat(value) * 2.0 / CGFloat(verticalCount)
-            
-            NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: multiplier, constant: 0).isActive = true
-            NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 1).isActive = true
-            NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-            NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        }
-    }
-    
-    private func createVerticalGrid(horizontalCount: Int) {
+    private func createGrid(lineCount: Int, type: GridType) {
         
-        for value in 0...horizontalCount {
+        for value in 0...lineCount {
             let view = UIView()
             addSubview(view)
             
             view.translatesAutoresizingMaskIntoConstraints = false
             view.backgroundColor = UIColor.lightGray
             
-            let multiplier = value == 0 ? 0.001 : CGFloat(value) * 2.0 / CGFloat(horizontalCount)
+            let multiplier = value == 0 ? 0.001 : CGFloat(value) * 2.0 / CGFloat(lineCount)
             
-            NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: multiplier, constant: 0).isActive = true
-            
-            NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 1).isActive = true
-            
-            NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0).isActive = true
-            NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+            switch type {
+            case .horizontal:
+                createHorizontalGridLineConstraint(view: view, multiplier: multiplier)
+            case .vertical:
+                createVerticalGridLineConstraint(view: view, multiplier: multiplier)
+            default: break
+            }
         }
     }
     
-    private func createFullGrid(verticalCount: Int, horizontalCount: Int) {
-        createHorizontalGrid(verticalCount: verticalCount)
-        createVerticalGrid(horizontalCount: horizontalCount)
+    private func createHorizontalGridLineConstraint(view: UIView, multiplier: CGFloat) {
+        NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: multiplier, constant: 0).isActive = true
+        NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 1).isActive = true
+        NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+    }
+    
+    private func createVerticalGridLineConstraint(view: UIView, multiplier: CGFloat) {
+        NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: multiplier, constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 1).isActive = true
+        
+        NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
     }
 }

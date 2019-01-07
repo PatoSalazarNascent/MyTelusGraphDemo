@@ -60,8 +60,6 @@ internal class ChartView: CustomView {
             }
             
             if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {
-                view.backgroundColor = .clear
-                view.clipsToBounds = false
                 stackview.addArrangedSubview(view)
             }
         }
