@@ -32,7 +32,7 @@ internal class DrawableView: UIView {
         self.verticalAxisMaxValue = verticalAxisMaxValue
     }
     
-    internal func drawLineChart(data: [LineGraphData]) {
+    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData?, type: AxisType?) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -42,6 +42,8 @@ internal class DrawableView: UIView {
         
         let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
+        
+        createDataLimitView(dataLimit: dataLimit, type: type)
         
         let path = UIBezierPath()
         
@@ -67,11 +69,38 @@ internal class DrawableView: UIView {
         layer.addSublayer(shapeLayer)
         
         // animate it
-        
-        layer.addSublayer(shapeLayer)
+    
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
-        animation.duration = 1
+        animation.duration = 2
         shapeLayer.add(animation, forKey: "lineChartAnimation")
+    }
+    
+    // MARK: Private Methods
+    
+    private func createDataLimitView(dataLimit: LineGraphData?, type: AxisType?) {
+        
+        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
+            fatalError("x or y min or max value are missing and line can't be created")
+        }
+        
+        guard let limit = dataLimit, let dataLimitType = type else { return }
+        
+        let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
+        let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
+        
+        let dataLimitView = UIView()
+        dataLimitView.backgroundColor = .magenta
+        
+        addSubview(dataLimitView)
+        
+        if type == .vertical {
+            let xCoord = (limit.x - CGFloat(xMinValue)) * xDistance
+            dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 1, height: bounds.height)
+        }
+        else {
+            let yCoord = (limit.y - CGFloat(yMinValue)) * yDistance
+             dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 1)
+        }
     }
 }

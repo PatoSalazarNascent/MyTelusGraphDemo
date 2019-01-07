@@ -18,14 +18,11 @@ internal class CustomGraphsViewController: UIViewController {
         lineGraph.drawLineChart(data: [
             LineGraphData(x: 4, y: 0),
             LineGraphData(x: 6, y: 2),
-            LineGraphData(x: 6.5, y: 4),
-            LineGraphData(x: 8, y: 8)
-        ])
+            LineGraphData(x: 6.5, y: 4)
+        ],
+        dataLimit: LineGraphData(x: 6.5, y: 4),
+        type: .horizontal)
     }
-    
-  
-    
-    // MARK: Internal Methods
     
     // MARK: Private Methods
     
