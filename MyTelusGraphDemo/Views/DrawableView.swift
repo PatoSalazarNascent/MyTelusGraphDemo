@@ -5,8 +5,10 @@ import UIKit
 internal class DrawableView: UIView {
     
     // MARK: Properties
-    private var horizontalMaxValue: Int?
-    private var verticalMaxValue: Int?
+    private var horizontalAxisMinValue: Int?
+    private var horizontalAxisMaxValue: Int?
+    private var verticalAxisMinValue: Int?
+    private var verticalAxisMaxValue: Int?
     
     // MARK: Constructor
     
@@ -23,28 +25,30 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func initDrawableView(horizontalMaxValue: Int, verticalMaxValue: Int) {
-        self.horizontalMaxValue = horizontalMaxValue
-        self.verticalMaxValue = verticalMaxValue
+    internal func initDrawableView(horizontalAxisMinValue: Int, horizontalAxisMaxValue: Int, verticalAxisMinValue: Int, verticalAxisMaxValue: Int) {
+        self.horizontalAxisMinValue = horizontalAxisMinValue
+        self.horizontalAxisMaxValue = horizontalAxisMaxValue
+        self.verticalAxisMinValue = verticalAxisMinValue
+        self.verticalAxisMaxValue = verticalAxisMaxValue
     }
     
     internal func drawLineChart(data: [LineGraphData]) {
         
-        guard let xMaxValue = horizontalMaxValue, let yMaxValue = verticalMaxValue else {
-            fatalError("x or y value count is missing and line can't be created")
+        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
+            fatalError("x or y min or max value are missing and line can't be created")
         }
     
         let sortData = data.sorted(by: { $1.x > $0.x })
         
-        let xDistance = frame.width / CGFloat(xMaxValue)
-        let yDistance = frame.height / CGFloat(yMaxValue)
+        let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
+        let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
         
         let path = UIBezierPath()
         
         for (index, dataPoint) in sortData.enumerated() {
             
-            let xCoord = dataPoint.x * xDistance
-            let yCoord = frame.height - (dataPoint.y * yDistance)
+            let xCoord = (dataPoint.x - CGFloat(xMinValue)) * xDistance
+            let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
             
             if index == 0 {
                 path.move(to: CGPoint(x: xCoord, y: yCoord))
