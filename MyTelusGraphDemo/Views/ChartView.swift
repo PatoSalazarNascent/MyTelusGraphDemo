@@ -26,6 +26,8 @@ internal class ChartView: CustomView {
     
     // MARK: Internal Methods
     
+    // MARK: ======== LINE CHART ============
+    
     internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
         commonGraphInit(lineChart: lineChart, gridType: gridType)
     }

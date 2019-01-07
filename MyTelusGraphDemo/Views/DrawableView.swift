@@ -94,7 +94,7 @@ internal class DrawableView: UIView {
         
         addSubview(dataLimitView)
         
-        if type == .vertical {
+        if dataLimitType == .vertical {
             let xCoord = (limit.x - CGFloat(xMinValue)) * xDistance
             dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 1, height: bounds.height)
         }
