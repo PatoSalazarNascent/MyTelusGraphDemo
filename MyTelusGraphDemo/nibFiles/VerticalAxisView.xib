@@ -23,14 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="388" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s72-LH-Jfl">
-                    <rect key="frame" x="4" y="0.0" width="384" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s72-LH-Jfl">
+                    <rect key="frame" x="4" y="0.0" width="381" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDG-zB-SZT">
-                    <rect key="frame" x="4" y="61" width="384" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDG-zB-SZT">
+                    <rect key="frame" x="4" y="61" width="381" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="s72-LH-Jfl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6Od-66-geE"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KDG-zB-SZT" secondAttribute="trailing" id="BVQ-nK-doc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KDG-zB-SZT" secondAttribute="trailing" constant="3" id="BVQ-nK-doc"/>
                 <constraint firstItem="s72-LH-Jfl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="UjK-aC-jzc"/>
                 <constraint firstItem="KDG-zB-SZT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="YMC-g6-dmf"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s72-LH-Jfl" secondAttribute="trailing" id="joX-0K-8cl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s72-LH-Jfl" secondAttribute="trailing" constant="3" id="joX-0K-8cl"/>
                 <constraint firstItem="KDG-zB-SZT" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="pMF-Vc-N7y"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

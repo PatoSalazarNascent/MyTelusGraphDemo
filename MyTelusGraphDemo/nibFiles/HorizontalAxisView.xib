@@ -23,14 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="416" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alf-YS-gak">
-                    <rect key="frame" x="0.0" y="0.0" width="26" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alf-YS-gak">
+                    <rect key="frame" x="0.0" y="3" width="26" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emy-0d-gdw">
-                    <rect key="frame" x="390" y="0.0" width="26" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emy-0d-gdw">
+                    <rect key="frame" x="390" y="3" width="26" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -38,9 +38,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="emy-0d-gdw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4nJ-t9-Pkb"/>
+                <constraint firstItem="emy-0d-gdw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="3" id="4nJ-t9-Pkb"/>
                 <constraint firstItem="Alf-YS-gak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ClU-rV-bFJ"/>
-                <constraint firstItem="Alf-YS-gak" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UjL-9k-TGu"/>
+                <constraint firstItem="Alf-YS-gak" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="3" id="UjL-9k-TGu"/>
                 <constraint firstItem="emy-0d-gdw" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mHe-ay-y64"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

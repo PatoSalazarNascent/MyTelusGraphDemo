@@ -33,10 +33,7 @@ internal class DrawableView: UIView {
         guard let xMaxValue = horizontalMaxValue, let yMaxValue = verticalMaxValue else {
             fatalError("x or y value count is missing and line can't be created")
         }
-        
-        setNeedsLayout()
-        layoutIfNeeded()
-
+    
         let sortData = data.sorted(by: { $1.x > $0.x })
         
         let xDistance = frame.width / CGFloat(xMaxValue)

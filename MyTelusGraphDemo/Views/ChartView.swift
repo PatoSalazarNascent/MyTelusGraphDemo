@@ -33,6 +33,9 @@ internal class ChartView: CustomView {
         
         createAxis(config: lineChart.xConfig, type: .horizontal)
         createAxis(config: lineChart.yConfig, type: .vertical)
+        
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
     internal func drawLineChart(data: [LineGraphData]) {
