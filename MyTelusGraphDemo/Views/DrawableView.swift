@@ -5,6 +5,7 @@ import UIKit
 internal class DrawableView: UIView {
     
     // MARK: Properties
+    
     private var horizontalAxisMinValue: Int?
     private var horizontalAxisMaxValue: Int?
     private var verticalAxisMinValue: Int?
@@ -32,7 +33,7 @@ internal class DrawableView: UIView {
         self.verticalAxisMaxValue = verticalAxisMaxValue
     }
     
-    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData?, type: AxisType?) {
+    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData?, dataLimitType: AxisType?) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -43,7 +44,7 @@ internal class DrawableView: UIView {
         let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
         
-        createDataLimitView(dataLimit: dataLimit, type: type)
+        createDataLimitView(dataLimit: dataLimit, dataLimitType: dataLimitType)
         
         let path = UIBezierPath()
         
@@ -78,13 +79,13 @@ internal class DrawableView: UIView {
     
     // MARK: Private Methods
     
-    private func createDataLimitView(dataLimit: LineGraphData?, type: AxisType?) {
+    private func createDataLimitView(dataLimit: LineGraphData?, dataLimitType: AxisType?) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
         }
         
-        guard let limit = dataLimit, let dataLimitType = type else { return }
+        guard let limit = dataLimit, let type = dataLimitType else { return }
         
         let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
@@ -94,7 +95,7 @@ internal class DrawableView: UIView {
         
         addSubview(dataLimitView)
         
-        if dataLimitType == .vertical {
+        if type == .vertical {
             let xCoord = (limit.x - CGFloat(xMinValue)) * xDistance
             dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 1, height: bounds.height)
         }

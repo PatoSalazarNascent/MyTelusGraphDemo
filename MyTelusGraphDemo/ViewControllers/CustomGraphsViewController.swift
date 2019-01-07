@@ -21,7 +21,7 @@ internal class CustomGraphsViewController: UIViewController {
             LineGraphData(x: 6.5, y: 4)
         ],
         dataLimit: LineGraphData(x: 6.5, y: 4),
-        type: .vertical)
+        dataLimitType: .vertical)
     }
     
     // MARK: Private Methods

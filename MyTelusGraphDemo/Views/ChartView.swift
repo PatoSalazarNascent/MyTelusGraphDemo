@@ -33,11 +33,11 @@ internal class ChartView: CustomView {
     }
     
     internal func drawLineChart(data: [LineGraphData]) {
-        drawableView.drawLineChart(data: data, dataLimit: nil, type: nil)
+        drawableView.drawLineChart(data: data, dataLimit: nil, dataLimitType: nil)
     }
     
-    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData, type: AxisType) {
-        drawableView.drawLineChart(data: data, dataLimit: dataLimit, type: type)
+    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData, dataLimitType: AxisType) {
+        drawableView.drawLineChart(data: data, dataLimit: dataLimit, dataLimitType: dataLimitType)
     }
     
     // MARK Private Methods
