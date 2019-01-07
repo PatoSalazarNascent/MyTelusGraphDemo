@@ -36,6 +36,6 @@ internal class CustomGraphsViewController: UIViewController {
         
         let lineChart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
         
-        lineGraph.initializeLineChart(lineChart: lineChart, gridType: .horizontal)
+        lineGraph.initializeLineChart(lineChart: lineChart, gridType: .fullGrid)
     }
 }

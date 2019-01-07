@@ -60,7 +60,7 @@ internal class DrawableView: UIView {
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1).cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 4
+        shapeLayer.lineWidth = 1
         shapeLayer.path = path.cgPath
         
         layer.addSublayer(shapeLayer)
@@ -70,7 +70,7 @@ internal class DrawableView: UIView {
         layer.addSublayer(shapeLayer)
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
-        animation.duration = 0.3
-        shapeLayer.add(animation, forKey: "MyAnimation")
+        animation.duration = 1
+        shapeLayer.add(animation, forKey: "lineChartAnimation")
     }
 }

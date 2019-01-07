@@ -27,7 +27,7 @@ internal class ChartView: CustomView {
     // MARK: Internal Methods
     
     internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
-        gridView.initGrid(xSegmentsCount: lineChart.xConfig.numberOfSegments, ySegmentsCount: lineChart.yConfig.numberOfSegments)
+        gridView.initGrid(horizontalSegmentsCount: lineChart.xConfig.numberOfSegments, verticalSegmentsCount: lineChart.yConfig.numberOfSegments)
         drawableView.initDrawableView(horizontalMaxValue: lineChart.xConfig.maxValue, verticalMaxValue: lineChart.yConfig.maxValue)
         gridView.addGrid(gridType)
         
