@@ -13,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerticalAxisView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
                 <outlet property="minValue" destination="KDG-zB-SZT" id="JyN-wQ-iSq"/>
+                <outlet property="minValueBottomConstraint" destination="pMF-Vc-N7y" id="hl2-da-IMh"/>
                 <outlet property="value" destination="s72-LH-Jfl" id="j8d-AZ-WTK"/>
+                <outlet property="valueTopConstraint" destination="6Od-66-geE" id="kjG-1S-s7D"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s72-LH-Jfl">
-                    <rect key="frame" x="4" y="-5" width="384" height="12"/>
+                    <rect key="frame" x="4" y="0.0" width="384" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDG-zB-SZT">
-                    <rect key="frame" x="4" y="66" width="384" height="12"/>
+                    <rect key="frame" x="4" y="61" width="384" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,12 +38,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="s72-LH-Jfl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="-5" id="6Od-66-geE"/>
+                <constraint firstItem="s72-LH-Jfl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6Od-66-geE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KDG-zB-SZT" secondAttribute="trailing" id="BVQ-nK-doc"/>
                 <constraint firstItem="s72-LH-Jfl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="UjK-aC-jzc"/>
                 <constraint firstItem="KDG-zB-SZT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="YMC-g6-dmf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s72-LH-Jfl" secondAttribute="trailing" id="joX-0K-8cl"/>
-                <constraint firstItem="KDG-zB-SZT" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="5" id="pMF-Vc-N7y"/>
+                <constraint firstItem="KDG-zB-SZT" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="pMF-Vc-N7y"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

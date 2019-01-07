@@ -7,6 +7,9 @@ internal class HorizontalAxisView: CustomView, AxisView {
     
     @IBOutlet weak var minValue: UILabel!
     @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var minValueLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var valueTrailingConstraint: NSLayoutConstraint!
+    
     
     // MARK: Constructors
     
@@ -25,10 +28,15 @@ internal class HorizontalAxisView: CustomView, AxisView {
     internal func bindFirstSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
+        
+        minValueLeadingConstraint.constant = -(self.minValue.intrinsicContentSize.width / 2)
+        valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
     internal func bindSegmentValue(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
+        
+        valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
 }

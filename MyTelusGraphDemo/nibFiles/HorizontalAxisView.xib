@@ -13,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HorizontalAxisView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
                 <outlet property="minValue" destination="Alf-YS-gak" id="7Ng-MY-vLz"/>
+                <outlet property="minValueLeadingConstraint" destination="ClU-rV-bFJ" id="3vo-te-WmM"/>
                 <outlet property="value" destination="emy-0d-gdw" id="d8Z-mw-j0u"/>
+                <outlet property="valueTrailingConstraint" destination="mHe-ay-y64" id="QyU-4Y-Bl0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alf-YS-gak">
-                    <rect key="frame" x="0.0" y="0.0" width="380" height="12"/>
+                    <rect key="frame" x="0.0" y="0.0" width="26" height="12"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -34,10 +36,9 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="emy-0d-gdw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4nJ-t9-Pkb"/>
-                <constraint firstItem="emy-0d-gdw" firstAttribute="leading" secondItem="Alf-YS-gak" secondAttribute="trailing" constant="10" id="5yG-f7-e54"/>
                 <constraint firstItem="Alf-YS-gak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ClU-rV-bFJ"/>
                 <constraint firstItem="Alf-YS-gak" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UjL-9k-TGu"/>
                 <constraint firstItem="emy-0d-gdw" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="mHe-ay-y64"/>

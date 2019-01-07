@@ -17,7 +17,8 @@ internal class CustomGraphsViewController: UIViewController {
         
         lineGraph.drawLineChart(data: [
             LineGraphData(x: 0, y: 0),
-            LineGraphData(x: 2, y: 1)
+            LineGraphData(x: 2, y: 1),
+            LineGraphData(x: 8, y: 9)
         ])
     }
     
@@ -29,9 +30,9 @@ internal class CustomGraphsViewController: UIViewController {
     
     private func initializeLineGraph() {
         
-        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 16, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
         
-        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: "GB", title: "Days")
+        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 24, numberOfSegments: 4, unitOfMeasure: "GB", title: "Days")
         
         let lineChart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
         
