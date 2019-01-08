@@ -10,6 +10,7 @@ internal class ChartView: CustomView {
     
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var gridView: GridView!
+    @IBOutlet private weak var maskingView: MaskingView!
     @IBOutlet private weak var drawableView: DrawableView!
     
     // MARK: Constructors
@@ -56,6 +57,10 @@ internal class ChartView: CustomView {
         drawableView.addDataLimit(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
+    internal func addChartFill(data: [LineGraphData], color: UIColor) {
+        maskingView.addMaskingFill(data: data, color: color)
+    }
+    
     // MARK: ======== LINE CHART ============
     
     internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
@@ -76,6 +81,8 @@ internal class ChartView: CustomView {
         gridView.initGrid(horizontalSegmentsCount: lineChart.xConfig.numberOfSegments, verticalSegmentsCount: lineChart.yConfig.numberOfSegments)
         
         drawableView.initDrawableView(horizontalAxisMinValue: lineChart.xConfig.minValue, horizontalAxisMaxValue: lineChart.xConfig.maxValue, verticalAxisMinValue: lineChart.yConfig.minValue, verticalAxisMaxValue: lineChart.yConfig.maxValue)
+        
+        maskingView.initMaskingView(horizontalAxisMinValue: lineChart.xConfig.minValue, horizontalAxisMaxValue: lineChart.xConfig.maxValue, verticalAxisMinValue: lineChart.yConfig.minValue, verticalAxisMaxValue: lineChart.yConfig.maxValue)
         
         gridView.addGrid(gridType)
         

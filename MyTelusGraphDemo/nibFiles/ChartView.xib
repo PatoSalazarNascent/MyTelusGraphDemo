@@ -16,6 +16,7 @@
                 <outlet property="drawableView" destination="hRW-Cl-IaP" id="Gb9-ld-jCj"/>
                 <outlet property="gridView" destination="kzp-FA-x8k" id="yjK-pb-tkP"/>
                 <outlet property="horizontalAxis" destination="oQg-Pb-Jza" id="9Kn-1w-GHM"/>
+                <outlet property="maskingView" destination="6Cg-ai-3kD" id="UOf-Nl-92d"/>
                 <outlet property="verticalAxis" destination="ICB-S3-mDG" id="wMa-EE-rLZ"/>
             </connections>
         </placeholder>
@@ -35,38 +36,46 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-LM-sev">
-                    <rect key="frame" x="110" y="15" width="395" height="249"/>
+                    <rect key="frame" x="110" y="10" width="400" height="254"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-FA-x8k" userLabel="gridView" customClass="GridView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="15" width="395" height="249"/>
+                    <rect key="frame" x="110" y="10" width="400" height="254"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cg-ai-3kD" customClass="MaskingView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+                    <rect key="frame" x="110" y="10" width="400" height="254"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="15" width="395" height="249"/>
+                    <rect key="frame" x="110" y="10" width="400" height="254"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="oQg-Pb-Jza" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="3rr-Y1-ER2"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="44g-hY-fag"/>
-                <constraint firstItem="kzp-FA-x8k" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" id="7v8-At-asF"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="bottom" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="Cc9-Xp-M82"/>
-                <constraint firstItem="kzp-FA-x8k" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="Hp2-SP-XNX"/>
-                <constraint firstItem="dMj-LM-sev" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="IfW-hM-oc9"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="25g-Q6-W31"/>
+                <constraint firstItem="oQg-Pb-Jza" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="8ig-IG-EUc"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" id="G7X-ua-tG0"/>
+                <constraint firstItem="6Cg-ai-3kD" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="top" id="GfR-nm-gGb"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="H0y-ty-2oQ"/>
+                <constraint firstItem="6Cg-ai-3kD" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" id="HcQ-tZ-YPq"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="top" id="J1Y-tX-4cb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" constant="15" id="J3K-Z2-zvC"/>
-                <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="ICB-S3-mDG" secondAttribute="top" id="KGx-HS-9eS"/>
+                <constraint firstItem="6Cg-ai-3kD" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="MJN-Al-u0x"/>
+                <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="top" id="Qcj-Gy-g92"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBA-Tf-yY0"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="WkA-0f-v4J"/>
-                <constraint firstItem="dMj-LM-sev" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="Zev-TE-CIR"/>
-                <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="ZxZ-RX-FEl"/>
-                <constraint firstItem="dMj-LM-sev" firstAttribute="bottom" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="dFo-qY-Fdl"/>
-                <constraint firstItem="hRW-Cl-IaP" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="top" id="dgL-2Z-K1v"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" constant="10" id="b2f-ZZ-9tl"/>
+                <constraint firstItem="6Cg-ai-3kD" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="cW6-RZ-3vs"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dYd-WW-KUK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ICB-S3-mDG" secondAttribute="bottom" constant="30" id="eun-5p-IA0"/>
                 <constraint firstAttribute="bottom" secondItem="oQg-Pb-Jza" secondAttribute="bottom" id="i4E-19-lF1"/>
-                <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="top" id="r8L-96-Qcl"/>
+                <constraint firstItem="kzp-FA-x8k" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="ieF-HK-Zyv"/>
+                <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="bottom" id="m95-OK-C7a"/>
+                <constraint firstItem="kzp-FA-x8k" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" id="nyh-z9-n7n"/>
+                <constraint firstItem="kzp-FA-x8k" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="oSF-ft-dNo"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="xZQ-df-vXM"/>
+                <constraint firstItem="hRW-Cl-IaP" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="yiV-Ht-87W"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

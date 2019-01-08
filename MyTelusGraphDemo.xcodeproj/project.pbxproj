@@ -11,6 +11,7 @@
 		4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineGraphData.swift */; };
 		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
 		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
+		443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E778121E4E7C8008CE962 /* MaskingView.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		4429438821D5EC6A00DB6804 /* LineGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphData.swift; sourceTree = "<group>"; };
 		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
+		443E778121E4E7C8008CE962 /* MaskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingView.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44BB5FDD21CD4F3100C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				44BB601821CD505500C7068A /* ChartView.swift */,
 				44BB601921CD505500C7068A /* HorizontalAxisView.swift */,
 				44BB602121CD513900C7068A /* VerticalAxisView.swift */,
+				443E778121E4E7C8008CE962 /* MaskingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44BB601D21CD505500C7068A /* DrawableView.swift in Sources */,
+				443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */,
 				44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */,
 				443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */,
 				44BB602721CD6ACA00C7068A /* LineGraphAxisConfig.swift in Sources */,
