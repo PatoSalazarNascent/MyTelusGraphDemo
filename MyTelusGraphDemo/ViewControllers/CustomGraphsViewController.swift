@@ -15,13 +15,13 @@ internal class CustomGraphsViewController: UIViewController {
         
         initializeLineGraph()
         
-        lineGraph.drawLineChart(data: [
+        let dataPoints = [
             LineGraphData(x: 4, y: 0),
             LineGraphData(x: 6, y: 2),
             LineGraphData(x: 6.5, y: 4)
-        ],
-        dataLimit: LineGraphData(x: 6.5, y: 4),
-        dataLimitType: .vertical)
+        ]
+        
+        lineGraph.drawLineChart(data: dataPoints, color: .blue, lineWidth: 1, animated: true)
     }
     
     // MARK: Private Methods
@@ -32,8 +32,7 @@ internal class CustomGraphsViewController: UIViewController {
         
         let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Days")
         
-        let lineChart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
-        
-        lineGraph.initializeLineChart(lineChart: lineChart, gridType: .fullGrid)
+        let chart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
+        lineGraph.initializeLineChart(lineChart: chart, gridType: .fullGrid)
     }
 }

@@ -50,7 +50,12 @@ internal class GridView: UIView {
             createGrid(lineCount: verticalCount, type: .horizontal)
             createGrid(lineCount: horizontalCount, type: .vertical)
         }
-        
+    }
+    
+    internal func setGridColor(color: UIColor?) {
+        for gridLinesViews in self.subviews {
+            gridLinesViews.backgroundColor = color
+        }
     }
     
     // MARK: Private Methods

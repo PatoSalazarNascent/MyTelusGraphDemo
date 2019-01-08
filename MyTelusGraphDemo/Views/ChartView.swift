@@ -9,15 +9,16 @@ internal class ChartView: CustomView {
     
     @IBOutlet private weak var verticalAxis: UIStackView!
     @IBOutlet private weak var horizontalAxis: UIStackView!
+    
+    @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var gridView: GridView!
     @IBOutlet private weak var drawableView: DrawableView!
     
-    
+    // MARK: Constructors
     internal override init() {
         super.init()
     }
     
-    // only called when built from interface builder
     internal required init?(coder aDecoder: NSCoder) {
         
         // call super constructor
@@ -26,18 +27,33 @@ internal class ChartView: CustomView {
     
     // MARK: Internal Methods
     
+    // MARK: ======== COMMOM UI CONFIGURATION =========
+    
+    internal func setGridColor(color: UIColor?) {
+        gridView.setGridColor(color: color)
+    }
+    
+    internal func setChartBackgroundColor(color: UIColor?, alpha: CGFloat) {
+        let customColor = color ?? UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: alpha)
+        backgroundView.backgroundColor = customColor
+    }
+    
+    internal func addDataLimit(dataLimit: LineGraphData, dataLimitType: AxisType) {
+        drawableView.addDataLimit(dataLimit: dataLimit, dataLimitType: dataLimitType)
+    }
+    
     // MARK: ======== LINE CHART ============
     
     internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
         commonGraphInit(lineChart: lineChart, gridType: gridType)
     }
     
-    internal func drawLineChart(data: [LineGraphData]) {
-        drawableView.drawLineChart(data: data, dataLimit: nil, dataLimitType: nil)
+    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+        drawableView.drawLineChart(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
     }
     
-    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData, dataLimitType: AxisType) {
-        drawableView.drawLineChart(data: data, dataLimit: dataLimit, dataLimitType: dataLimitType)
+    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+        drawableView.drawLineChart(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
     }
     
     // MARK Private Methods

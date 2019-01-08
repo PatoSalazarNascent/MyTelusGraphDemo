@@ -5,7 +5,7 @@ import UIKit
 internal class DrawableView: UIView {
     
     // MARK: Properties
-    
+
     private var horizontalAxisMinValue: Int?
     private var horizontalAxisMaxValue: Int?
     private var verticalAxisMinValue: Int?
@@ -33,7 +33,9 @@ internal class DrawableView: UIView {
         self.verticalAxisMaxValue = verticalAxisMaxValue
     }
     
-    internal func drawLineChart(data: [LineGraphData], dataLimit: LineGraphData?, dataLimitType: AxisType?) {
+    // MARK: Internal Methods
+    
+    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -43,8 +45,6 @@ internal class DrawableView: UIView {
         
         let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
-        
-        createDataLimitView(dataLimit: dataLimit, dataLimitType: dataLimitType)
         
         let path = UIBezierPath()
         
@@ -62,30 +62,36 @@ internal class DrawableView: UIView {
         }
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        shapeLayer.strokeColor = color.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 1
+        shapeLayer.lineWidth = lineWidth
         shapeLayer.path = path.cgPath
         
         layer.addSublayer(shapeLayer)
         
         // animate it
+        
+        if animated {
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.fromValue = 0
+            animation.duration = duration
+            shapeLayer.add(animation, forKey: "lineChartAnimation")
+        }
+    }
     
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.duration = 2
-        shapeLayer.add(animation, forKey: "lineChartAnimation")
+    internal func addDataLimit(dataLimit: LineGraphData, dataLimitType: AxisType) {
+        createDataLimitView(dataLimit: dataLimit, dataLimitType: dataLimitType)
     }
     
     // MARK: Private Methods
     
     private func createDataLimitView(dataLimit: LineGraphData?, dataLimitType: AxisType?) {
         
+        guard let limit = dataLimit, let type = dataLimitType else { return }
+        
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
         }
-        
-        guard let limit = dataLimit, let type = dataLimitType else { return }
         
         let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)

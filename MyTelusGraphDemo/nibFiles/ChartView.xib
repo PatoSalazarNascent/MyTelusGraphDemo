@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChartView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="dMj-LM-sev" id="O2X-nH-rEN"/>
                 <outlet property="drawableView" destination="hRW-Cl-IaP" id="Gb9-ld-jCj"/>
                 <outlet property="gridView" destination="kzp-FA-x8k" id="yjK-pb-tkP"/>
                 <outlet property="horizontalAxis" destination="oQg-Pb-Jza" id="9Kn-1w-GHM"/>
@@ -33,9 +34,13 @@
                         <constraint firstAttribute="height" constant="30" id="8do-PG-Gwj"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-LM-sev">
+                    <rect key="frame" x="110" y="15" width="395" height="249"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-FA-x8k" userLabel="gridView" customClass="GridView" customModule="MyTelusGraphDemo" customModuleProvider="target">
                     <rect key="frame" x="110" y="15" width="395" height="249"/>
-                    <color key="backgroundColor" white="0.91119241490610325" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="MyTelusGraphDemo" customModuleProvider="target">
                     <rect key="frame" x="110" y="15" width="395" height="249"/>
@@ -49,14 +54,18 @@
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" id="7v8-At-asF"/>
                 <constraint firstItem="hRW-Cl-IaP" firstAttribute="bottom" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="Cc9-Xp-M82"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="Hp2-SP-XNX"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="IfW-hM-oc9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" constant="15" id="J3K-Z2-zvC"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="ICB-S3-mDG" secondAttribute="top" id="KGx-HS-9eS"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBA-Tf-yY0"/>
                 <constraint firstItem="hRW-Cl-IaP" firstAttribute="trailing" secondItem="kzp-FA-x8k" secondAttribute="trailing" id="WkA-0f-v4J"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="leading" secondItem="kzp-FA-x8k" secondAttribute="leading" id="Zev-TE-CIR"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="ZxZ-RX-FEl"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="bottom" secondItem="kzp-FA-x8k" secondAttribute="bottom" id="dFo-qY-Fdl"/>
                 <constraint firstItem="hRW-Cl-IaP" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="top" id="dgL-2Z-K1v"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ICB-S3-mDG" secondAttribute="bottom" constant="30" id="eun-5p-IA0"/>
                 <constraint firstAttribute="bottom" secondItem="oQg-Pb-Jza" secondAttribute="bottom" id="i4E-19-lF1"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="kzp-FA-x8k" secondAttribute="top" id="r8L-96-Qcl"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="xZQ-df-vXM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
