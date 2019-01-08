@@ -3,10 +3,6 @@ import UIKit
 
 internal class ChartView: CustomView {
         
-    // MARK: Instance Properties
-    
-    private var customFont: UIFont?
-    
     // MARK: IBOUtlets
     
     @IBOutlet private weak var verticalAxis: UIStackView!
@@ -34,15 +30,15 @@ internal class ChartView: CustomView {
     internal func setCustomFont(font: UIFont) {
         for view in horizontalAxis.arrangedSubviews {
             if let axisView = view as? AxisView {
-                axisView.minValue.font = customFont
-                axisView.value.font = customFont
+                axisView.minValue.font = font
+                axisView.value.font = font
             }
         }
         
         for view in verticalAxis.arrangedSubviews {
             if let axisView = view as? AxisView {
-                axisView.minValue.font = customFont
-                axisView.value.font = customFont
+                axisView.minValue.font = font
+                axisView.value.font = font
             }
         }
     }

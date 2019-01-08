@@ -21,7 +21,6 @@ internal class CustomGraphsViewController: UIViewController {
             LineGraphData(x: 6.5, y: 4)
         ]
         
-        lineGraph.setCustomFont(font: UIFont.systemFont(ofSize: 11))
         lineGraph.addDataLimit(dataLimit: LineGraphData(x: 6.5, y: 4), color: .yellow, dataLimitType: .vertical)
         lineGraph.drawLineChart(data: dataPoints, color: .red, lineWidth: 1, animateWithDuration: 1)
     }
