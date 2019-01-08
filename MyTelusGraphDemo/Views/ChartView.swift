@@ -79,6 +79,11 @@ internal class ChartView: CustomView {
         drawableView.drawLineChart(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
     }
     
+    internal func clearChart() {
+        drawableView.clearDrawableView()
+        maskingView.clearMaskingView()
+    }
+    
     // MARK Private Methods
     
     private func commonGraphInit(lineChart: LineGraph, gridType: GridType) {

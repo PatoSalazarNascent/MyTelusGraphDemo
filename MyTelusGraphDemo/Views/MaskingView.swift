@@ -72,7 +72,6 @@ internal class MaskingView: UIView {
             backgroundColor = color
             layer.mask = shapeLayer
 
-            
             // animate
             let opacityAnimation = CABasicAnimation(keyPath: "opacity")
             opacityAnimation.fromValue = 0
@@ -80,5 +79,10 @@ internal class MaskingView: UIView {
             opacityAnimation.duration = duration
             shapeLayer.add(opacityAnimation, forKey: "")
         }
+    }
+    
+    internal func clearMaskingView() {
+        layer.mask = nil
+        backgroundColor = .clear
     }
 }

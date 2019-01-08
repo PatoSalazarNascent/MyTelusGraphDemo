@@ -83,6 +83,15 @@ internal class DrawableView: UIView {
         createDataLimitView(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
+    internal func clearDrawableView() {
+        if let sublayers = layer.sublayers {
+            for sublayer in sublayers {
+                sublayer.removeAllAnimations()
+                sublayer.removeFromSuperlayer()
+            }
+        }
+    }
+    
     // MARK: Private Methods
     
     private func createDataLimitView(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {

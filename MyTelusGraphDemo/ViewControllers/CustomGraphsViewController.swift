@@ -22,7 +22,7 @@ internal class CustomGraphsViewController: UIViewController {
         ]
         
         lineGraph.drawLineChart(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.addChartFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 1.5)
+        lineGraph.addChartFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
     }
     
     // MARK: Private Methods
@@ -40,6 +40,6 @@ internal class CustomGraphsViewController: UIViewController {
     // MARK: IBAction
 
     @IBAction func test(_ sender: Any) {
-        
+
     }
 }
