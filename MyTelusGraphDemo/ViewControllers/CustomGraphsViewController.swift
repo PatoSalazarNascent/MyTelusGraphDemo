@@ -6,7 +6,7 @@ internal class CustomGraphsViewController: UIViewController {
     // MARK: Properties
     
     // MARK: IBOutlets
-    @IBOutlet private weak var lineGraph: GraphView!
+    @IBOutlet private weak var lineGraph: LineGraphView!
     
     // MARK: Life Cycle
     
@@ -29,9 +29,9 @@ internal class CustomGraphsViewController: UIViewController {
     
     private func initializeLineGraph() {
         
-        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 4, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "Days")
         
-        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Days")
+        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
     
         
         let graph = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)

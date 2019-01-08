@@ -3,16 +3,6 @@ import UIKit
 
 internal class GraphView: CustomView {
     
-    // MARK: IBOUtlets
-    
-    @IBOutlet private weak var verticalAxis: UIStackView!
-    @IBOutlet private weak var horizontalAxis: UIStackView!
-    
-    @IBOutlet private weak var backgroundView: UIView!
-    @IBOutlet private weak var gridView: GridView!
-    @IBOutlet private weak var maskingView: MaskingView!
-    @IBOutlet private weak var drawableView: DrawableView!
-    
     // MARK: Constructors
     internal override init() {
         super.init()
@@ -24,9 +14,18 @@ internal class GraphView: CustomView {
         super.init(coder: aDecoder)
     }
     
-    // MARK: Internal Methods
     
-    // MARK: ======== COMMOM UI CONFIGURATION =========
+    // MARK: IBOUtlets
+    
+    @IBOutlet internal weak var verticalAxis: UIStackView!
+    @IBOutlet internal weak var horizontalAxis: UIStackView!
+    
+    @IBOutlet internal weak var backgroundView: UIView!
+    @IBOutlet internal weak var gridView: GridView!
+    @IBOutlet internal weak var maskingView: MaskingView!
+    @IBOutlet internal weak var drawableView: DrawableView!
+        
+    // MARK: Internal Methods
     
     internal func setCustomFont(font: UIFont) {
         for view in horizontalAxis.arrangedSubviews {
@@ -63,67 +62,5 @@ internal class GraphView: CustomView {
     
     internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
-    }
-    
-    // MARK: ======== LINE CHART ============
-    
-    internal func initializeLineGraph(lineChart: LineGraph, gridType: GridType) {
-        commonGraphInit(lineChart: lineChart, gridType: gridType)
-    }
-    
-    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
-        drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
-    }
-    
-    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
-        drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
-    }
-    
-    internal func clearGraph() {
-        drawableView.clearDrawableView()
-        maskingView.clearMaskingView()
-    }
-    
-    // MARK Private Methods
-    
-    private func commonGraphInit(lineChart: LineGraph, gridType: GridType) {
-        gridView.initGrid(horizontalSegmentsCount: lineChart.xConfig.numberOfSegments, verticalSegmentsCount: lineChart.yConfig.numberOfSegments)
-        
-        drawableView.initDrawableView(horizontalAxisMinValue: lineChart.xConfig.minValue, horizontalAxisMaxValue: lineChart.xConfig.maxValue, verticalAxisMinValue: lineChart.yConfig.minValue, verticalAxisMaxValue: lineChart.yConfig.maxValue)
-        
-        maskingView.initMaskingView(horizontalAxisMinValue: lineChart.xConfig.minValue, horizontalAxisMaxValue: lineChart.xConfig.maxValue, verticalAxisMinValue: lineChart.yConfig.minValue, verticalAxisMaxValue: lineChart.yConfig.maxValue)
-        
-        gridView.addGrid(gridType)
-        
-        createAxis(config: lineChart.xConfig, type: .horizontal)
-        createAxis(config: lineChart.yConfig, type: .vertical)
-        
-        
-        // call ui cycle to allow logic access component frame after autolayouts adjustments
-        setNeedsLayout()
-        layoutIfNeeded()
-    }
-    
-    private func createAxis(config: LineGraphAxisConfig, type: AxisType) {
-        
-        let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
-        
-        let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
-        
-        for (index, value) in segmentedValues {
-            
-            let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
-    
-            if index == initialIndex {
-                axisView.bindFirstSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
-            }
-            else {
-                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
-            }
-            
-            if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {
-                stackview.addArrangedSubview(view)
-            }
-        }
     }
 }

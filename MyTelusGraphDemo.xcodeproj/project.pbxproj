@@ -13,6 +13,8 @@
 		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
 		443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E778121E4E7C8008CE962 /* MaskingView.swift */; };
 		443E778421E52BDF008CE962 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602321CD6A2800C7068A /* LineGraph.swift */; };
+		443E778C21E5450B008CE962 /* LineGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E778B21E5450B008CE962 /* LineGraphView.xib */; };
+		443E778E21E5454F008CE962 /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E778D21E5454F008CE962 /* LineGraphView.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
 		443E778121E4E7C8008CE962 /* MaskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingView.swift; sourceTree = "<group>"; };
+		443E778B21E5450B008CE962 /* LineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineGraphView.xib; sourceTree = "<group>"; };
+		443E778D21E5454F008CE962 /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44BB5FDD21CD4F3100C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				44BB601921CD505500C7068A /* HorizontalAxisView.swift */,
 				44BB602121CD513900C7068A /* VerticalAxisView.swift */,
 				443E778121E4E7C8008CE962 /* MaskingView.swift */,
+				443E778D21E5454F008CE962 /* LineGraphView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				44BB600D21CD4FE100C7068A /* HorizontalAxisView.xib */,
 				44BB600E21CD4FE100C7068A /* GraphView.xib */,
 				44BB600F21CD4FE100C7068A /* VerticalAxisView.xib */,
+				443E778B21E5450B008CE962 /* LineGraphView.xib */,
 			);
 			path = nibFiles;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 				44BB601221CD4FE100C7068A /* VerticalAxisView.xib in Resources */,
 				44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */,
 				44BB601021CD4FE100C7068A /* HorizontalAxisView.xib in Resources */,
+				443E778C21E5450B008CE962 /* LineGraphView.xib in Resources */,
 				44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */,
 				44BB601121CD4FE100C7068A /* GraphView.xib in Resources */,
 			);
@@ -456,6 +463,7 @@
 				44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */,
 				4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */,
 				44BB601E21CD505500C7068A /* GraphView.swift in Sources */,
+				443E778E21E5454F008CE962 /* LineGraphView.swift in Sources */,
 				44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */,
 				44BB602921CE002F00C7068A /* CustomView.swift in Sources */,
 				44BB601421CD501B00C7068A /* ViewExtensions.swift in Sources */,
