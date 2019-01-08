@@ -21,7 +21,8 @@ internal class CustomGraphsViewController: UIViewController {
             LineGraphData(x: 6.5, y: 4)
         ]
         
-        lineGraph.drawLineChart(data: dataPoints, color: .blue, lineWidth: 1, animated: true)
+        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 6.5, y: 4), color: .yellow, dataLimitType: .vertical)
+        lineGraph.drawLineChart(data: dataPoints, color: .red, lineWidth: 1, animateWithDuration: 1)
     }
     
     // MARK: Private Methods

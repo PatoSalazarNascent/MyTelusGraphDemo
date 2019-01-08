@@ -79,15 +79,13 @@ internal class DrawableView: UIView {
         }
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, dataLimitType: AxisType) {
-        createDataLimitView(dataLimit: dataLimit, dataLimitType: dataLimitType)
+    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
+        createDataLimitView(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
     // MARK: Private Methods
     
-    private func createDataLimitView(dataLimit: LineGraphData?, dataLimitType: AxisType?) {
-        
-        guard let limit = dataLimit, let type = dataLimitType else { return }
+    private func createDataLimitView(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -97,16 +95,16 @@ internal class DrawableView: UIView {
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
         
         let dataLimitView = UIView()
-        dataLimitView.backgroundColor = .magenta
+        dataLimitView.backgroundColor = color
         
         addSubview(dataLimitView)
         
-        if type == .vertical {
-            let xCoord = (limit.x - CGFloat(xMinValue)) * xDistance
+        if dataLimitType == .vertical {
+            let xCoord = (dataLimit.x - CGFloat(xMinValue)) * xDistance
             dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 1, height: bounds.height)
         }
         else {
-            let yCoord = (limit.y - CGFloat(yMinValue)) * yDistance
+            let yCoord = (dataLimit.y - CGFloat(yMinValue)) * yDistance
              dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 1)
         }
     }

@@ -38,8 +38,8 @@ internal class ChartView: CustomView {
         backgroundView.backgroundColor = customColor
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, dataLimitType: AxisType) {
-        drawableView.addDataLimit(dataLimit: dataLimit, dataLimitType: dataLimitType)
+    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
+        drawableView.addDataLimit(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
     // MARK: ======== LINE CHART ============
