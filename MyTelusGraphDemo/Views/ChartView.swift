@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 internal class ChartView: CustomView {
-        
+    
     // MARK: IBOUtlets
     
     @IBOutlet private weak var verticalAxis: UIStackView!
@@ -82,6 +82,8 @@ internal class ChartView: CustomView {
         createAxis(config: lineChart.xConfig, type: .horizontal)
         createAxis(config: lineChart.yConfig, type: .vertical)
         
+        
+        // call ui cycle to allow logic access component frame after autolayouts adjustments
         setNeedsLayout()
         layoutIfNeeded()
     }
