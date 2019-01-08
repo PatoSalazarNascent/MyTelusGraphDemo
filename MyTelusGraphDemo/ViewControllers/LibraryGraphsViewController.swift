@@ -10,6 +10,7 @@ internal class LibraryGraphsViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet private weak var lineChartView: LineChartView!
     
+    
     // MARK: Life Cycle
     
     internal override func viewDidLoad() {

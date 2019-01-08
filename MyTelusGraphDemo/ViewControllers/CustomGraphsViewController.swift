@@ -18,10 +18,11 @@ internal class CustomGraphsViewController: UIViewController {
         let dataPoints = [
             LineGraphData(x: 4, y: 0),
             LineGraphData(x: 6, y: 2),
-            LineGraphData(x: 6.5, y: 4)
+            LineGraphData(x: 6.5, y: 4),
+            LineGraphData(x: 7, y: 7),
+            LineGraphData(x: 8, y: 0)
         ]
         
-        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 6.5, y: 4), color: .yellow, dataLimitType: .vertical)
         lineGraph.drawLineChart(data: dataPoints, color: .red, lineWidth: 1, animateWithDuration: 1)
     }
     
@@ -35,5 +36,11 @@ internal class CustomGraphsViewController: UIViewController {
         
         let chart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
         lineGraph.initializeLineChart(lineChart: chart, gridType: .fullGrid)
+    }
+    
+    // MARK: IBAction
+
+    @IBAction func test(_ sender: Any) {
+        
     }
 }
