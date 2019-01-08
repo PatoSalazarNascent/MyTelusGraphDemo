@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class ChartView: CustomView {
+internal class GraphView: CustomView {
     
     // MARK: IBOUtlets
     
@@ -48,7 +48,7 @@ internal class ChartView: CustomView {
         gridView.setGridColor(color: color)
     }
     
-    internal func setChartBackgroundColor(color: UIColor?, alpha: CGFloat) {
+    internal func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
         let customColor = color ?? UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: alpha)
         backgroundView.backgroundColor = customColor
     }
@@ -57,29 +57,29 @@ internal class ChartView: CustomView {
         drawableView.addDataLimit(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
-    internal func addChartFill(data: [LineGraphData], color: UIColor) {
+    internal func addGraphFill(data: [LineGraphData], color: UIColor) {
         maskingView.addMaskingFill(data: data, color: color, animate: false, duration: 0)
     }
     
-    internal func addChartFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
+    internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
     }
     
     // MARK: ======== LINE CHART ============
     
-    internal func initializeLineChart(lineChart: LineGraph, gridType: GridType) {
+    internal func initializeLineGraph(lineChart: LineGraph, gridType: GridType) {
         commonGraphInit(lineChart: lineChart, gridType: gridType)
     }
     
-    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
-        drawableView.drawLineChart(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
+    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+        drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
     }
     
-    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
-        drawableView.drawLineChart(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
+    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+        drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
     }
     
-    internal func clearChart() {
+    internal func clearGraph() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
     }

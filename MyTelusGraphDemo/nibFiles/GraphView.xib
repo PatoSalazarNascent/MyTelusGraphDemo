@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChartView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="dMj-LM-sev" id="O2X-nH-rEN"/>
                 <outlet property="drawableView" destination="hRW-Cl-IaP" id="Gb9-ld-jCj"/>

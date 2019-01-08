@@ -6,7 +6,7 @@ internal class CustomGraphsViewController: UIViewController {
     // MARK: Properties
     
     // MARK: IBOutlets
-    @IBOutlet private weak var lineGraph: ChartView!
+    @IBOutlet private weak var lineGraph: GraphView!
     
     // MARK: Life Cycle
     
@@ -21,8 +21,8 @@ internal class CustomGraphsViewController: UIViewController {
             LineGraphData(x: 8, y: 6.5)
         ]
         
-        lineGraph.drawLineChart(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.addChartFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
+        lineGraph.drawLine(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
+        lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
     }
     
     // MARK: Private Methods
@@ -32,9 +32,10 @@ internal class CustomGraphsViewController: UIViewController {
         let horizontalAxisConfig = LineGraphAxisConfig(minValue: 4, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
         
         let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Days")
+    
         
-        let chart = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
-        lineGraph.initializeLineChart(lineChart: chart, gridType: .fullGrid)
+        let graph = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
+        lineGraph.initializeLineGraph(lineChart: graph, gridType: .fullGrid)
     }
     
     // MARK: IBAction

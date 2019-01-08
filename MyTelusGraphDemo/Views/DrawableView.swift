@@ -35,7 +35,7 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func drawLineChart(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
+    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -75,7 +75,7 @@ internal class DrawableView: UIView {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0
             animation.duration = duration
-            shapeLayer.add(animation, forKey: "lineChartAnimation")
+            shapeLayer.add(animation, forKey: "lineGraphAnimation")
         }
     }
     
