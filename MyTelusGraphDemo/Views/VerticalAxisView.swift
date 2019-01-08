@@ -7,8 +7,8 @@ internal class VerticalAxisView: CustomView, AxisView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet private weak var minValue: UILabel!
-    @IBOutlet private weak var value: UILabel!
+    @IBOutlet internal weak var minValue: UILabel!
+    @IBOutlet internal weak var value: UILabel!
     @IBOutlet private weak var valueTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var minValueBottomConstraint: NSLayoutConstraint!
     

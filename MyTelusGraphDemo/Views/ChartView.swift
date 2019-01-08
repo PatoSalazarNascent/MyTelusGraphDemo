@@ -5,6 +5,8 @@ internal class ChartView: CustomView {
         
     // MARK: Instance Properties
     
+    private var customFont: UIFont?
+    
     // MARK: IBOUtlets
     
     @IBOutlet private weak var verticalAxis: UIStackView!
@@ -28,6 +30,22 @@ internal class ChartView: CustomView {
     // MARK: Internal Methods
     
     // MARK: ======== COMMOM UI CONFIGURATION =========
+    
+    internal func setCustomFont(font: UIFont) {
+        for view in horizontalAxis.arrangedSubviews {
+            if let axisView = view as? AxisView {
+                axisView.minValue.font = customFont
+                axisView.value.font = customFont
+            }
+        }
+        
+        for view in verticalAxis.arrangedSubviews {
+            if let axisView = view as? AxisView {
+                axisView.minValue.font = customFont
+                axisView.value.font = customFont
+            }
+        }
+    }
     
     internal func setGridColor(color: UIColor?) {
         gridView.setGridColor(color: color)
@@ -58,7 +76,6 @@ internal class ChartView: CustomView {
     
     // MARK Private Methods
     
-    
     private func commonGraphInit(lineChart: LineGraph, gridType: GridType) {
         gridView.initGrid(horizontalSegmentsCount: lineChart.xConfig.numberOfSegments, verticalSegmentsCount: lineChart.yConfig.numberOfSegments)
         
@@ -82,7 +99,7 @@ internal class ChartView: CustomView {
         for (index, value) in segmentedValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
-            
+    
             if index == initialIndex {
                 axisView.bindFirstSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }

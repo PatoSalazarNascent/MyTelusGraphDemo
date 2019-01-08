@@ -7,9 +7,8 @@ internal class HorizontalAxisView: CustomView, AxisView {
     
     @IBOutlet weak var minValue: UILabel!
     @IBOutlet weak var value: UILabel!
-    @IBOutlet weak var minValueLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var valueTrailingConstraint: NSLayoutConstraint!
-    
+    @IBOutlet private weak var minValueLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var valueTrailingConstraint: NSLayoutConstraint!
     
     // MARK: Constructors
     
