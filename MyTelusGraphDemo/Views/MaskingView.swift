@@ -32,7 +32,7 @@ internal class MaskingView: UIView {
         self.verticalAxisMaxValue = verticalAxisMaxValue
     }
     
-    internal func addMaskingFill(data: [LineGraphData], color: UIColor) {
+    internal func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and fill can't be created")
         }
@@ -70,8 +70,15 @@ internal class MaskingView: UIView {
             shapeLayer.path = path.cgPath
             
             backgroundColor = color
-            
             layer.mask = shapeLayer
+
+            
+            // animate
+            let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+            opacityAnimation.fromValue = 0
+            opacityAnimation.toValue = 1
+            opacityAnimation.duration = duration
+            shapeLayer.add(opacityAnimation, forKey: "")
         }
     }
 }

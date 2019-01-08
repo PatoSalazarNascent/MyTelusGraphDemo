@@ -58,7 +58,11 @@ internal class ChartView: CustomView {
     }
     
     internal func addChartFill(data: [LineGraphData], color: UIColor) {
-        maskingView.addMaskingFill(data: data, color: color)
+        maskingView.addMaskingFill(data: data, color: color, animate: false, duration: 0)
+    }
+    
+    internal func addChartFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
+        maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
     }
     
     // MARK: ======== LINE CHART ============
