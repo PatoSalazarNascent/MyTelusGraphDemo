@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class CustomGraphsViewController: UIViewController {
+internal class CustomLineGraphViewController: UIViewController {
     
     // MARK: Properties
     
@@ -38,7 +38,7 @@ internal class CustomGraphsViewController: UIViewController {
         ]
         
         lineGraph.drawLine(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
+        lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 0.5)
     }
     
     // MARK: IBAction

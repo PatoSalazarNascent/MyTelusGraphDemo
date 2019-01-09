@@ -36,7 +36,6 @@ internal class DrawableView: UIView {
     internal func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
         self.verticalAxisMinValue = verticalAxis.minValue
         self.verticalAxisMaxValue = verticalAxis.maxValue
-        self.horizontalAxisMinValue = 0
         self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
     }
     
@@ -44,7 +43,7 @@ internal class DrawableView: UIView {
     
     internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
-        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
+        guard let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
         }
         
@@ -52,30 +51,46 @@ internal class DrawableView: UIView {
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
         
         for (index, dataPoint) in data.enumerated() {
-            
+
             let xCoord = (CGFloat(index + 1)) * xDistance
             let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
             
             let path = UIBezierPath(roundedRect: CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord), byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
-        
-            
+
+
             let shapeLayer = CAShapeLayer()
             shapeLayer.fillColor = color.cgColor
             shapeLayer.path = path.cgPath
-            
+
             layer.addSublayer(shapeLayer)
-            
+
+            // animate it
+
+            if animated {
+                let animation = CABasicAnimation(keyPath: "transform.translation.y")
+                animation.fromValue = frame.height - yCoord
+                animation.toValue = 0
+                animation.duration = duration
+                shapeLayer.add(animation, forKey: nil)
+            }
         }
-    
-        // animate it
         
-//        if animated {
-//            let animation = CABasicAnimation(keyPath: "strokeEnd")
-//            animation.fromValue = 0
-//            animation.duration = duration
-//            shapeLayer.add(animation, forKey: "lineGraphAnimation")
-//        }
-        
+            
+//            let startPath = UIBezierPath(rect: CGRect(x: 0, y: self.frame.size.height-30, width: self.frame.size.width, height: 30))
+//            let endPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+//
+//            let rectangleLayer = CAShapeLayer()
+//            rectangleLayer.path = startPath.cgPath
+//            rectangleLayer.fillColor = UIColor.cyan.cgColor
+//            layer.addSublayer(rectangleLayer)
+//
+//            let zoomAnimation = CABasicAnimation()
+//            zoomAnimation.keyPath = "path"
+//            zoomAnimation.duration = 2.0
+//            zoomAnimation.toValue = endPath.cgPath
+//            zoomAnimation.fillMode = .forwards
+//            zoomAnimation.isRemovedOnCompletion = false
+//            rectangleLayer.add(zoomAnimation, forKey: "zoom")
     }
     
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {

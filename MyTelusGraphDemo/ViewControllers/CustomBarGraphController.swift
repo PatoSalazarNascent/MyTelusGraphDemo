@@ -31,8 +31,6 @@ internal class CustomBarGraphController: UIViewController {
         let graph = BarGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
         simpleBarGraph.initializeBarGraph(graph: graph, gridType: .vertical)
         simpleBarGraph.setCustomFont(font: UIFont.systemFont(ofSize: 9))
-        
-        
     }
     
     private func addBarData() {
@@ -44,6 +42,6 @@ internal class CustomBarGraphController: UIViewController {
             BarGraphData(x: "RC", y: 8)
         ]
         
-        simpleBarGraph.drawBars(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.8), barWidth: 16)
+        simpleBarGraph.drawBars(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.8), barWidth: 20, withAnimationDuration: 0.5)
     }
 }

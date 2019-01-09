@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D9A16017EA0519E2C9F7466 /* Pods_MyTelusGraphDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */; };
 		4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineGraphData.swift */; };
-		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
+		443455F521DFBD8C00A91FBF /* CustomLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */; };
 		443455F721DFBECD00A91FBF /* CustomBarGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */; };
 		443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E778121E4E7C8008CE962 /* MaskingView.swift */; };
 		443E778421E52BDF008CE962 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602321CD6A2800C7068A /* LineGraph.swift */; };
@@ -62,7 +62,7 @@
 /* Begin PBXFileReference section */
 		1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTelusGraphDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4429438821D5EC6A00DB6804 /* LineGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphData.swift; sourceTree = "<group>"; };
-		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
+		443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineGraphViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarGraphController.swift; sourceTree = "<group>"; };
 		443E778121E4E7C8008CE962 /* MaskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingView.swift; sourceTree = "<group>"; };
 		443E778B21E5450B008CE962 /* LineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineGraphView.xib; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		443455F321DFBD7100A91FBF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */,
+				443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */,
 				443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */,
 			);
 			path = ViewControllers;
@@ -472,7 +472,7 @@
 				443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */,
 				44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */,
 				443E779C21E63478008CE962 /* BarGraphView.swift in Sources */,
-				443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */,
+				443455F521DFBD8C00A91FBF /* CustomLineGraphViewController.swift in Sources */,
 				44BB602721CD6ACA00C7068A /* NumericGraphAxisConfig.swift in Sources */,
 				443E779321E62D6D008CE962 /* BarGraph.swift in Sources */,
 				44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */,

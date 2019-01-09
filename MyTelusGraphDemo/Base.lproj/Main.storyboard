@@ -70,7 +70,7 @@
         <!--Line Graph-->
         <scene sceneID="Dhp-vR-FRq">
             <objects>
-                <viewController id="gfP-cr-MyV" customClass="CustomGraphsViewController" customModule="MyTelusGraphDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gfP-cr-MyV" customClass="CustomLineGraphViewController" customModule="MyTelusGraphDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bdi-pL-GRG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
