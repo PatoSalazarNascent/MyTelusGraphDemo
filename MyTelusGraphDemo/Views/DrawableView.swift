@@ -42,6 +42,42 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
+    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
+        
+        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
+            fatalError("x or y min or max value are missing and line can't be created")
+        }
+        
+        let xDistance = frame.width / CGFloat(xMaxValue + 1)
+        let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
+        
+        for (index, dataPoint) in data.enumerated() {
+            
+            let xCoord = (CGFloat(index + 1)) * xDistance
+            let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
+            
+            let path = UIBezierPath(roundedRect: CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord), byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
+        
+            
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.fillColor = color.cgColor
+            shapeLayer.path = path.cgPath
+            
+            layer.addSublayer(shapeLayer)
+            
+        }
+    
+        // animate it
+        
+//        if animated {
+//            let animation = CABasicAnimation(keyPath: "strokeEnd")
+//            animation.fromValue = 0
+//            animation.duration = duration
+//            shapeLayer.add(animation, forKey: "lineGraphAnimation")
+//        }
+        
+    }
+    
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {

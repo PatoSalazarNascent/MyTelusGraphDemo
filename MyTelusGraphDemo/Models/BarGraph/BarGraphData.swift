@@ -3,10 +3,10 @@ import UIKit
 
 internal class BarGraphData {
     
-    let x: CGFloat
-    let y: String
+    let x: String
+    let y: CGFloat
     
-    internal init(x: CGFloat, y: String) {
+    internal init(x: String, y: CGFloat) {
         self.x = x
         self.y = y
     }
