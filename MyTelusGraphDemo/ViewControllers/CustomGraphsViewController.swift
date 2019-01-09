@@ -7,14 +7,35 @@ internal class CustomGraphsViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet private weak var lineGraph: LineGraphView!
+    @IBOutlet private weak var barGraph: BarGraphView!
     
     // MARK: Life Cycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
+        // LINE GRAPH
         initializeLineGraph()
+        addLineGraphData()
         
+        // BAR GRAPH
+        
+        initializeBarGraph()
+    }
+    
+    // MARK: Private Methods
+    
+    private func initializeLineGraph() {
+        
+        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        
+        let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "Days")
+        
+        let graph = LineGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
+        lineGraph.initializeLineGraph(lineChart: graph, gridType: .fullGrid)
+    }
+    
+    private func addLineGraphData() {
         let dataPoints = [
             LineGraphData(x: 4, y: 0),
             LineGraphData(x: 6, y: 2),
@@ -25,17 +46,14 @@ internal class CustomGraphsViewController: UIViewController {
         lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
     }
     
-    // MARK: Private Methods
+    private func initializeBarGraph() {
+        
+        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        
+        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["", "Pepsi", "Coca Cola", "Fanta", "Sprite", ""], title: "Pop Brands")
     
-    private func initializeLineGraph() {
-        
-        let horizontalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "Days")
-        
-        let verticalAxisConfig = LineGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
-    
-        
-        let graph = LineGraph(xConfig: horizontalAxisConfig, yConfig: verticalAxisConfig)
-        lineGraph.initializeLineGraph(lineChart: graph, gridType: .fullGrid)
+        let graph = BarGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
+        barGraph.initializeBarGraph(graph: graph, gridType: .fullGrid)
     }
     
     // MARK: IBAction

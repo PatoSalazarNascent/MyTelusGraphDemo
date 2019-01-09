@@ -25,11 +25,18 @@ internal class MaskingView: UIView {
     
     // MARK: Internal Methods
     
-    internal func initMaskingView(horizontalAxisMinValue: Int, horizontalAxisMaxValue: Int, verticalAxisMinValue: Int, verticalAxisMaxValue: Int) {
-        self.horizontalAxisMinValue = horizontalAxisMinValue
-        self.horizontalAxisMaxValue = horizontalAxisMaxValue
-        self.verticalAxisMinValue = verticalAxisMinValue
-        self.verticalAxisMaxValue = verticalAxisMaxValue
+    internal func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
+        self.verticalAxisMinValue = verticalAxis.minValue
+        self.verticalAxisMaxValue = verticalAxis.maxValue
+        self.horizontalAxisMinValue = horizontalAxis.minValue
+        self.horizontalAxisMaxValue = horizontalAxis.maxValue
+    }
+    
+    internal func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
+        self.verticalAxisMinValue = verticalAxis.minValue
+        self.verticalAxisMaxValue = verticalAxis.maxValue
+        self.horizontalAxisMinValue = 0
+        self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
     }
     
     internal func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {

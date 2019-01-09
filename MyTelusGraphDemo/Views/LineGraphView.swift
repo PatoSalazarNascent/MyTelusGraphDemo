@@ -26,9 +26,9 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
     private func initLineGraph(lineGraph: LineGraph, gridType: GridType) {
         graphView.gridView.initGrid(horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, verticalSegmentsCount: lineGraph.yConfig.numberOfSegments)
         
-        graphView.drawableView.initDrawableView(horizontalAxisMinValue: lineGraph.xConfig.minValue, horizontalAxisMaxValue: lineGraph.xConfig.maxValue, verticalAxisMinValue: lineGraph.yConfig.minValue, verticalAxisMaxValue: lineGraph.yConfig.maxValue)
+        graphView.drawableView.initDrawableView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
         
-        graphView.maskingView.initMaskingView(horizontalAxisMinValue: lineGraph.xConfig.minValue, horizontalAxisMaxValue: lineGraph.xConfig.maxValue, verticalAxisMinValue: lineGraph.yConfig.minValue, verticalAxisMaxValue: lineGraph.yConfig.maxValue)
+        graphView.maskingView.initMaskingView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
         
         graphView.gridView.addGrid(gridType)
         
@@ -41,7 +41,7 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
         layoutIfNeeded()
     }
     
-    private func createAxis(config: LineGraphAxisConfig, type: AxisType) {
+    private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {
         
         let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
         
@@ -63,5 +63,4 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
             }
         }
     }
-    
 }

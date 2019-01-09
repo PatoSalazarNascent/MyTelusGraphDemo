@@ -24,13 +24,20 @@ internal class DrawableView: UIView {
         super.init(coder: aDecoder)
     }
     
-    // MARK: Internal Methods
+    // MARK: Internal custom Initializer Methods
     
-    internal func initDrawableView(horizontalAxisMinValue: Int, horizontalAxisMaxValue: Int, verticalAxisMinValue: Int, verticalAxisMaxValue: Int) {
-        self.horizontalAxisMinValue = horizontalAxisMinValue
-        self.horizontalAxisMaxValue = horizontalAxisMaxValue
-        self.verticalAxisMinValue = verticalAxisMinValue
-        self.verticalAxisMaxValue = verticalAxisMaxValue
+    internal func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
+        self.verticalAxisMinValue = verticalAxis.minValue
+        self.verticalAxisMaxValue = verticalAxis.maxValue
+        self.horizontalAxisMinValue = horizontalAxis.minValue
+        self.horizontalAxisMaxValue = horizontalAxis.maxValue
+    }
+    
+    internal func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
+        self.verticalAxisMinValue = verticalAxis.minValue
+        self.verticalAxisMaxValue = verticalAxis.maxValue
+        self.horizontalAxisMinValue = 0
+        self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
     }
     
     // MARK: Internal Methods
