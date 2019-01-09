@@ -7,7 +7,9 @@ internal class HorizontalAxisView: CustomView, AxisView {
     
     @IBOutlet weak var minValue: UILabel!
     @IBOutlet weak var value: UILabel!
+    
     @IBOutlet private weak var minValueLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var valueTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var valueTrailingConstraint: NSLayoutConstraint!
     
     // MARK: Constructors
@@ -24,7 +26,7 @@ internal class HorizontalAxisView: CustomView, AxisView {
     
     // MARK: Internal Methods
     
-    internal func bindFirstSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
+    internal func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
         
@@ -32,10 +34,19 @@ internal class HorizontalAxisView: CustomView, AxisView {
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
-    internal func bindSegmentValue(value: String, unitOfMeasure: String?) {
+    internal func bindNumericSegment(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
         
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
+    }
+    
+    internal func bindCategoryValue(value: String) {
+        self.value.text = value
+        self.minValue.isHidden = true
+        
+        valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
+        valueTopConstraint.constant = 10
+        self.value.transform = CGAffineTransform(rotationAngle: 49.9)
     }
 }

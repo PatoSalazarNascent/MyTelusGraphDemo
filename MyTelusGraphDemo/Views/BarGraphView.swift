@@ -47,10 +47,10 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
             if index == initialIndex {
-                axisView.bindFirstSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindInitialNumericSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             else {
-                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindNumericSegment(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {
@@ -63,21 +63,14 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
         
         let test = config.categoryValues + [""]
         
-        let categoryValues = (type == .horizontal ? test.enumerated() : test.reversed().enumerated())
-        
-         let initialIndex = type == .horizontal ? 0 : config.categoryValues.count - 1
-        
-        for (index, value) in categoryValues {
+        let categoryValues = (type == .horizontal ? test : test.reversed())
+                
+        for value in categoryValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
-            if index == initialIndex {
-                axisView.bindFirstSegment(minValue: "", segmentValue: "\(value)", unitOfMeasure: nil)
-            }
-            else {
-                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: nil)
-            }
-            
+            axisView.bindCategoryValue(value: value)
+
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {
                 stackview.addArrangedSubview(view)
             }

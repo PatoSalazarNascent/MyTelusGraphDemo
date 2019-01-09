@@ -15,6 +15,7 @@
                 <outlet property="minValue" destination="Alf-YS-gak" id="7Ng-MY-vLz"/>
                 <outlet property="minValueLeadingConstraint" destination="ClU-rV-bFJ" id="3vo-te-WmM"/>
                 <outlet property="value" destination="emy-0d-gdw" id="d8Z-mw-j0u"/>
+                <outlet property="valueTopConstraint" destination="4nJ-t9-Pkb" id="u5r-75-qKJ"/>
                 <outlet property="valueTrailingConstraint" destination="mHe-ay-y64" id="QyU-4Y-Bl0"/>
             </connections>
         </placeholder>

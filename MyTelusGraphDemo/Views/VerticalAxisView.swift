@@ -3,8 +3,6 @@ import UIKit
 
 internal class VerticalAxisView: CustomView, AxisView {
 
-    // MARK: Instance Properties
-    
     // MARK: IBOUtlets
     
     @IBOutlet internal weak var minValue: UILabel!
@@ -26,7 +24,7 @@ internal class VerticalAxisView: CustomView, AxisView {
     
     // MARK: Internal Methods
     
-    internal func bindFirstSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
+    internal func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
         
@@ -34,8 +32,15 @@ internal class VerticalAxisView: CustomView, AxisView {
         valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)
     }
     
-    internal func bindSegmentValue(value: String, unitOfMeasure: String?) {
+    internal func bindNumericSegment(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
+        self.minValue.isHidden = true
+        
+        valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)
+    }
+    
+    internal func bindCategoryValue(value: String) {
+        self.value.text = value
         self.minValue.isHidden = true
         
         valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)

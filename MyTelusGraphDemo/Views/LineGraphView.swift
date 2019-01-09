@@ -52,10 +52,10 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
             if index == initialIndex {
-                axisView.bindFirstSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindInitialNumericSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             else {
-                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindNumericSegment(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
             }
             
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {
