@@ -32,7 +32,7 @@ internal class CustomGraphsViewController: UIViewController {
         let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "Days")
         
         let graph = LineGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        lineGraph.initializeLineGraph(lineChart: graph, gridType: .fullGrid)
+        lineGraph.initializeLineGraph(lineChart: graph, gridType: .none)
     }
     
     private func addLineGraphData() {
@@ -50,10 +50,10 @@ internal class CustomGraphsViewController: UIViewController {
         
         let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
         
-        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["", "Pepsi", "Coca Cola", "Fanta", "Sprite", ""], title: "Pop Brands")
+        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["Pepsi", "Coca Cola", "Fanta", "Sprite", "RC", "Zuko"], title: "Pop Brands")
     
         let graph = BarGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        barGraph.initializeBarGraph(graph: graph, gridType: .fullGrid)
+        barGraph.initializeBarGraph(graph: graph, gridType: .vertical)
     }
     
     // MARK: IBAction

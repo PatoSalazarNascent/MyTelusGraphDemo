@@ -24,7 +24,7 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
     // MARK Private Methods
     
     private func initLineGraph(lineGraph: LineGraph, gridType: GridType) {
-        graphView.gridView.initGrid(horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, verticalSegmentsCount: lineGraph.yConfig.numberOfSegments)
+        graphView.gridView.initGrid(horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, verticalSegmentsCount: lineGraph.yConfig.numberOfSegments, graphType: .lineGraph)
         
         graphView.drawableView.initDrawableView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
         

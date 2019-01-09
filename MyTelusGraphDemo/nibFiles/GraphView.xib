@@ -36,19 +36,19 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-LM-sev">
-                    <rect key="frame" x="110" y="10" width="400" height="254"/>
+                    <rect key="frame" x="110" y="10" width="395" height="254"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-FA-x8k" userLabel="gridView" customClass="GridView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="400" height="254"/>
+                    <rect key="frame" x="110" y="10" width="395" height="254"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cg-ai-3kD" customClass="MaskingView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="400" height="254"/>
+                    <rect key="frame" x="110" y="10" width="395" height="254"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="400" height="254"/>
+                    <rect key="frame" x="110" y="10" width="395" height="254"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
@@ -65,7 +65,6 @@
                 <constraint firstItem="6Cg-ai-3kD" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="MJN-Al-u0x"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="top" id="Qcj-Gy-g92"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBA-Tf-yY0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" constant="10" id="b2f-ZZ-9tl"/>
                 <constraint firstItem="6Cg-ai-3kD" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="cW6-RZ-3vs"/>
                 <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dYd-WW-KUK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ICB-S3-mDG" secondAttribute="bottom" constant="30" id="eun-5p-IA0"/>
@@ -73,6 +72,7 @@
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="ieF-HK-Zyv"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="bottom" id="m95-OK-C7a"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="trailing" secondItem="dMj-LM-sev" secondAttribute="trailing" id="nyh-z9-n7n"/>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="trailing" secondItem="oQg-Pb-Jza" secondAttribute="trailing" id="oEg-1S-iWL"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="oSF-ft-dNo"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="xZQ-df-vXM"/>
                 <constraint firstItem="hRW-Cl-IaP" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="yiV-Ht-87W"/>

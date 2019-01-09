@@ -1,12 +1,6 @@
 import Foundation
 import UIKit
 
-internal enum GridType {
-    case horizontal
-    case vertical
-    case fullGrid
-}
-
 internal class GridView: UIView {
     
     // MARK: Properties
@@ -30,9 +24,16 @@ internal class GridView: UIView {
     // MARK: Internal Methods
     
     
-    internal func initGrid(horizontalSegmentsCount: Int, verticalSegmentsCount: Int) {
-        self.horizontalSegmentsCount = horizontalSegmentsCount
-        self.verticalSegmentsCount = verticalSegmentsCount
+    internal func initGrid(horizontalSegmentsCount: Int, verticalSegmentsCount: Int, graphType: GraphType) {
+        
+        switch graphType {
+        case .barGraph:
+            self.horizontalSegmentsCount = horizontalSegmentsCount + 1
+            self.verticalSegmentsCount = verticalSegmentsCount
+        case .lineGraph:
+            self.horizontalSegmentsCount = horizontalSegmentsCount
+            self.verticalSegmentsCount = verticalSegmentsCount
+        }
     }
     
     internal func addGrid(_ type: GridType) {
@@ -49,6 +50,7 @@ internal class GridView: UIView {
         case .fullGrid:
             createGrid(lineCount: verticalCount, type: .horizontal)
             createGrid(lineCount: horizontalCount, type: .vertical)
+        case .none: break
         }
     }
     

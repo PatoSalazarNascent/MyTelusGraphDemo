@@ -10,7 +10,7 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
     // MARK: Internal Methods
     
     internal func initializeBarGraph(graph: BarGraph, gridType: GridType) {
-        initBarGraph(graph: graph, gridType: gridType)
+        initBarGraph(graph: graph, gridType: gridType, graphType: .barGraph)
     }
     
     internal func drawBars() {
@@ -19,8 +19,8 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
     
     // MARK: Private Methods
     
-    private func initBarGraph(graph: BarGraph, gridType: GridType) {
-        graphView.gridView.initGrid(horizontalSegmentsCount: graph.xConfig.categoryValues.count, verticalSegmentsCount: graph.yConfig.numberOfSegments)
+    private func initBarGraph(graph: BarGraph, gridType: GridType, graphType: GraphType) {
+        graphView.gridView.initGrid(horizontalSegmentsCount: graph.xConfig.categoryValues.count, verticalSegmentsCount: graph.yConfig.numberOfSegments, graphType: graphType)
         
         graphView.drawableView.initDrawableView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
         
@@ -61,13 +61,22 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
     
     private func createCategoryAxis(config: CategoryGraphAxisConfig, type: AxisType) {
         
-        let categoryValues = type == .horizontal ? config.categoryValues : config.categoryValues.reversed()
+        let test = config.categoryValues + [""]
         
-        for value in categoryValues {
+        let categoryValues = (type == .horizontal ? test.enumerated() : test.reversed().enumerated())
+        
+         let initialIndex = type == .horizontal ? 0 : config.categoryValues.count - 1
+        
+        for (index, value) in categoryValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
-            axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: nil)
+            if index == initialIndex {
+                axisView.bindFirstSegment(minValue: "", segmentValue: "\(value)", unitOfMeasure: nil)
+            }
+            else {
+                axisView.bindSegmentValue(value: "\(value)", unitOfMeasure: nil)
+            }
             
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {
                 stackview.addArrangedSubview(view)
