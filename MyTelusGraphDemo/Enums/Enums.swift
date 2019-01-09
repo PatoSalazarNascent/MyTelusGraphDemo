@@ -14,3 +14,9 @@ internal enum GridType {
     case fullGrid
     case none
 }
+
+internal enum BarGraphAnimationType {
+    case sequence
+    case sameTime
+    case none
+}

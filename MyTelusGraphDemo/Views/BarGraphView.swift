@@ -14,11 +14,11 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
     }
     
     internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
-        graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: false, duration: 0)
+        graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: false, duration: 0, animationType: .none)
     }
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval) {
-            graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: true, duration: duration)
+    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+        graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: true, duration: duration, animationType: animationType)
     }
     
     // MARK: Private Methods

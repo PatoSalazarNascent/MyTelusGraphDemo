@@ -41,7 +41,7 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
+    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
         guard let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -49,6 +49,8 @@ internal class DrawableView: UIView {
         
         let xDistance = frame.width / CGFloat(xMaxValue + 1)
         let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
+        
+        var timeOffset: Double = animationType == .sequence ? 0.2 : 0
         
         for (index, dataPoint) in data.enumerated() {
 
@@ -60,6 +62,14 @@ internal class DrawableView: UIView {
 
             let shapeLayer = CAShapeLayer()
             shapeLayer.fillColor = color.cgColor
+            
+            if animationType == .sequence {
+                shapeLayer.opacity = 0
+            }
+            else {
+                shapeLayer.opacity = 1
+            }
+            
             shapeLayer.path = path.cgPath
 
             layer.addSublayer(shapeLayer)
@@ -67,30 +77,28 @@ internal class DrawableView: UIView {
             // animate it
 
             if animated {
-                let animation = CABasicAnimation(keyPath: "transform.translation.y")
-                animation.fromValue = frame.height - yCoord
-                animation.toValue = 0
-                animation.duration = duration
-                shapeLayer.add(animation, forKey: nil)
+                
+                let translateAnimation = CABasicAnimation(keyPath: "transform.translation.y")
+                translateAnimation.fromValue = frame.height - yCoord
+                translateAnimation.toValue = 0
+                translateAnimation.duration = duration
+                translateAnimation.beginTime = CACurrentMediaTime() + timeOffset
+                shapeLayer.add(translateAnimation, forKey: nil)
+                
+                let fadingAnimation = CABasicAnimation(keyPath: "opacity")
+                fadingAnimation.fromValue = 0
+                fadingAnimation.toValue = 1
+                fadingAnimation.duration = duration
+                fadingAnimation.beginTime = CACurrentMediaTime() + timeOffset
+                fadingAnimation.fillMode = .forwards
+                fadingAnimation.isRemovedOnCompletion = false
+                shapeLayer.add(fadingAnimation, forKey: nil)
+                
+                if animationType == .sequence {
+                    timeOffset += 0.05
+                }
             }
         }
-        
-            
-//            let startPath = UIBezierPath(rect: CGRect(x: 0, y: self.frame.size.height-30, width: self.frame.size.width, height: 30))
-//            let endPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-//
-//            let rectangleLayer = CAShapeLayer()
-//            rectangleLayer.path = startPath.cgPath
-//            rectangleLayer.fillColor = UIColor.cyan.cgColor
-//            layer.addSublayer(rectangleLayer)
-//
-//            let zoomAnimation = CABasicAnimation()
-//            zoomAnimation.keyPath = "path"
-//            zoomAnimation.duration = 2.0
-//            zoomAnimation.toValue = endPath.cgPath
-//            zoomAnimation.fillMode = .forwards
-//            zoomAnimation.isRemovedOnCompletion = false
-//            rectangleLayer.add(zoomAnimation, forKey: "zoom")
     }
     
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {

@@ -42,6 +42,6 @@ internal class CustomBarGraphController: UIViewController {
             BarGraphData(x: "RC", y: 8)
         ]
         
-        simpleBarGraph.drawBars(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.8), barWidth: 20, withAnimationDuration: 0.5)
+        simpleBarGraph.drawBars(data: dataPoints, color: UIColor.magenta.withAlphaComponent(0.8), barWidth: 20, withAnimationDuration: 0.5, animationType: .sequence)
     }
 }
