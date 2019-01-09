@@ -3,18 +3,6 @@ import UIKit
 
 internal class GraphView: CustomView {
     
-    // MARK: Constructors
-    internal override init() {
-        super.init()
-    }
-    
-    internal required init?(coder aDecoder: NSCoder) {
-        
-        // call super constructor
-        super.init(coder: aDecoder)
-    }
-    
-    
     // MARK: IBOUtlets
     
     @IBOutlet internal weak var verticalAxis: UIStackView!
@@ -62,5 +50,10 @@ internal class GraphView: CustomView {
     
     internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
+    }
+    
+    internal func clearGraph() {
+        drawableView.clearDrawableView()
+        maskingView.clearMaskingView()
     }
 }
