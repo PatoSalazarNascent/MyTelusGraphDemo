@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DFA186FEDD43A87CB92E0BF7E6AE287B"
+               BlueprintIdentifier = "13975AA267064DE5932CCD2BC751A315"
                BuildableName = "Pods_MyTelusGraphDemo.framework"
                BlueprintName = "Pods-MyTelusGraphDemo"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DFA186FEDD43A87CB92E0BF7E6AE287B"
+            BlueprintIdentifier = "13975AA267064DE5932CCD2BC751A315"
             BuildableName = "Pods_MyTelusGraphDemo.framework"
             BlueprintName = "Pods-MyTelusGraphDemo"
             ReferencedContainer = "container:Pods.xcodeproj">

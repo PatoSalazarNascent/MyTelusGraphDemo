@@ -10,7 +10,7 @@
 		2D9A16017EA0519E2C9F7466 /* Pods_MyTelusGraphDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */; };
 		4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429438821D5EC6A00DB6804 /* LineGraphData.swift */; };
 		443455F521DFBD8C00A91FBF /* CustomGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */; };
-		443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */; };
+		443455F721DFBECD00A91FBF /* CustomBarGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */; };
 		443E778221E4E7C8008CE962 /* MaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E778121E4E7C8008CE962 /* MaskingView.swift */; };
 		443E778421E52BDF008CE962 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602321CD6A2800C7068A /* LineGraph.swift */; };
 		443E778C21E5450B008CE962 /* LineGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E778B21E5450B008CE962 /* LineGraphView.xib */; };
@@ -63,7 +63,7 @@
 		1F3DC872192196CC16709355 /* Pods_MyTelusGraphDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTelusGraphDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4429438821D5EC6A00DB6804 /* LineGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphData.swift; sourceTree = "<group>"; };
 		443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraphsViewController.swift; sourceTree = "<group>"; };
-		443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGraphsViewController.swift; sourceTree = "<group>"; };
+		443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarGraphController.swift; sourceTree = "<group>"; };
 		443E778121E4E7C8008CE962 /* MaskingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskingView.swift; sourceTree = "<group>"; };
 		443E778B21E5450B008CE962 /* LineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineGraphView.xib; sourceTree = "<group>"; };
 		443E778D21E5454F008CE962 /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				443455F421DFBD8C00A91FBF /* CustomGraphsViewController.swift */,
-				443455F621DFBECD00A91FBF /* LibraryGraphsViewController.swift */,
+				443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -315,7 +315,6 @@
 				44BB5FD121CD4F3100C7068A /* Sources */,
 				44BB5FD221CD4F3100C7068A /* Frameworks */,
 				44BB5FD321CD4F3100C7068A /* Resources */,
-				BC42D2FBF27B71F1EBDB20F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,28 +459,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BC42D2FBF27B71F1EBDB20F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -510,7 +487,7 @@
 				44BB601C21CD505500C7068A /* GridView.swift in Sources */,
 				44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */,
 				44BB601F21CD505500C7068A /* HorizontalAxisView.swift in Sources */,
-				443455F721DFBECD00A91FBF /* LibraryGraphsViewController.swift in Sources */,
+				443455F721DFBECD00A91FBF /* CustomBarGraphController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

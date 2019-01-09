@@ -7,7 +7,6 @@ internal class CustomGraphsViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet private weak var lineGraph: LineGraphView!
-    @IBOutlet private weak var barGraph: BarGraphView!
     
     // MARK: Life Cycle
     
@@ -17,11 +16,6 @@ internal class CustomGraphsViewController: UIViewController {
         // LINE GRAPH
         initializeLineGraph()
         addLineGraphData()
-        
-        // BAR GRAPH
-        
-        initializeBarGraph()
-        addBarData()
     }
     
     // MARK: Private Methods
@@ -45,31 +39,6 @@ internal class CustomGraphsViewController: UIViewController {
         
         lineGraph.drawLine(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
         lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 2)
-    }
-    
-    private func initializeBarGraph() {
-        
-        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
-        
-        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["Pepsi", "Coca Cola", "Fanta", "Sprite", "RC", "Zuko", "Kapo", "Inca"], title: "Pop Brands")
-    
-        let graph = BarGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        barGraph.initializeBarGraph(graph: graph, gridType: .vertical)
-        barGraph.setCustomFont(font: UIFont.systemFont(ofSize: 9))
-        
-        
-    }
-    
-    private func addBarData() {
-        let dataPoints = [
-            BarGraphData(x: "Pepsi", y: 2),
-            BarGraphData(x: "Coca Cola", y: 6),
-            BarGraphData(x: "Fanta", y: 5),
-            BarGraphData(x: "Sprite", y: 4),
-            BarGraphData(x: "RC", y: 8)
-        ]
-        
-        barGraph.drawBars(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.6), barWidth: 15)
     }
     
     // MARK: IBAction
