@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class GraphView: CustomView {
+internal class GraphView: BaseView {
     
     // MARK: IBOUtlets
     

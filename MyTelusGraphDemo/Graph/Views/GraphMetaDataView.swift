@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class GraphMetaDataView: CustomView {
+internal class GraphMetaDataView: BaseView {
     
     // MARK: Properties
     

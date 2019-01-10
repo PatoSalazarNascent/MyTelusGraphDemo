@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class BarGraphView: CustomView, GraphViewProtocol {
+internal class BarGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Properties
     

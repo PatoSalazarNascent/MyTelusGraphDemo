@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class LineGraphView: CustomView, GraphViewProtocol {
+internal class LineGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Properties
     

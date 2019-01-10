@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class CustomView: UIView {
+internal class BaseView: UIView {
     // MARK: private variables
     
     private let defaultFrame = CGRect(x: 0, y: 0, width: 375, height: 128)

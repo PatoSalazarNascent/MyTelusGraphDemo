@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class VerticalAxisView: CustomView, AxisView {
+internal class VerticalAxisView: BaseView, AxisView {
 
     // MARK: IBOUtlets
     
@@ -9,18 +9,6 @@ internal class VerticalAxisView: CustomView, AxisView {
     @IBOutlet internal weak var value: UILabel!
     @IBOutlet private weak var valueTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var minValueBottomConstraint: NSLayoutConstraint!
-    
-    // MARK: Constructors
-    
-    internal override init() {
-        super.init()
-    }
-    
-    internal required init?(coder aDecoder: NSCoder) {
-        
-        // call super constructor
-        super.init(coder: aDecoder)
-    }
     
     // MARK: Internal Methods
     

@@ -41,7 +41,7 @@
 		44BB601F21CD505500C7068A /* HorizontalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB601921CD505500C7068A /* HorizontalAxisView.swift */; };
 		44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602121CD513900C7068A /* VerticalAxisView.swift */; };
 		44BB602721CD6ACA00C7068A /* NumericGraphAxisConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602621CD6ACA00C7068A /* NumericGraphAxisConfig.swift */; };
-		44BB602921CE002F00C7068A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602821CE002F00C7068A /* CustomView.swift */; };
+		44BB602921CE002F00C7068A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602821CE002F00C7068A /* BaseView.swift */; };
 		44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06821D4A0C50001C7CE /* AxisView.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +102,7 @@
 		44BB602121CD513900C7068A /* VerticalAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAxisView.swift; sourceTree = "<group>"; };
 		44BB602321CD6A2800C7068A /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		44BB602621CD6ACA00C7068A /* NumericGraphAxisConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericGraphAxisConfig.swift; sourceTree = "<group>"; };
-		44BB602821CE002F00C7068A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		44BB602821CE002F00C7068A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		44DEC06821D4A0C50001C7CE /* AxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
 		44DEC06B21D4A2230001C7CE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		8A26EBA0893C02570F330A44 /* Pods-MyTelusGraphDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTelusGraphDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyTelusGraphDemo/Pods-MyTelusGraphDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		443E77A321E77C19008CE962 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				44BB602821CE002F00C7068A /* CustomView.swift */,
+				44BB602821CE002F00C7068A /* BaseView.swift */,
 				443E77A421E77C3C008CE962 /* StringHelper.swift */,
 			);
 			path = Helpers;
@@ -510,7 +510,7 @@
 				4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */,
 				44BB601E21CD505500C7068A /* GraphView.swift in Sources */,
 				443E778E21E5454F008CE962 /* LineGraphView.swift in Sources */,
-				44BB602921CE002F00C7068A /* CustomView.swift in Sources */,
+				44BB602921CE002F00C7068A /* BaseView.swift in Sources */,
 				44BB601421CD501B00C7068A /* ViewExtensions.swift in Sources */,
 				44BB601C21CD505500C7068A /* GridView.swift in Sources */,
 				44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */,
