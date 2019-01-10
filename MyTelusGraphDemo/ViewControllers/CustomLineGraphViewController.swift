@@ -36,18 +36,18 @@ internal class CustomLineGraphViewController: UIViewController {
             LineGraphData(x: 6, y: 2),
             LineGraphData(x: 8, y: 6.5),
             LineGraphData(x: 20, y: 8),
-            LineGraphData(x: 20, y: 8)
+            LineGraphData(x: 30, y: 8)
         ]
         
         let dataPoints2 = [
-
             LineGraphData(x: 4, y: 0),
-            LineGraphData(x: 20, y: 8)
+            LineGraphData(x: 20, y: 8),
+            LineGraphData(x: 30, y: 8)
         ]
         
-        lineGraph.drawLine(data: dataPoints, color: .red, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.drawLine(data: dataPoints2, color: .cyan, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 20, y: 8), color: .blue, dataLimitType: .vertical)
+        lineGraph.drawLine(title: "First Data", data: dataPoints, color: .red, lineWidth: 2)
+        lineGraph.drawLine(title: "Second Data", data: dataPoints2, color: .cyan, lineWidth: 2, animateWithDuration: 1)
+        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 30, y: 8), color: .blue, dataLimitType: .vertical)
         lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 0.5)
     }
     

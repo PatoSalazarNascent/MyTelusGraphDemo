@@ -3,6 +3,7 @@ import UIKit
 
 internal class LineGraphView: CustomView, GraphViewProtocol {
     
+    
     // MARK IBOulet
     
     @IBOutlet weak internal var graphView: GraphView!
@@ -13,12 +14,18 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
         initLineGraph(lineGraph: lineChart, gridType: gridType)
     }
     
-    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+    internal func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+        
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
+        
+        graphView.addMetaData(iconColor: color, text: title)
     }
     
-    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+    internal func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+        
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
+        
+        graphView.addMetaData(iconColor: color, text: title)
     }
     
     // MARK Private Methods

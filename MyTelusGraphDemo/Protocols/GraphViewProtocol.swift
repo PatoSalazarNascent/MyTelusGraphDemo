@@ -11,6 +11,8 @@ internal protocol GraphViewProtocol {
     func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType)
     func addGraphFill(data: [LineGraphData], color: UIColor)
     func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval)
+    func addMetaData(iconColor: UIColor, text: String)
+    func addMetaData(iconImage: String, text: String)
     func clearGraph()
 }
 
@@ -38,6 +40,22 @@ internal extension GraphViewProtocol {
     
     internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         graphView.addGraphFill(data: data, color: color, animateWithDuration: duration)
+    }
+    
+    internal func addMetaData(iconColor: UIColor, text: String) {
+        
+        let metaView = GraphMetaDataView()
+        metaView.bindMetaData(iconColor: iconColor, text: text)
+        
+        graphView.metadataStackview.addArrangedSubview(metaView)
+    }
+    
+    internal func addMetaData(iconImage: String, text: String) {
+        
+        let metaView = GraphMetaDataView()
+        metaView.bindMetaData(iconImage: iconImage, text: text)
+        
+        graphView.metadataStackview.addArrangedSubview(metaView)
     }
     
     internal func clearGraph() {

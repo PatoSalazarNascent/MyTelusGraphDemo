@@ -21,6 +21,8 @@
 		443E779721E62DFD008CE962 /* BarGraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E779621E62DFD008CE962 /* BarGraphData.swift */; };
 		443E779A21E63364008CE962 /* BarGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E779921E63364008CE962 /* BarGraphView.xib */; };
 		443E779C21E63478008CE962 /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E779B21E63478008CE962 /* BarGraphView.swift */; };
+		443E77A021E6E7D3008CE962 /* GraphMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E779F21E6E7D3008CE962 /* GraphMetaDataView.swift */; };
+		443E77A221E6E89A008CE962 /* GraphMetaDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E77A121E6E89A008CE962 /* GraphMetaDataView.xib */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		443E779621E62DFD008CE962 /* BarGraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraphData.swift; sourceTree = "<group>"; };
 		443E779921E63364008CE962 /* BarGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarGraphView.xib; sourceTree = "<group>"; };
 		443E779B21E63478008CE962 /* BarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraphView.swift; sourceTree = "<group>"; };
+		443E779F21E6E7D3008CE962 /* GraphMetaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetaDataView.swift; sourceTree = "<group>"; };
+		443E77A121E6E89A008CE962 /* GraphMetaDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphMetaDataView.xib; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44BB5FDD21CD4F3100C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				443E778121E4E7C8008CE962 /* MaskingView.swift */,
 				443E778D21E5454F008CE962 /* LineGraphView.swift */,
 				443E779B21E63478008CE962 /* BarGraphView.swift */,
+				443E779F21E6E7D3008CE962 /* GraphMetaDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				44BB600F21CD4FE100C7068A /* VerticalAxisView.xib */,
 				443E778B21E5450B008CE962 /* LineGraphView.xib */,
 				443E779921E63364008CE962 /* BarGraphView.xib */,
+				443E77A121E6E89A008CE962 /* GraphMetaDataView.xib */,
 			);
 			path = nibFiles;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				44BB5FE321CD4F3200C7068A /* LaunchScreen.storyboard in Resources */,
 				44BB601221CD4FE100C7068A /* VerticalAxisView.xib in Resources */,
 				44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */,
+				443E77A221E6E89A008CE962 /* GraphMetaDataView.xib in Resources */,
 				443E779A21E63364008CE962 /* BarGraphView.xib in Resources */,
 				44BB601021CD4FE100C7068A /* HorizontalAxisView.xib in Resources */,
 				443E778C21E5450B008CE962 /* LineGraphView.xib in Resources */,
@@ -478,6 +485,7 @@
 				44BB602221CD513900C7068A /* VerticalAxisView.swift in Sources */,
 				443E779021E5BB32008CE962 /* GraphViewProtocol.swift in Sources */,
 				443E779521E62DB1008CE962 /* CategoryGraphAxisConfig.swift in Sources */,
+				443E77A021E6E7D3008CE962 /* GraphMetaDataView.swift in Sources */,
 				4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */,
 				44BB601E21CD505500C7068A /* GraphView.swift in Sources */,
 				443E778E21E5454F008CE962 /* LineGraphView.swift in Sources */,

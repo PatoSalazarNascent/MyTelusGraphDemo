@@ -5,6 +5,7 @@ internal class GraphView: CustomView {
     
     // MARK: IBOUtlets
     
+    @IBOutlet internal weak var metadataStackview: UIStackView!
     @IBOutlet internal weak var verticalAxis: UIStackView!
     @IBOutlet internal weak var horizontalAxis: UIStackView!
     
@@ -50,6 +51,22 @@ internal class GraphView: CustomView {
     
     internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
+    }
+    
+    internal func addMetaData(iconColor: UIColor, text: String) {
+        
+        let metaView = GraphMetaDataView()
+        metaView.bindMetaData(iconColor: iconColor, text: text)
+        
+        metadataStackview.addArrangedSubview(metaView)
+    }
+    
+    internal func addMetaData(iconImage: String, text: String) {
+        
+        let metaView = GraphMetaDataView()
+        metaView.bindMetaData(iconImage: iconImage, text: text)
+        
+        metadataStackview.addArrangedSubview(metaView)
     }
     
     internal func clearGraph() {
