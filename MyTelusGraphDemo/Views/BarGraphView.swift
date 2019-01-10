@@ -11,14 +11,26 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
     
     internal func initializeBarGraph(graph: BarGraph, gridType: GridType) {
         initBarGraph(graph: graph, gridType: gridType, graphType: .barGraph)
+        
+        if let xAxisTitle = graph.xConfig.title {
+            graphView.addMetaData(iconImage: "graph", text: xAxisTitle)
+        }
+        
+        if let yAxisTitle = graph.yConfig.title {
+            graphView.addMetaData(iconImage: "graph", text: yAxisTitle)
+        }
     }
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
+    internal func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: false, duration: 0, animationType: .none)
+        
+        graphView.addMetaData(iconColor: color, text: title)
     }
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+    internal func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+        
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: true, duration: duration, animationType: animationType)
+        graphView.addMetaData(iconColor: color, text: title)
     }
     
     // MARK: Private Methods

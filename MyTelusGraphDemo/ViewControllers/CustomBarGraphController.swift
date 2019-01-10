@@ -24,9 +24,9 @@ internal class CustomBarGraphController: UIViewController {
     
     private func initializeBarGraph() {
         
-        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Y Axis: Bill cycle days")
         
-        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["Pepsi", "Coca Cola", "Fanta", "Sprite", "RC", "Zuko", "Kapo", "Inca"], title: "Pop Brands")
+        let horizontalAxisConfig = CategoryGraphAxisConfig(categoryValues: ["Pepsi", "Coca Cola", "Fanta", "Sprite", "RC", "Zuko", "Kapo", "Inca"], title: "X Axis: Pop Brands")
         
         let graph = BarGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
         simpleBarGraph.initializeBarGraph(graph: graph, gridType: .vertical)
@@ -42,6 +42,6 @@ internal class CustomBarGraphController: UIViewController {
             BarGraphData(x: "RC", y: 8)
         ]
         
-        simpleBarGraph.drawBars(data: dataPoints, color: UIColor.magenta.withAlphaComponent(0.8), barWidth: 20, withAnimationDuration: 0.5, animationType: .sequence)
+        simpleBarGraph.drawBars(title: "Bottle by Pop Brand", data: dataPoints, color: UIColor.magenta.withAlphaComponent(0.8), barWidth: 20, withAnimationDuration: 0.5, animationType: .sequence)
     }
 }

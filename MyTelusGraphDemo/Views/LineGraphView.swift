@@ -10,8 +10,16 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
     
     // MARK: Internal Methods
     
-    internal func initializeLineGraph(lineChart: LineGraph, gridType: GridType) {
-        initLineGraph(lineGraph: lineChart, gridType: gridType)
+    internal func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
+        initLineGraph(lineGraph: lineGraph, gridType: gridType)
+        
+        if let xAxisTitle = lineGraph.xConfig.title {
+            graphView.addMetaData(iconImage: "graph", text: xAxisTitle)
+        }
+        
+        if let yAxisTitle = lineGraph.yConfig.title {
+            graphView.addMetaData(iconImage: "graph", text: yAxisTitle)
+        }
     }
     
     internal func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {

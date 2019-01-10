@@ -22,12 +22,12 @@ internal class CustomLineGraphViewController: UIViewController {
     
     private func initializeLineGraph() {
         
-        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Data")
+        let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Y Axis: Your usage")
         
-        let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "Days")
+        let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "X Axis: Bill cycle days")
         
         let graph = LineGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        lineGraph.initializeLineGraph(lineChart: graph, gridType: .fullGrid)
+        lineGraph.initializeLineGraph(lineGraph: graph, gridType: .fullGrid)
     }
     
     private func addLineGraphData() {
