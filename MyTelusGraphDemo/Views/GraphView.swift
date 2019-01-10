@@ -72,5 +72,16 @@ internal class GraphView: CustomView {
     internal func clearGraph() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
+        clearMetaData()
+    }
+    
+    
+    // MARK: Private Methods
+    
+    private func clearMetaData() {
+        for arrangedViews in metadataStackview.arrangedSubviews {
+            metadataStackview.removeArrangedSubview(arrangedViews)
+            arrangedViews.removeFromSuperview()
+        }
     }
 }
