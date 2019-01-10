@@ -3,12 +3,26 @@ import UIKit
 
 internal class LineGraphView: CustomView, GraphViewProtocol {
     
+    // MARK: Properties
+    
+    private var verticalAxisFormatter: ((Double) -> String?)?
+    private var horizontalAxisFormatter: ((Double) -> String?)?
     
     // MARK IBOulet
     
     @IBOutlet weak internal var graphView: GraphView!
     
     // MARK: Internal Methods
+    
+    internal func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
+        
+        if axis == .vertical {
+            verticalAxisFormatter = formatter
+        }
+        else {
+            horizontalAxisFormatter = formatter
+        }
+    }
     
     internal func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
         initLineGraph(lineGraph: lineGraph, gridType: gridType)
@@ -61,16 +75,22 @@ internal class LineGraphView: CustomView, GraphViewProtocol {
         let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
         
         let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
+        let formatter = type == .horizontal ? horizontalAxisFormatter : verticalAxisFormatter
         
         for (index, value) in segmentedValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
             
+            let formattedValue = formatter?(value) ?? "\(value)"
+            
             if index == initialIndex {
-                axisView.bindInitialNumericSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                
+                let formattedMinValue = formatter?(Double(config.minValue)) ?? "\(Double(config.minValue))"
+                
+                axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             else {
-                axisView.bindNumericSegment(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {

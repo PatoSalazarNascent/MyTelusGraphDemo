@@ -3,6 +3,11 @@ import UIKit
 
 internal class BarGraphView: CustomView, GraphViewProtocol {
     
+    // MARK: Properties
+    
+    private var verticalAxisFormatter: ((Double) -> String?)?
+    private var horizontalAxisFormatter: ((Double) -> String?)?
+    
     // MARK: IBOutlets
     
     @IBOutlet weak internal var graphView: GraphView!
@@ -61,12 +66,16 @@ internal class BarGraphView: CustomView, GraphViewProtocol {
         for (index, value) in segmentedValues {
             
             let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
+            let formattedValue = verticalAxisFormatter?(value) ?? "\(value)"
             
             if index == initialIndex {
-                axisView.bindInitialNumericSegment(minValue: "\(config.minValue)", segmentValue: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                
+                let formattedMinValue = verticalAxisFormatter?(Double(config.minValue)) ?? "\(Double(config.minValue))"
+                
+                axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             else {
-                axisView.bindNumericSegment(value: "\(value)", unitOfMeasure: config.unitOfMeasure)
+                axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             
             if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {

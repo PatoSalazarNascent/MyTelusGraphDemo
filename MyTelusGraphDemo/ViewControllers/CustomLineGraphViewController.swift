@@ -22,6 +22,9 @@ internal class CustomLineGraphViewController: UIViewController {
     
     private func initializeLineGraph() {
         
+//        lineGraph.addFormatter(StringHelper.formatStringWithNoDecimal, for: .vertical)
+//        lineGraph.addFormatter(StringHelper.formatStringWithNoDecimal, for: .horizontal)
+        
         let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Y Axis: Your usage")
         
         let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "X Axis: Bill cycle days")
