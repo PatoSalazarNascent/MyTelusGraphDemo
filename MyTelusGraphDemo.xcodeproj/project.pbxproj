@@ -24,6 +24,7 @@
 		443E77A021E6E7D3008CE962 /* GraphMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E779F21E6E7D3008CE962 /* GraphMetaDataView.swift */; };
 		443E77A221E6E89A008CE962 /* GraphMetaDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E77A121E6E89A008CE962 /* GraphMetaDataView.xib */; };
 		443E77A521E77C3C008CE962 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E77A421E77C3C008CE962 /* StringHelper.swift */; };
+		443E77A721E79EB1008CE962 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06B21D4A2230001C7CE /* Enums.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
@@ -42,7 +43,6 @@
 		44BB602721CD6ACA00C7068A /* NumericGraphAxisConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602621CD6ACA00C7068A /* NumericGraphAxisConfig.swift */; };
 		44BB602921CE002F00C7068A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602821CE002F00C7068A /* CustomView.swift */; };
 		44DEC06921D4A0C50001C7CE /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06821D4A0C50001C7CE /* AxisView.swift */; };
-		44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC06B21D4A2230001C7CE /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,9 +183,22 @@
 		443E77A321E77C19008CE962 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				44BB602821CE002F00C7068A /* CustomView.swift */,
 				443E77A421E77C3C008CE962 /* StringHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		443E77A621E79E4B008CE962 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC06A21D4A2110001C7CE /* Enums */,
+				44DEC06721D4A0A60001C7CE /* Protocols */,
+				44BB602521CD6A2E00C7068A /* Models */,
+				44BB600C21CD4FE100C7068A /* nibFiles */,
+				44BB600621CD4F5200C7068A /* Views */,
+			);
+			path = Graph;
 			sourceTree = "<group>";
 		};
 		44BB5FCC21CD4F3100C7068A = {
@@ -213,14 +226,10 @@
 		44BB5FD721CD4F3100C7068A /* MyTelusGraphDemo */ = {
 			isa = PBXGroup;
 			children = (
+				443E77A621E79E4B008CE962 /* Graph */,
 				443E77A321E77C19008CE962 /* Helpers */,
-				443455F321DFBD7100A91FBF /* ViewControllers */,
-				44DEC06A21D4A2110001C7CE /* Enums */,
-				44DEC06721D4A0A60001C7CE /* Protocols */,
-				44BB602521CD6A2E00C7068A /* Models */,
-				44BB600C21CD4FE100C7068A /* nibFiles */,
 				44BB600921CD4F7000C7068A /* Extensions */,
-				44BB600621CD4F5200C7068A /* Views */,
+				443455F321DFBD7100A91FBF /* ViewControllers */,
 				44BB5FD821CD4F3100C7068A /* AppDelegate.swift */,
 				44BB5FDC21CD4F3100C7068A /* Main.storyboard */,
 				44BB5FDF21CD4F3200C7068A /* Assets.xcassets */,
@@ -251,7 +260,6 @@
 		44BB600621CD4F5200C7068A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				44BB602821CE002F00C7068A /* CustomView.swift */,
 				44BB601721CD505400C7068A /* DrawableView.swift */,
 				44BB601621CD505400C7068A /* GridView.swift */,
 				44BB601821CD505500C7068A /* GraphView.swift */,
@@ -484,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443E77A721E79EB1008CE962 /* Enums.swift in Sources */,
 				443E778421E52BDF008CE962 /* LineGraph.swift in Sources */,
 				44BB601D21CD505500C7068A /* DrawableView.swift in Sources */,
 				443E779721E62DFD008CE962 /* BarGraphData.swift in Sources */,
@@ -501,7 +510,6 @@
 				4429438921D5EC6A00DB6804 /* LineGraphData.swift in Sources */,
 				44BB601E21CD505500C7068A /* GraphView.swift in Sources */,
 				443E778E21E5454F008CE962 /* LineGraphView.swift in Sources */,
-				44DEC06C21D4A2230001C7CE /* Enums.swift in Sources */,
 				44BB602921CE002F00C7068A /* CustomView.swift in Sources */,
 				44BB601421CD501B00C7068A /* ViewExtensions.swift in Sources */,
 				44BB601C21CD505500C7068A /* GridView.swift in Sources */,
