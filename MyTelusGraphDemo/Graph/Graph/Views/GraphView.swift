@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class GraphView: BaseView {
+public class GraphView: BaseView {
     
     // MARK: IBOUtlets
     
@@ -16,7 +16,7 @@ internal class GraphView: BaseView {
         
     // MARK: Internal Methods
     
-    internal func setCustomFont(font: UIFont) {
+    public func setCustomFont(font: UIFont) {
         for view in horizontalAxis.arrangedSubviews {
             if let axisView = view as? AxisView {
                 axisView.minValue.font = font
@@ -31,29 +31,29 @@ internal class GraphView: BaseView {
             }
         }
     }
-    
-    internal func setGridColor(color: UIColor?) {
+        
+    public func setGridColor(color: UIColor?) {
         gridView.setGridColor(color: color)
     }
     
-    internal func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
+    public func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
         let customColor = color ?? UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: alpha)
         backgroundView.backgroundColor = customColor
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
+    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
         drawableView.addDataLimit(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
-    internal func addGraphFill(data: [LineGraphData], color: UIColor) {
+    public func addGraphFill(data: [LineGraphData], color: UIColor) {
         maskingView.addMaskingFill(data: data, color: color, animate: false, duration: 0)
     }
     
-    internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
+    public func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
     }
     
-    internal func addMetaData(iconColor: UIColor, text: String) {
+    public func addMetaData(iconColor: UIColor, text: String) {
         
         let metaView = GraphMetaDataView()
         metaView.bindMetaData(iconColor: iconColor, text: text)
@@ -61,7 +61,7 @@ internal class GraphView: BaseView {
         metadataStackview.addArrangedSubview(metaView)
     }
     
-    internal func addMetaData(iconImage: String, text: String) {
+    public func addMetaData(iconImage: String, text: String) {
         
         let metaView = GraphMetaDataView()
         metaView.bindMetaData(iconImage: iconImage, text: text)
@@ -69,18 +69,36 @@ internal class GraphView: BaseView {
         metadataStackview.addArrangedSubview(metaView)
     }
     
-    internal func clearGraph() {
+    public func clearGraphData() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
         clearMetaData()
     }
     
+    public func resetGraph() {
+        drawableView.clearDrawableView()
+        maskingView.clearMaskingView()
+        clearMetaData()
+        resetAxisValues()
+    }
     
     // MARK: Private Methods
     
     private func clearMetaData() {
         for arrangedViews in metadataStackview.arrangedSubviews {
             metadataStackview.removeArrangedSubview(arrangedViews)
+            arrangedViews.removeFromSuperview()
+        }
+    }
+    
+    private func resetAxisValues() {
+        for arrangedViews in horizontalAxis.arrangedSubviews {
+            horizontalAxis.removeArrangedSubview(arrangedViews)
+            arrangedViews.removeFromSuperview()
+        }
+        
+        for arrangedViews in verticalAxis.arrangedSubviews {
+            horizontalAxis.removeArrangedSubview(arrangedViews)
             arrangedViews.removeFromSuperview()
         }
     }

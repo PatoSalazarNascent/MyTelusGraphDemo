@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GraphView" customModule="Toolkit" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="dMj-LM-sev" id="O2X-nH-rEN"/>
                 <outlet property="drawableView" destination="hRW-Cl-IaP" id="Gb9-ld-jCj"/>
@@ -37,28 +37,29 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-LM-sev">
-                    <rect key="frame" x="110" y="10" width="395" height="365"/>
+                    <rect key="frame" x="110" y="15" width="395" height="360"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-FA-x8k" userLabel="gridView" customClass="GridView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="395" height="365"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-FA-x8k" userLabel="gridView" customClass="GridView" customModule="Toolkit" customModuleProvider="target">
+                    <rect key="frame" x="110" y="15" width="395" height="360"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cg-ai-3kD" customClass="MaskingView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="395" height="365"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="MyTelusGraphDemo" customModuleProvider="target">
-                    <rect key="frame" x="110" y="10" width="395" height="365"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cg-ai-3kD" customClass="MaskingView" customModule="Toolkit" customModuleProvider="target">
+                    <rect key="frame" x="110" y="15" width="395" height="360"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" placeholderIntrinsicWidth="395" placeholderIntrinsicHeight="28" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DAH-mv-hw9">
                     <rect key="frame" x="0.0" y="405" width="505" height="28"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="Toolkit" customModuleProvider="target">
+                    <rect key="frame" x="110" y="15" width="395" height="360"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="ICB-S3-mDG" secondAttribute="top" id="0Cp-v0-5Ce"/>
                 <constraint firstItem="dMj-LM-sev" firstAttribute="leading" secondItem="ICB-S3-mDG" secondAttribute="trailing" id="25g-Q6-W31"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="6Sm-Ui-0YJ"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="8ig-IG-EUc"/>
@@ -75,7 +76,6 @@
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="top" id="Qcj-Gy-g92"/>
                 <constraint firstItem="ICB-S3-mDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBA-Tf-yY0"/>
                 <constraint firstItem="6Cg-ai-3kD" firstAttribute="leading" secondItem="dMj-LM-sev" secondAttribute="leading" id="cW6-RZ-3vs"/>
-                <constraint firstItem="dMj-LM-sev" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="dYd-WW-KUK"/>
                 <constraint firstItem="DAH-mv-hw9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ibZ-c3-IvK"/>
                 <constraint firstItem="kzp-FA-x8k" firstAttribute="bottom" secondItem="dMj-LM-sev" secondAttribute="bottom" id="ieF-HK-Zyv"/>
                 <constraint firstItem="oQg-Pb-Jza" firstAttribute="top" secondItem="dMj-LM-sev" secondAttribute="bottom" id="m95-OK-C7a"/>

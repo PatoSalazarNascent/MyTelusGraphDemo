@@ -1,20 +1,20 @@
 import Foundation
 import UIKit
 
-internal class HorizontalAxisView: BaseView, AxisView {
+public class HorizontalAxisView: BaseView, AxisView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet weak var minValue: UILabel!
-    @IBOutlet weak var value: UILabel!
+    @IBOutlet internal weak var minValue: UILabel!
+    @IBOutlet internal weak var value: UILabel!
     
     @IBOutlet private weak var minValueLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var valueTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var valueTrailingConstraint: NSLayoutConstraint!
-    
+        
     // MARK: Internal Methods
     
-    internal func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
+    public func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
         
@@ -22,14 +22,14 @@ internal class HorizontalAxisView: BaseView, AxisView {
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
-    internal func bindNumericSegment(value: String, unitOfMeasure: String?) {
+    public func bindNumericSegment(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
         
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
-    internal func bindCategoryValue(value: String) {
+    public func bindCategoryValue(value: String) {
         self.value.text = value
         self.minValue.isHidden = true
         

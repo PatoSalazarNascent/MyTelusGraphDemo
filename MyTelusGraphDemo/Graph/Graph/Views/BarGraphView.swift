@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class BarGraphView: BaseView, GraphViewProtocol {
+public class BarGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Properties
     
@@ -10,11 +10,11 @@ internal class BarGraphView: BaseView, GraphViewProtocol {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak internal var graphView: GraphView!
+    @IBOutlet weak public var graphView: GraphView!
     
     // MARK: Internal Methods
     
-    internal func initializeBarGraph(graph: BarGraph, gridType: GridType) {
+    public func initializeBarGraph(graph: BarGraph, gridType: GridType) {
         initBarGraph(graph: graph, gridType: gridType, graphType: .barGraph)
         
         if let xAxisTitle = graph.xConfig.title {
@@ -26,13 +26,13 @@ internal class BarGraphView: BaseView, GraphViewProtocol {
         }
     }
     
-    internal func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
+    public func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: false, duration: 0, animationType: .none)
         
         graphView.addMetaData(iconColor: color, text: title)
     }
     
-    internal func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+    public func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: true, duration: duration, animationType: animationType)
         graphView.addMetaData(iconColor: color, text: title)

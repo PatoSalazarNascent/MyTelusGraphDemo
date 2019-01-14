@@ -1,20 +1,20 @@
 import Foundation
 import UIKit
 
-internal class LineGraphView: BaseView, GraphViewProtocol {
+public class LineGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Properties
     
     private var verticalAxisFormatter: ((Double) -> String?)?
     private var horizontalAxisFormatter: ((Double) -> String?)?
     
-    // MARK IBOulet
+    // MARK: IBOulet
     
-    @IBOutlet weak internal var graphView: GraphView!
+    @IBOutlet weak public var graphView: GraphView!
     
     // MARK: Internal Methods
     
-    internal func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
+    public func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
         
         if axis == .vertical {
             verticalAxisFormatter = formatter
@@ -24,33 +24,39 @@ internal class LineGraphView: BaseView, GraphViewProtocol {
         }
     }
     
-    internal func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
+    public func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
         initLineGraph(lineGraph: lineGraph, gridType: gridType)
         
-        if let xAxisTitle = lineGraph.xConfig.title {
-            graphView.addMetaData(iconImage: "graph", text: xAxisTitle)
+        if let _ = lineGraph.yConfig.title {
+            let green = UIColor(red: 87 / 255, green: 167 / 255, blue: 8 / 255, alpha: 1.0)
+            graphView.addMetaData(iconColor: green, text: "You cumulative usage")
         }
         
-        if let yAxisTitle = lineGraph.yConfig.title {
-            graphView.addMetaData(iconImage: "graph", text: yAxisTitle)
+        if let _ = lineGraph.xConfig.title {
+            let purple = UIColor(red: 75 / 255, green: 40 / 255, blue: 109 / 255, alpha: 1.0)
+            graphView.addMetaData(iconColor: purple, text: "Your daily usage")
         }
     }
     
-    internal func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+    public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
+        
+        setNeedsLayout()
+        layoutIfNeeded()
         
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
-        
-        graphView.addMetaData(iconColor: color, text: title)
     }
     
-    internal func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+    public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
+        
+        setNeedsLayout()
+        layoutIfNeeded()
         
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
         
-        graphView.addMetaData(iconColor: color, text: title)
+        //graphView.addMetaData(iconColor: color, text: title)
     }
     
-    // MARK Private Methods
+    // MARK: Private Methods
     
     private func initLineGraph(lineGraph: LineGraph, gridType: GridType) {
         graphView.gridView.initGrid(horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, verticalSegmentsCount: lineGraph.yConfig.numberOfSegments, graphType: .lineGraph)
@@ -63,11 +69,6 @@ internal class LineGraphView: BaseView, GraphViewProtocol {
         
         createAxis(config: lineGraph.xConfig, type: .horizontal)
         createAxis(config: lineGraph.yConfig, type: .vertical)
-        
-        
-        // call ui cycle to allow logic access component frame after autolayouts adjustments
-        setNeedsLayout()
-        layoutIfNeeded()
     }
     
     private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {

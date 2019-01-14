@@ -1,21 +1,21 @@
-internal enum GraphType {
+public enum GraphType {
     case lineGraph
     case barGraph
 }
 
-internal enum AxisType {
+public enum AxisType {
     case vertical
     case horizontal
 }
 
-internal enum GridType {
+public enum GridType {
     case horizontal
     case vertical
     case fullGrid
     case none
 }
 
-internal enum BarGraphAnimationType {
+public enum BarGraphAnimationType {
     case sequence
     case sameTime
     case none

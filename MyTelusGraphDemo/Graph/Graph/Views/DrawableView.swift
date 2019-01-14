@@ -1,8 +1,7 @@
-
 import Foundation
 import UIKit
 
-internal class DrawableView: UIView {
+public class DrawableView: UIView {
     
     // MARK: Properties
 
@@ -11,29 +10,16 @@ internal class DrawableView: UIView {
     private var verticalAxisMinValue: Int?
     private var verticalAxisMaxValue: Int?
     
-    // MARK: Constructor
-    
-    internal override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    // only called when built from interface builder
-    internal required init?(coder aDecoder: NSCoder) {
-        
-        // call super constructor
-        super.init(coder: aDecoder)
-    }
-    
     // MARK: Internal custom Initializer Methods
     
-    internal func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
+    public func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
         self.verticalAxisMinValue = verticalAxis.minValue
         self.verticalAxisMaxValue = verticalAxis.maxValue
         self.horizontalAxisMinValue = horizontalAxis.minValue
         self.horizontalAxisMaxValue = horizontalAxis.maxValue
     }
     
-    internal func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
+    public func initDrawableView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
         self.verticalAxisMinValue = verticalAxis.minValue
         self.verticalAxisMaxValue = verticalAxis.maxValue
         self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
@@ -41,7 +27,7 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+    public func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
         guard let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
@@ -58,7 +44,6 @@ internal class DrawableView: UIView {
             let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
             
             let path = UIBezierPath(roundedRect: CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord), byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
-
 
             let shapeLayer = CAShapeLayer()
             shapeLayer.fillColor = color.cgColor
@@ -101,8 +86,8 @@ internal class DrawableView: UIView {
         }
     }
     
-    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
-        
+    public func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
+                
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and line can't be created")
         }
@@ -114,6 +99,8 @@ internal class DrawableView: UIView {
         
         let path = UIBezierPath()
         
+        // call ui cycle to allow logic access component frame after autolayouts adjustments
+
         for (index, dataPoint) in sortData.enumerated() {
             
             let xCoord = (dataPoint.x - CGFloat(xMinValue)) * xDistance
@@ -145,11 +132,11 @@ internal class DrawableView: UIView {
         }
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
+    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
         createDataLimitView(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
-    internal func clearDrawableView() {
+    public func clearDrawableView() {
         if let sublayers = layer.sublayers {
             for sublayer in sublayers {
                 sublayer.removeAllAnimations()
@@ -176,11 +163,11 @@ internal class DrawableView: UIView {
         
         if dataLimitType == .vertical {
             let xCoord = (dataLimit.x - CGFloat(xMinValue)) * xDistance
-            dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 1, height: bounds.height)
+            dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 2, height: bounds.height)
         }
         else {
             let yCoord = (dataLimit.y - CGFloat(yMinValue)) * yDistance
-             dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 1)
+             dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 2)
         }
     }
 }

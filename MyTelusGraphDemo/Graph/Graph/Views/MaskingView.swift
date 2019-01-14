@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class MaskingView: UIView {
+public class MaskingView: UIView {
     
     // MARK: Properties
     
@@ -10,36 +10,23 @@ internal class MaskingView: UIView {
     private var verticalAxisMinValue: Int?
     private var verticalAxisMaxValue: Int?
     
-    // MARK: Constructor
-    
-    internal override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    // only called when built from interface builder
-    internal required init?(coder aDecoder: NSCoder) {
-        
-        // call super constructor
-        super.init(coder: aDecoder)
-    }
-    
     // MARK: Internal Methods
     
-    internal func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
+    public func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
         self.verticalAxisMinValue = verticalAxis.minValue
         self.verticalAxisMaxValue = verticalAxis.maxValue
         self.horizontalAxisMinValue = horizontalAxis.minValue
         self.horizontalAxisMaxValue = horizontalAxis.maxValue
     }
     
-    internal func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
+    public func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
         self.verticalAxisMinValue = verticalAxis.minValue
         self.verticalAxisMaxValue = verticalAxis.maxValue
         self.horizontalAxisMinValue = 0
         self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
     }
     
-    internal func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
+    public func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
         guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
             fatalError("x or y min or max value are missing and fill can't be created")
         }
@@ -69,7 +56,7 @@ internal class MaskingView: UIView {
              let lastXCoord = (lastXDataPoint - CGFloat(xMinValue)) * xDistance
             
             path.addLine(to: CGPoint(x: lastXCoord, y: frame.height))
-            path.addLine(to: CGPoint(x: 0, y: frame.height))
+            path.addLine(to: CGPoint(x: data.first?.x ?? 0, y: frame.height))
             path.close()
             path.miterLimit = 4
             
@@ -88,7 +75,7 @@ internal class MaskingView: UIView {
         }
     }
     
-    internal func clearMaskingView() {
+    public func clearMaskingView() {
         layer.mask = nil
         backgroundColor = .clear
     }

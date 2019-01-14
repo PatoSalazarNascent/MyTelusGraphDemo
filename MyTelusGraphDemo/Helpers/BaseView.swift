@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class BaseView: UIView {
+public class BaseView: UIView {
     // MARK: private variables
     
     private let defaultFrame = CGRect(x: 0, y: 0, width: 375, height: 128)
@@ -14,7 +14,7 @@ internal class BaseView: UIView {
         loadFromNib()
     }
     
-    internal init(viewName: String, frame: CGRect) {
+    public init(viewName: String, frame: CGRect) {
         
         // call super constructor
         super.init(frame: frame)
@@ -23,7 +23,7 @@ internal class BaseView: UIView {
         bindNib(viewName: viewName)
     }
     
-    internal init?(viewName: String, coder aDecoder: NSCoder) {
+    public init?(viewName: String, coder aDecoder: NSCoder) {
         
         // call super constructor
         super.init(coder: aDecoder)
@@ -32,7 +32,7 @@ internal class BaseView: UIView {
         bindNib(viewName: viewName)
     }
     
-    internal required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         
         // call super constructor
         super.init(coder: aDecoder)
@@ -41,7 +41,7 @@ internal class BaseView: UIView {
         loadFromNib()
     }
     
-    internal override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         
         // call super.init(frame:)
         super.init(frame: frame)

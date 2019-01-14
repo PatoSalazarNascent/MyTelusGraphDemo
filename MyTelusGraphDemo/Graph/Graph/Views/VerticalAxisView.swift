@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-internal class VerticalAxisView: BaseView, AxisView {
+public class VerticalAxisView: BaseView, AxisView {
 
     // MARK: IBOUtlets
     
@@ -9,10 +9,10 @@ internal class VerticalAxisView: BaseView, AxisView {
     @IBOutlet internal weak var value: UILabel!
     @IBOutlet private weak var valueTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var minValueBottomConstraint: NSLayoutConstraint!
-    
+        
     // MARK: Internal Methods
     
-    internal func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
+    public func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
         
@@ -20,18 +20,17 @@ internal class VerticalAxisView: BaseView, AxisView {
         valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)
     }
     
-    internal func bindNumericSegment(value: String, unitOfMeasure: String?) {
+    public func bindNumericSegment(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
         
         valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)
     }
     
-    internal func bindCategoryValue(value: String) {
+    public func bindCategoryValue(value: String) {
         self.value.text = value
         self.minValue.isHidden = true
         
         valueTopConstraint.constant = -(self.value.intrinsicContentSize.height / 2)
     }
 }
-

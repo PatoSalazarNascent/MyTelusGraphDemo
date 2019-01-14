@@ -1,30 +1,16 @@
 import Foundation
 import UIKit
 
-internal class GridView: UIView {
+public class GridView: UIView {
     
     // MARK: Properties
     
     private var horizontalSegmentsCount: Int?
     private var verticalSegmentsCount: Int?
     
-    // MARK: Constructor
-    
-    internal override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    // only called when built from interface builder
-    internal required init?(coder aDecoder: NSCoder) {
-        
-        // call super constructor
-        super.init(coder: aDecoder)
-    }
-    
     // MARK: Internal Methods
     
-    
-    internal func initGrid(horizontalSegmentsCount: Int, verticalSegmentsCount: Int, graphType: GraphType) {
+    public func initGrid(horizontalSegmentsCount: Int, verticalSegmentsCount: Int, graphType: GraphType) {
         
         switch graphType {
         case .barGraph:
@@ -36,7 +22,7 @@ internal class GridView: UIView {
         }
     }
     
-    internal func addGrid(_ type: GridType) {
+    public func addGrid(_ type: GridType) {
         
         guard let horizontalCount = horizontalSegmentsCount, let verticalCount = verticalSegmentsCount else {
             fatalError("x or y value count is missing and grid can't be created")
@@ -54,7 +40,7 @@ internal class GridView: UIView {
         }
     }
     
-    internal func setGridColor(color: UIColor?) {
+    public func setGridColor(color: UIColor?) {
         for gridLinesViews in self.subviews {
             gridLinesViews.backgroundColor = color
         }
