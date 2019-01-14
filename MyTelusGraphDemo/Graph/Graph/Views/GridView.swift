@@ -5,7 +5,7 @@ public class GridView: UIView {
     
     // MARK: Properties
     
-    let minMultiplier: CGFloat = 0.001
+    let minMultiplier: CGFloat = 0.001 // multiplier can't be zero.
     let maxMultiplier: CGFloat = 2.0
     
     // MARK: Public Methods
@@ -48,6 +48,10 @@ public class GridView: UIView {
         
         for value in 0...lineCount {
             let line = createGridLine()
+            
+            // this logic positions the line on the graph taking advantages of autolayouts.
+            // if horizontal minMultiplier means all the way to the left
+            // if vertial minMultiplier means top
             
             let multiplier = value == 0 ? minMultiplier : CGFloat(value) * maxMultiplier / CGFloat(lineCount)
             
