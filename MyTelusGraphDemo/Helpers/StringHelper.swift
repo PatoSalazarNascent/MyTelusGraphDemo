@@ -1,4 +1,3 @@
-
 import UIKit
 
 public class StringHelper {
@@ -43,7 +42,6 @@ public class StringHelper {
         
         return formatter.string(from: NSNumber(value: input))
     }
-
     
     // This could be extracted into separate 'phoneFormatter' class
     // ex. input parameter: PhoneNumber object, output parameter: String

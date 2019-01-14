@@ -1,0 +1,11 @@
+line_length:
+  - 200 # warning
+  - 300 # error
+
+function_parameter_count:
+  - 8 # warning
+
+disabled_rules:
+    - trailing_whitespace
+    - force_cast
+    - identifier_name

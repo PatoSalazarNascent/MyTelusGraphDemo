@@ -73,8 +73,7 @@ public class BarGraphView: BaseView, GraphViewProtocol {
                 let formattedMinValue = verticalAxisFormatter?(Double(config.minValue)) ?? "\(Double(config.minValue))"
                 
                 axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
-            }
-            else {
+            } else {
                 axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             

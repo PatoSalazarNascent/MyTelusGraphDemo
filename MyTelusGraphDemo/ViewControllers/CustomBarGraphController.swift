@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
 
-
-
 internal class CustomBarGraphController: UIViewController {
     
     // MARK: Properties

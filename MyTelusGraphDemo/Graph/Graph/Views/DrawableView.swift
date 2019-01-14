@@ -50,8 +50,7 @@ public class DrawableView: UIView {
             
             if animationType == .sequence {
                 shapeLayer.opacity = 0
-            }
-            else {
+            } else {
                 shapeLayer.opacity = 1
             }
             
@@ -108,8 +107,7 @@ public class DrawableView: UIView {
             
             if index == 0 {
                 path.move(to: CGPoint(x: xCoord, y: yCoord))
-            }
-            else {
+            } else {
                 path.addLine(to: CGPoint(x: xCoord, y: yCoord))
             }
         }
@@ -164,8 +162,7 @@ public class DrawableView: UIView {
         if dataLimitType == .vertical {
             let xCoord = (dataLimit.x - CGFloat(xMinValue)) * xDistance
             dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 2, height: bounds.height)
-        }
-        else {
+        } else {
             let yCoord = (dataLimit.y - CGFloat(yMinValue)) * yDistance
              dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 2)
         }

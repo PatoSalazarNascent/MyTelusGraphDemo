@@ -47,8 +47,7 @@ public class MaskingView: UIView {
                 
                 if index == 0 {
                     path.move(to: CGPoint(x: xCoord, y: yCoord))
-                }
-                else {
+                } else {
                     path.addLine(to: CGPoint(x: xCoord, y: yCoord))
                 }
             }

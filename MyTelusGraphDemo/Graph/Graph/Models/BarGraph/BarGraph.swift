@@ -1,7 +1,7 @@
 import Foundation
 
 public class BarGraph {
-    
+
     // MARK: Properties
     
     public let yConfig: NumericGraphAxisConfig

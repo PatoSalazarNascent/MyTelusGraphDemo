@@ -344,6 +344,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44BB5FFD21CD4F3200C7068A /* Build configuration list for PBXNativeTarget "MyTelusGraphDemo" */;
 			buildPhases = (
+				440AB35521ECFCD900C4239B /* Run Script */,
 				5B17D03DF97AECB10EB9DF29 /* [CP] Check Pods Manifest.lock */,
 				44BB5FD121CD4F3100C7068A /* Sources */,
 				44BB5FD221CD4F3100C7068A /* Frameworks */,
@@ -471,6 +472,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		440AB35521ECFCD900C4239B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		5B17D03DF97AECB10EB9DF29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

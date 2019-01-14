@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 public class BarGraphData {
-    
+
     public let x: String
     public let y: CGFloat
     

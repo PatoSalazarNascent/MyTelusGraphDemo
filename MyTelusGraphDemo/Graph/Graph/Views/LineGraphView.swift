@@ -18,8 +18,7 @@ public class LineGraphView: BaseView, GraphViewProtocol {
         
         if axis == .vertical {
             verticalAxisFormatter = formatter
-        }
-        else {
+        } else {
             horizontalAxisFormatter = formatter
         }
     }
@@ -89,8 +88,7 @@ public class LineGraphView: BaseView, GraphViewProtocol {
                 let formattedMinValue = formatter?(Double(config.minValue)) ?? "\(Double(config.minValue))"
                 
                 axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
-            }
-            else {
+            } else {
                 axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
             }
             
