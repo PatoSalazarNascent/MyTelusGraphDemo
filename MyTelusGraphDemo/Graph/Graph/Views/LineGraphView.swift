@@ -48,13 +48,12 @@ public class LineGraphView: BaseView, GraphViewProtocol {
     // MARK: Private Methods
     
     private func initLineGraph(lineGraph: LineGraph, gridType: GridType) {
-        graphView.gridView.initGrid(horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, verticalSegmentsCount: lineGraph.yConfig.numberOfSegments, graphType: .lineGraph)
+        
+        graphView.gridView.addGrid(verticalSegmentsCount: lineGraph.yConfig.numberOfSegments, horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, type: gridType)
         
         graphView.drawableView.initDrawableView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
         
         graphView.maskingView.initMaskingView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
-        
-        graphView.gridView.addGrid(gridType)
         
         createAxis(config: lineGraph.xConfig, type: .horizontal)
         createAxis(config: lineGraph.yConfig, type: .vertical)

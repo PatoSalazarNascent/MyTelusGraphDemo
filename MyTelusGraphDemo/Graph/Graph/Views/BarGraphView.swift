@@ -15,7 +15,7 @@ public class BarGraphView: BaseView, GraphViewProtocol {
     // MARK: Internal Methods
     
     public func initializeBarGraph(graph: BarGraph, gridType: GridType) {
-        initBarGraph(graph: graph, gridType: gridType, graphType: .barGraph)
+        initBarGraph(graph: graph, gridType: gridType)
         
         if let xAxisTitle = graph.xConfig.title {
             graphView.addMetaData(iconImage: "graph", text: xAxisTitle)
@@ -40,15 +40,12 @@ public class BarGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Private Methods
     
-    private func initBarGraph(graph: BarGraph, gridType: GridType, graphType: GraphType) {
-        graphView.gridView.initGrid(horizontalSegmentsCount: graph.xConfig.categoryValues.count, verticalSegmentsCount: graph.yConfig.numberOfSegments, graphType: graphType)
+    private func initBarGraph(graph: BarGraph, gridType: GridType) {
+        
+        graphView.gridView.addGrid(verticalSegmentsCount: graph.xConfig.categoryValues.count, horizontalSegmentsCount: graph.xConfig.categoryValues.count, type: gridType)
         
         graphView.drawableView.initDrawableView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
-        
         graphView.maskingView.initMaskingView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
-        
-        graphView.gridView.addGrid(gridType)
-        
         createCategoryAxis(config: graph.xConfig, type: .horizontal)
         createAxis(config: graph.yConfig, type: .vertical)
         

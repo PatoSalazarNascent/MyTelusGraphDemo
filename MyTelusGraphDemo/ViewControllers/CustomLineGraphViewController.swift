@@ -15,22 +15,19 @@ internal class CustomLineGraphViewController: UIViewController {
         
         // LINE GRAPH
         initializeLineGraph()
-        addLineGraphData()
+        //addLineGraphData()
     }
     
     // MARK: Private Methods
     
     private func initializeLineGraph() {
         
-//        lineGraph.addFormatter(StringHelper.formatStringWithNoDecimal, for: .vertical)
-//        lineGraph.addFormatter(StringHelper.formatStringWithNoDecimal, for: .horizontal)
-        
         let verticalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 8, numberOfSegments: 4, unitOfMeasure: nil, title: "Y Axis: Your usage")
         
         let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "X Axis: Bill cycle days")
         
         let graph = LineGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        lineGraph.initializeLineGraph(lineGraph: graph, gridType: .fullGrid)
+        lineGraph.initializeLineGraph(lineGraph: graph, gridType: .vertical)
     }
     
     private func addLineGraphData() {
