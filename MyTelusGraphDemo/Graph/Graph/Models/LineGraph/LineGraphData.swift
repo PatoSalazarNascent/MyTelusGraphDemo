@@ -3,10 +3,10 @@ import UIKit
 
 public class LineGraphData {
     
-    public let x: CGFloat
-    public let y: CGFloat
+    public let x: Double
+    public let y: Double
 
-    public init(x: CGFloat, y: CGFloat) {
+    public init(x: Double, y: Double) {
         self.x = x
         self.y = y
     }

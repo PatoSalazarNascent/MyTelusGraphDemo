@@ -41,7 +41,7 @@ public class DrawableView: UIView {
         for (index, dataPoint) in data.enumerated() {
 
             let xCoord = (CGFloat(index + 1)) * xDistance
-            let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
+            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yMinValue)) * yDistance)
             
             let roundRect = CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord)
             
@@ -104,8 +104,8 @@ public class DrawableView: UIView {
 
         for (index, dataPoint) in sortData.enumerated() {
             
-            let xCoord = (dataPoint.x - CGFloat(xMinValue)) * xDistance
-            let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
+            let xCoord = (CGFloat(dataPoint.x) - CGFloat(xMinValue)) * xDistance
+            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yMinValue)) * yDistance)
             
             if index == 0 {
                 path.move(to: CGPoint(x: xCoord, y: yCoord))
@@ -162,10 +162,10 @@ public class DrawableView: UIView {
         addSubview(dataLimitView)
         
         if dataLimitType == .vertical {
-            let xCoord = (dataLimit.x - CGFloat(xMinValue)) * xDistance
+            let xCoord = (CGFloat(dataLimit.x) - CGFloat(xMinValue)) * xDistance
             dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 2, height: bounds.height)
         } else {
-            let yCoord = (dataLimit.y - CGFloat(yMinValue)) * yDistance
+            let yCoord = (CGFloat(dataLimit.y) - CGFloat(yMinValue)) * yDistance
              dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 2)
         }
     }

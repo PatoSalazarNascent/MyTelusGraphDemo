@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				440AB32021ECEB2500C4239B /* BarGraph */,
-				440AB32321ECEB2500C4239B /* BarAxes */,
+				440AB32321ECEB2500C4239B /* Axes */,
 				440AB32621ECEB2500C4239B /* LineGraph */,
 			);
 			path = Models;
@@ -183,13 +183,13 @@
 			path = BarGraph;
 			sourceTree = "<group>";
 		};
-		440AB32321ECEB2500C4239B /* BarAxes */ = {
+		440AB32321ECEB2500C4239B /* Axes */ = {
 			isa = PBXGroup;
 			children = (
 				440AB32421ECEB2500C4239B /* NumericGraphAxisConfig.swift */,
 				440AB32521ECEB2500C4239B /* CategoryGraphAxisConfig.swift */,
 			);
-			path = BarAxes;
+			path = Axes;
 			sourceTree = "<group>";
 		};
 		440AB32621ECEB2500C4239B /* LineGraph */ = {

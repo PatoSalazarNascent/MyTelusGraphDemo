@@ -42,8 +42,8 @@ public class MaskingView: UIView {
             
             for (index, dataPoint) in sortedData.enumerated() {
                 
-                let xCoord = (dataPoint.x - CGFloat(xMinValue)) * xDistance
-                let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
+                let xCoord = (CGFloat(dataPoint.x) - CGFloat(xMinValue)) * xDistance
+                let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yMinValue)) * yDistance)
                 
                 if index == 0 {
                     path.move(to: CGPoint(x: xCoord, y: yCoord))
@@ -52,10 +52,10 @@ public class MaskingView: UIView {
                 }
             }
             
-             let lastXCoord = (lastXDataPoint - CGFloat(xMinValue)) * xDistance
+             let lastXCoord = (CGFloat(lastXDataPoint) - CGFloat(xMinValue)) * xDistance
             
             path.addLine(to: CGPoint(x: lastXCoord, y: frame.height))
-            path.addLine(to: CGPoint(x: data.first?.x ?? 0, y: frame.height))
+            path.addLine(to: CGPoint(x: CGFloat(data.first?.x ?? 0.0), y: frame.height))
             path.close()
             path.miterLimit = 4
             
