@@ -25,16 +25,6 @@ public class LineGraphView: BaseView, GraphViewProtocol {
     
     public func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
         initLineGraph(lineGraph: lineGraph, gridType: gridType)
-        
-        if let _ = lineGraph.yConfig.title {
-            let green = UIColor(red: 87 / 255, green: 167 / 255, blue: 8 / 255, alpha: 1.0)
-            graphView.addMetaData(iconColor: green, text: "You cumulative usage")
-        }
-        
-        if let _ = lineGraph.xConfig.title {
-            let purple = UIColor(red: 75 / 255, green: 40 / 255, blue: 109 / 255, alpha: 1.0)
-            graphView.addMetaData(iconColor: purple, text: "Your daily usage")
-        }
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {

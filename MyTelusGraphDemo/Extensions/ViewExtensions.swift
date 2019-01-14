@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-internal extension UIView {
+public extension UIView {
     
     internal func bindNib(viewName: String) {
         
@@ -19,7 +19,7 @@ internal extension UIView {
         childView.anchorToParent(self)
     }
         
-    internal func anchorToParent(_ parent: UIView) {
+    public func anchorToParent(_ parent: UIView) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         

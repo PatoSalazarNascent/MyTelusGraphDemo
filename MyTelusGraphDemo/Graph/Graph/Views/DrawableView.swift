@@ -43,7 +43,9 @@ public class DrawableView: UIView {
             let xCoord = (CGFloat(index + 1)) * xDistance
             let yCoord = frame.height - ((dataPoint.y - CGFloat(yMinValue)) * yDistance)
             
-            let path = UIBezierPath(roundedRect: CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord), byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
+            let roundRect = CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord)
+            
+            let path = UIBezierPath(roundedRect: roundRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
 
             let shapeLayer = CAShapeLayer()
             shapeLayer.fillColor = color.cgColor
