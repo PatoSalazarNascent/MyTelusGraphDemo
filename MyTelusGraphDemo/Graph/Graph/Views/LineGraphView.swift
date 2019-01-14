@@ -24,39 +24,33 @@ public class LineGraphView: BaseView, GraphViewProtocol {
     }
     
     public func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
-        initLineGraph(lineGraph: lineGraph, gridType: gridType)
+        initLineGraph(lineGraph, gridType: gridType)
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
-        
-        setNeedsLayout()
-        layoutIfNeeded()
         
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
         
-        setNeedsLayout()
-        layoutIfNeeded()
-        
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
-        
-        //graphView.addMetaData(iconColor: color, text: title)
     }
     
     // MARK: Private Methods
     
-    private func initLineGraph(lineGraph: LineGraph, gridType: GridType) {
+    private func initLineGraph(_ graph: LineGraph, gridType: GridType) {
         
-        graphView.gridView.addGrid(verticalSegmentsCount: lineGraph.yConfig.numberOfSegments, horizontalSegmentsCount: lineGraph.xConfig.numberOfSegments, type: gridType)
+        graphView.gridView.addGrid(verticalSegmentsCount: graph.yConfig.numberOfSegments, horizontalSegmentsCount: graph.xConfig.numberOfSegments, type: gridType)
         
-        graphView.drawableView.initDrawableView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
+        graphView.drawableView.initDrawableView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
         
-        graphView.maskingView.initMaskingView(verticalAxis: lineGraph.yConfig, horizontalAxis: lineGraph.xConfig)
+        graphView.maskingView.initMaskingView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
         
-        createAxis(config: lineGraph.xConfig, type: .horizontal)
-        createAxis(config: lineGraph.yConfig, type: .vertical)
+        createAxis(config: graph.xConfig, type: .horizontal)
+        createAxis(config: graph.yConfig, type: .vertical)
+        
+        requesteLatestFrame()
     }
     
     private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {

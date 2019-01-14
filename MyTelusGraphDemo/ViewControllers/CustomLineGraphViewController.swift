@@ -15,7 +15,6 @@ internal class CustomLineGraphViewController: UIViewController {
         
         // LINE GRAPH
         initializeLineGraph()
-        //addLineGraphData()
     }
     
     // MARK: Private Methods

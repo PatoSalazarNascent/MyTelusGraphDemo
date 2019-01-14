@@ -15,32 +15,22 @@ public class BarGraphView: BaseView, GraphViewProtocol {
     // MARK: Internal Methods
     
     public func initializeBarGraph(graph: BarGraph, gridType: GridType) {
-        initBarGraph(graph: graph, gridType: gridType)
-        
-        if let xAxisTitle = graph.xConfig.title {
-            graphView.addMetaData(iconImage: "graph", text: xAxisTitle)
-        }
-        
-        if let yAxisTitle = graph.yConfig.title {
-            graphView.addMetaData(iconImage: "graph", text: yAxisTitle)
-        }
+        initBarGraph(graph, gridType: gridType)
     }
     
     public func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat) {
+            
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: false, duration: 0, animationType: .none)
-        
-        graphView.addMetaData(iconColor: color, text: title)
     }
     
     public func drawBars(title: String, data: [BarGraphData], color: UIColor, barWidth: CGFloat, withAnimationDuration duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
         graphView.drawableView.drawBars(data: data, color: color, barWidth: barWidth, animated: true, duration: duration, animationType: animationType)
-        graphView.addMetaData(iconColor: color, text: title)
     }
     
     // MARK: Private Methods
     
-    private func initBarGraph(graph: BarGraph, gridType: GridType) {
+    private func initBarGraph(_ graph: BarGraph, gridType: GridType) {
         
         graphView.gridView.addGrid(verticalSegmentsCount: graph.xConfig.categoryValues.count, horizontalSegmentsCount: graph.xConfig.categoryValues.count, type: gridType)
         
@@ -49,9 +39,7 @@ public class BarGraphView: BaseView, GraphViewProtocol {
         createCategoryAxis(config: graph.xConfig, type: .horizontal)
         createAxis(config: graph.yConfig, type: .vertical)
         
-        // call ui cycle to allow logic access component frame after autolayouts adjustments
-        setNeedsLayout()
-        layoutIfNeeded()
+        requesteLatestFrame()
     }
 
     private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {

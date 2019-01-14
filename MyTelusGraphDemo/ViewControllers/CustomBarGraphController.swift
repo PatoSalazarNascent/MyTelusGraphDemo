@@ -15,7 +15,6 @@ internal class CustomBarGraphController: UIViewController {
         super.viewDidLoad()
         
         initializeBarGraph()
-        addBarData()
     }
 
     // MARK: Private Methods

@@ -50,6 +50,13 @@ public class BaseView: UIView {
         loadFromNib()
     }
     
+    // MARK: Internal Methods:
+    
+    internal func requesteLatestFrame() {
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
+    
     // MARK: private methods
     
     private func loadFromNib() {

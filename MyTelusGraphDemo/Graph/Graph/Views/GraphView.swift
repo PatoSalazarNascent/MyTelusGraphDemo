@@ -5,7 +5,6 @@ public class GraphView: BaseView {
     
     // MARK: IBOUtlets
     
-    @IBOutlet internal weak var metadataStackview: UIStackView!
     @IBOutlet internal weak var verticalAxis: UIStackView!
     @IBOutlet internal weak var horizontalAxis: UIStackView!
     
@@ -53,44 +52,19 @@ public class GraphView: BaseView {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
     }
     
-    public func addMetaData(iconColor: UIColor, text: String) {
-        
-        let metaView = GraphMetaDataView()
-        metaView.bindMetaData(iconColor: iconColor, text: text)
-        
-        metadataStackview.addArrangedSubview(metaView)
-    }
-    
-    public func addMetaData(iconImage: String, text: String) {
-        
-        let metaView = GraphMetaDataView()
-        metaView.bindMetaData(iconImage: iconImage, text: text)
-        
-        metadataStackview.addArrangedSubview(metaView)
-    }
-    
     public func clearGraphData() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
-        clearMetaData()
     }
     
     public func resetGraph() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
-        clearMetaData()
         resetAxisValues()
     }
     
     // MARK: Private Methods
-    
-    private func clearMetaData() {
-        for arrangedViews in metadataStackview.arrangedSubviews {
-            metadataStackview.removeArrangedSubview(arrangedViews)
-            arrangedViews.removeFromSuperview()
-        }
-    }
-    
+        
     private func resetAxisValues() {
         for arrangedViews in horizontalAxis.arrangedSubviews {
             horizontalAxis.removeArrangedSubview(arrangedViews)
