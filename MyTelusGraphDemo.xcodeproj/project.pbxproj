@@ -144,18 +144,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		440AB31C21ECEB2500C4239B /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				440AB31D21ECEB2500C4239B /* Enums */,
-				440AB31F21ECEB2500C4239B /* Models */,
-				440AB32921ECEB2500C4239B /* nibFiles */,
-				440AB33021ECEB2500C4239B /* Views */,
-				440AB33A21ECEB2500C4239B /* Protocols */,
-			);
-			path = Graph;
-			sourceTree = "<group>";
-		};
 		440AB31D21ECEB2500C4239B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +248,11 @@
 		443E77A621E79E4B008CE962 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				440AB31C21ECEB2500C4239B /* Graph */,
+				440AB31D21ECEB2500C4239B /* Enums */,
+				440AB31F21ECEB2500C4239B /* Models */,
+				440AB32921ECEB2500C4239B /* nibFiles */,
+				440AB33021ECEB2500C4239B /* Views */,
+				440AB33A21ECEB2500C4239B /* Protocols */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
