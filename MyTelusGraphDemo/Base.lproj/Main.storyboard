@@ -30,7 +30,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPC-wl-HGM" customClass="BarGraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPC-wl-HGM" customClass="BarGraphView" customModule="Graphs">
                                                 <rect key="frame" x="0.0" y="25.5" width="375" height="350"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -87,7 +87,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIi-bb-WwP" customClass="LineGraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIi-bb-WwP" customClass="LineGraphView" customModule="Graphs">
                                                 <rect key="frame" x="0.0" y="25.5" width="375" height="350"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>

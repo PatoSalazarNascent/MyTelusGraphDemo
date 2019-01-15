@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Toolkit
 
 public class GraphView: BaseView {
     

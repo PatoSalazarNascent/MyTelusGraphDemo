@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Graphs
 
 internal class CustomLineGraphViewController: UIViewController {
     

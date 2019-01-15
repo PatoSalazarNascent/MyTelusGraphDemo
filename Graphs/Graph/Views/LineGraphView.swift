@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Toolkit
 
 public class LineGraphView: BaseView, GraphViewProtocol {
     
@@ -49,8 +50,6 @@ public class LineGraphView: BaseView, GraphViewProtocol {
         
         createAxis(config: graph.xConfig, type: .horizontal)
         createAxis(config: graph.yConfig, type: .vertical)
-        
-        requesteLatestFrame()
     }
     
     private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {

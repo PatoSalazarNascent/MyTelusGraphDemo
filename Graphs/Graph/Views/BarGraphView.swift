@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Toolkit
 
 public class BarGraphView: BaseView, GraphViewProtocol {
     
@@ -38,8 +39,6 @@ public class BarGraphView: BaseView, GraphViewProtocol {
         graphView.maskingView.initMaskingView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
         createCategoryAxis(config: graph.xConfig, type: .horizontal)
         createAxis(config: graph.yConfig, type: .vertical)
-        
-        requesteLatestFrame()
     }
 
     private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {

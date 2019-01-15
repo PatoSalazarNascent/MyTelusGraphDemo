@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class BaseView: UIView {
+open class BaseView: UIView {
     // MARK: private variables
     
     private let defaultFrame = CGRect(x: 0, y: 0, width: 375, height: 128)
@@ -48,13 +48,6 @@ public class BaseView: UIView {
         
         // fail
         loadFromNib()
-    }
-    
-    // MARK: Internal Methods:
-    
-    internal func requesteLatestFrame() {
-        setNeedsLayout()
-        layoutIfNeeded()
     }
     
     // MARK: private methods
