@@ -27,7 +27,7 @@ internal class CustomLineGraphViewController: UIViewController {
         let horizontalAxisConfig = NumericGraphAxisConfig(minValue: 0, maxValue: 30, numberOfSegments: 6, unitOfMeasure: nil, title: "X Axis: Bill cycle days")
         
         let graph = LineGraph(yConfig: verticalAxisConfig, xConfig: horizontalAxisConfig)
-        lineGraph.initializeLineGraph(lineGraph: graph, gridType: .vertical)
+        lineGraph.initializeLineGraph(graph, gridType: .vertical)
     }
     
     private func addLineGraphData() {
@@ -47,8 +47,6 @@ internal class CustomLineGraphViewController: UIViewController {
         
         lineGraph.drawLine(title: "First Data", data: dataPoints, color: .red, lineWidth: 2)
         lineGraph.drawLine(title: "Second Data", data: dataPoints2, color: .cyan, lineWidth: 2, animateWithDuration: 1)
-        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 30, y: 8), color: .blue, dataLimitType: .vertical)
-        lineGraph.addGraphFill(data: dataPoints, color: UIColor.purple.withAlphaComponent(0.5), animateWithDuration: 0.5)
     }
     
     // MARK: IBAction

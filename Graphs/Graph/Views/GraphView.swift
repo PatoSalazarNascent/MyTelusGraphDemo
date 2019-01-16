@@ -14,7 +14,7 @@ public class GraphView: BaseView {
     @IBOutlet internal weak var maskingView: MaskingView!
     @IBOutlet internal weak var drawableView: DrawableView!
         
-    // MARK: Internal Methods
+    // MARK: Public Methods
     
     public func setCustomFont(font: UIFont) {
         for view in horizontalAxis.arrangedSubviews {
@@ -64,8 +64,38 @@ public class GraphView: BaseView {
         resetAxisValues()
     }
     
-    // MARK: Private Methods
+    // MARK: Internal Methods
+
+    internal func createNumericAxis(config: NumericGraphAxisConfig, type: AxisType) {
         
+        let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
+        
+        let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
+        //let formatter = type == .horizontal ? horizontalAxisFormatter : verticalAxisFormatter
+        
+        for (index, value) in segmentedValues {
+            
+            let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
+            
+            let formattedValue = "\(value)"
+            
+            if index == initialIndex {
+                
+                let formattedMinValue = "\(Double(config.minValue))"
+                
+                axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
+            } else {
+                axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
+            }
+            
+            if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {
+                stackview.addArrangedSubview(view)
+            }
+        }
+    }
+
+    // MARK: Private Methods
+    
     private func resetAxisValues() {
         for arrangedViews in horizontalAxis.arrangedSubviews {
             horizontalAxis.removeArrangedSubview(arrangedViews)

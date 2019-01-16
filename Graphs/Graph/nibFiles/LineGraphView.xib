@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LineGraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LineGraphView" customModule="Graphs" customModuleProvider="target">
             <connections>
-                <outlet property="graphView" destination="xtd-sp-o4L" id="on4-Ab-gss"/>
+                <outlet property="graphView" destination="xtd-sp-o4L" id="6wU-hp-eys"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtd-sp-o4L" customClass="GraphView" customModule="MyTelusGraphDemo" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtd-sp-o4L" customClass="GraphView" customModule="Graphs" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>

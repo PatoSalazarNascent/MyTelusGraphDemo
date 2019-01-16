@@ -5,29 +5,20 @@ public class MaskingView: UIView {
     
     // MARK: Properties
     
-    private var horizontalAxisMinValue: Int?
-    private var horizontalAxisMaxValue: Int?
-    private var verticalAxisMinValue: Int?
-    private var verticalAxisMaxValue: Int?
+    private var verticalAxisValues: (min: Int, max: Int)?
+    private var horizontalAxisValues: (min: Int, max: Int)?
     
     // MARK: Internal Methods
     
-    public func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: NumericGraphAxisConfig) {
-        self.verticalAxisMinValue = verticalAxis.minValue
-        self.verticalAxisMaxValue = verticalAxis.maxValue
-        self.horizontalAxisMinValue = horizontalAxis.minValue
-        self.horizontalAxisMaxValue = horizontalAxis.maxValue
+    public func initMaskingView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
+        self.verticalAxisValues = verticalAxisValues
+        self.horizontalAxisValues = horizontalAxisValues
     }
     
-    public func initMaskingView(verticalAxis: NumericGraphAxisConfig, horizontalAxis: CategoryGraphAxisConfig) {
-        self.verticalAxisMinValue = verticalAxis.minValue
-        self.verticalAxisMaxValue = verticalAxis.maxValue
-        self.horizontalAxisMinValue = 0
-        self.horizontalAxisMaxValue = horizontalAxis.categoryValues.count
-    }
+
     
     public func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
-        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
+        guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
             fatalError("x or y min or max value are missing and fill can't be created")
         }
         
@@ -35,15 +26,15 @@ public class MaskingView: UIView {
         
         if let lastXDataPoint = sortedData.last?.x {
             
-            let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
-            let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
+            let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
+            let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
             
             let path = UIBezierPath()
             
             for (index, dataPoint) in sortedData.enumerated() {
                 
-                let xCoord = (CGFloat(dataPoint.x) - CGFloat(xMinValue)) * xDistance
-                let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yMinValue)) * yDistance)
+                let xCoord = (CGFloat(dataPoint.x) - CGFloat(xValues.min)) * xDistance
+                let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yValues.min)) * yDistance)
                 
                 if index == 0 {
                     path.move(to: CGPoint(x: xCoord, y: yCoord))
@@ -52,7 +43,7 @@ public class MaskingView: UIView {
                 }
             }
             
-             let lastXCoord = (CGFloat(lastXDataPoint) - CGFloat(xMinValue)) * xDistance
+             let lastXCoord = (CGFloat(lastXDataPoint) - CGFloat(xValues.min)) * xDistance
             
             path.addLine(to: CGPoint(x: lastXCoord, y: frame.height))
             path.addLine(to: CGPoint(x: CGFloat(data.first?.x ?? 0.0), y: frame.height))

@@ -18,7 +18,7 @@ public class GridView: UIView {
     
     // MARK: Internal Methods
     
-    internal func addGrid(verticalSegmentsCount: Int, horizontalSegmentsCount: Int, type: GridType) {
+    internal func initGridView(verticalSegmentsCount: Int, horizontalSegmentsCount: Int, type: GridType) {
         
         switch type {
         case .horizontal:

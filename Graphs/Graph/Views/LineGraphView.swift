@@ -2,16 +2,16 @@ import Foundation
 import UIKit
 import Toolkit
 
-public class LineGraphView: BaseView, GraphViewProtocol {
+public class LineGraphView: BaseView {
     
     // MARK: Properties
     
     private var verticalAxisFormatter: ((Double) -> String?)?
     private var horizontalAxisFormatter: ((Double) -> String?)?
     
-    // MARK: IBOulet
+    // MARK: IBOutlet
     
-    @IBOutlet weak public var graphView: GraphView!
+    @IBOutlet private weak var graphView: GraphView!
     
     // MARK: Internal Methods
     
@@ -24,59 +24,31 @@ public class LineGraphView: BaseView, GraphViewProtocol {
         }
     }
     
-    public func initializeLineGraph(lineGraph: LineGraph, gridType: GridType) {
-        initLineGraph(lineGraph, gridType: gridType)
+    public func initializeLineGraph(_ graph: LineGraph, gridType: GridType) {
+        
+        // horizontal and vertical values
+        let verticalAxisValues = (min: graph.yConfig.minValue, max: graph.yConfig.maxValue)
+        let horizontalAxisValues = (min: graph.xConfig.minValue, max: graph.xConfig.maxValue)
+        
+        // creates grid layer
+        graphView.gridView.initGridView(verticalSegmentsCount: graph.yConfig.numberOfSegments, horizontalSegmentsCount: graph.xConfig.numberOfSegments, type: gridType)
+        
+        // gives basic data to drawable view
+        graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)
+        
+        // give basic data to masking view
+        graphView.maskingView.initMaskingView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)
+        
+        // create axis
+        graphView.createNumericAxis(config: graph.xConfig, type: .horizontal)
+        graphView.createNumericAxis(config: graph.yConfig, type: .vertical)
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
-        
-        graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
+
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
         
-        graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
-    }
-    
-    // MARK: Private Methods
-    
-    private func initLineGraph(_ graph: LineGraph, gridType: GridType) {
-        
-        graphView.gridView.addGrid(verticalSegmentsCount: graph.yConfig.numberOfSegments, horizontalSegmentsCount: graph.xConfig.numberOfSegments, type: gridType)
-        
-        graphView.drawableView.initDrawableView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
-        
-        graphView.maskingView.initMaskingView(verticalAxis: graph.yConfig, horizontalAxis: graph.xConfig)
-        
-        createAxis(config: graph.xConfig, type: .horizontal)
-        createAxis(config: graph.yConfig, type: .vertical)
-    }
-    
-    private func createAxis(config: NumericGraphAxisConfig, type: AxisType) {
-        
-        let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
-        
-        let initialIndex = type == .horizontal ? 0 : config.segmentValues.count - 1
-        let formatter = type == .horizontal ? horizontalAxisFormatter : verticalAxisFormatter
-        
-        for (index, value) in segmentedValues {
-            
-            let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
-            
-            let formattedValue = formatter?(value) ?? "\(value)"
-            
-            if index == initialIndex {
-                
-                let formattedMinValue = formatter?(Double(config.minValue)) ?? "\(Double(config.minValue))"
-                
-                axisView.bindInitialNumericSegment(minValue: formattedMinValue, segmentValue: formattedValue, unitOfMeasure: config.unitOfMeasure)
-            } else {
-                axisView.bindNumericSegment(value: formattedValue, unitOfMeasure: config.unitOfMeasure)
-            }
-            
-            if let stackview = type == .horizontal ? graphView.horizontalAxis : graphView.verticalAxis, let view = axisView as? UIView {
-                stackview.addArrangedSubview(view)
-            }
-        }
-    }
+    }    
 }
