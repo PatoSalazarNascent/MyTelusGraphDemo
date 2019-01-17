@@ -104,9 +104,9 @@ internal class DrawableView: UIView {
         }
     
         // create shape
-        let shapeLayer = shapesHelper.getLineShape(from: coordinates, color: color, lineWidth: lineWidth)
+        let shape = shapesHelper.getLineShape(from: coordinates, color: color, lineWidth: lineWidth)
                 
-        layer.addSublayer(shapeLayer)
+        layer.addSublayer(shape)
         
         // animate if neccesary
         if animated {
@@ -115,14 +115,34 @@ internal class DrawableView: UIView {
             animation.duration = duration
             animation.delegate = CoreAnimationListener { _ in
                 // we could pass a completion parameter to trigger something in the UI
-                shapeLayer.removeAllAnimations()
+                shape.removeAllAnimations()
             }
-            shapeLayer.add(animation, forKey: nil)
+            shape.add(animation, forKey: nil)
         }
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
-        createDataLimitView(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
+    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, axis: AxisType) {
+        
+        guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
+            fatalError("x or y min or max values are missing and dataLimit can't be created")
+        }
+        
+        let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
+        let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
+        
+        var rect: CGRect {
+            if axis == .vertical {
+                let xCoord = (CGFloat(dataLimit.x) - CGFloat(xValues.min)) * xDistance
+                return CGRect(x: xCoord, y: 0, width: 1.5, height: bounds.height)
+            } else {
+                let yCoord = (CGFloat(dataLimit.y) - CGFloat(yValues.min)) * yDistance
+                return CGRect(x: 0, y: yCoord, width: bounds.width, height: 1.5)
+            }
+        }
+        
+        let shape = shapesHelper.getRectShape(from: rect, color: color)
+        
+        layer.addSublayer(shape)
     }
     
     internal func clearDrawableView() {
@@ -132,30 +152,5 @@ internal class DrawableView: UIView {
                 sublayer.removeFromSuperlayer()
             }
         }
-    }
-    
-    // MARK: Private Methods
-    
-    private func createDataLimitView(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
-        
-//        guard let xMinValue = horizontalAxisMinValue, let xMaxValue = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
-//            fatalError("x or y min or max value are missing and line can't be created")
-//        }
-//
-//        let xDistance = frame.width / CGFloat(xMaxValue - xMinValue)
-//        let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
-//
-//        let dataLimitView = UIView()
-//        dataLimitView.backgroundColor = color
-//
-//        addSubview(dataLimitView)
-//
-//        if dataLimitType == .vertical {
-//            let xCoord = (CGFloat(dataLimit.x) - CGFloat(xMinValue)) * xDistance
-//            dataLimitView.frame = CGRect(x: xCoord, y: 0, width: 2, height: bounds.height)
-//        } else {
-//            let yCoord = (CGFloat(dataLimit.y) - CGFloat(yMinValue)) * yDistance
-//             dataLimitView.frame = CGRect(x: 0, y: yCoord, width: bounds.width, height: 2)
-//        }
     }
 }

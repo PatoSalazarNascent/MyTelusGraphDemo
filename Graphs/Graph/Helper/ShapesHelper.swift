@@ -25,4 +25,16 @@ internal class ShapesHelper {
         
         return shapeLayer
     }
+    
+    internal func getRectShape(from rect: CGRect, color: UIColor) -> CAShapeLayer {
+        
+        let path = UIBezierPath(rect: rect)
+                
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.fillColor = color.cgColor
+        shapeLayer.path = path.cgPath
+        
+        return shapeLayer
+    }
 }

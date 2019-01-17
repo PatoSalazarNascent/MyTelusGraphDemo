@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Toolkit
 
-internal class GraphView: BaseView {
+public class GraphView: BaseView {
     
     // MARK: IBOUtlets
     
@@ -16,7 +16,7 @@ internal class GraphView: BaseView {
         
     // MARK: Internal  Methods
     
-    internal func setCustomFont(font: UIFont) {
+    public func setCustomFont(font: UIFont) {
         for view in horizontalAxis.arrangedSubviews {
             if let axisView = view as? AxisView {
                 axisView.minValue.font = font
@@ -32,39 +32,39 @@ internal class GraphView: BaseView {
         }
     }
         
-    internal func setGridColor(color: UIColor?) {
+    public func setGridColor(color: UIColor?) {
         gridView.setGridColor(color: color)
     }
     
-    internal func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
+    public func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
         let customColor = color ?? UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: alpha)
         backgroundView.backgroundColor = customColor
     }
     
-    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
-        drawableView.addDataLimit(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
+    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, axis: AxisType) {
+        drawableView.addDataLimit(dataLimit: dataLimit, color: color, axis: axis)
     }
     
-    internal func addGraphFill(data: [LineGraphData], color: UIColor) {
+    public func addGraphFill(data: [LineGraphData], color: UIColor) {
         maskingView.addMaskingFill(data: data, color: color, animate: false, duration: 0)
     }
     
-    internal func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
+    public func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
         maskingView.addMaskingFill(data: data, color: color, animate: true, duration: duration)
     }
     
-    internal func clearGraphData() {
+    public func clearGraphData() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
     }
     
-    internal func resetGraph() {
+    public func resetGraph() {
         drawableView.clearDrawableView()
         maskingView.clearMaskingView()
         resetAxisValues()
     }
     
-    internal func createNumericAxis(config: NumericGraphAxisConfig, type: AxisType) {
+    public func createNumericAxis(config: NumericGraphAxisConfig, type: AxisType) {
         
         let segmentedValues = type == .horizontal ? config.segmentValues.enumerated() : config.segmentValues.reversed().enumerated()
         

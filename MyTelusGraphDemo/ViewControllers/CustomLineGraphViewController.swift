@@ -38,6 +38,7 @@ internal class CustomLineGraphViewController: UIViewController {
         ]
         
         lineGraph.drawLine(title: "Fist Data", data: dataPoints, color: .magenta, lineWidth: 1.5, animateWithDuration: 0.6)
+        lineGraph.addDataLimit(dataLimit: LineGraphData(x: 20, y: 8), color: .blue, axis: .vertical)
     }
     
     // MARK: IBAction

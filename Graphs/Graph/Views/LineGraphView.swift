@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Toolkit
 
-public class LineGraphView: BaseView {
+public class LineGraphView: BaseView, GraphViewProtocol {
     
     // MARK: Properties
     
@@ -11,7 +11,7 @@ public class LineGraphView: BaseView {
     
     // MARK: IBOutlet
     
-    @IBOutlet private weak var graphView: GraphView!
+    @IBOutlet public weak var graphView: GraphView!
     
     // MARK: Internal Methods
     
@@ -41,7 +41,7 @@ public class LineGraphView: BaseView {
         // gives basic data to drawable view
         graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues, shapesHelper: shapesHelper)
         
-        // give basic data to masking view
+        // publico masking view
         graphView.maskingView.initMaskingView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)
         
         // create axis
