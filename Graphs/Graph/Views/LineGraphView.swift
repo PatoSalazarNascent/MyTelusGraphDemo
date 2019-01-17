@@ -42,13 +42,16 @@ public class LineGraphView: BaseView {
         // create axis
         graphView.createNumericAxis(config: graph.xConfig, type: .horizontal)
         graphView.createNumericAxis(config: graph.yConfig, type: .vertical)
+        
+        // update frame after UI is set and autolayouts have done his thing
+        layoutIfNeeded()
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat) {
-
+        graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: false, duration: 0)
     }
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
-        
+        graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
     }    
 }

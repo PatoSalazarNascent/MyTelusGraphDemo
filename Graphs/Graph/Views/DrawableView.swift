@@ -79,22 +79,26 @@ public class DrawableView: UIView {
     }
     
     public func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
-                
+        
         guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
             fatalError("x or y min or max values are missing and line can't be created")
         }
-    
+        
+        // make sure that the data is sorted by the x data points in ascending order
+        // to match dependent x axis requirements
         let sortData = data.sorted(by: { $1.x > $0.x })
         
+        // divide available space into segments in relation with axis values
         let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
         let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
         
+        // create path
         let path = UIBezierPath()
-        
-        // call ui cycle to allow logic access component frame after autolayouts adjustments
 
         for (index, dataPoint) in sortData.enumerated() {
             
+            // data points needs to be adjusted against min values for correspondent axes
+            // to address case when axes don't start at zero
             let xCoord = (CGFloat(dataPoint.x) - CGFloat(xValues.min)) * xDistance
             let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yValues.min)) * yDistance)
             
@@ -105,6 +109,7 @@ public class DrawableView: UIView {
             }
         }
         
+        // Create Shape layer that will use path to display it in view
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -113,13 +118,13 @@ public class DrawableView: UIView {
         
         layer.addSublayer(shapeLayer)
         
-        // animate it
+        // animate if neccesary
         
         if animated {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0
             animation.duration = duration
-            shapeLayer.add(animation, forKey: "lineGraphAnimation")
+            shapeLayer.add(animation, forKey: nil)
         }
     }
     

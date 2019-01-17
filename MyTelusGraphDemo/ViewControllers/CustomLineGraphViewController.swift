@@ -16,6 +16,7 @@ internal class CustomLineGraphViewController: UIViewController {
         
         // LINE GRAPH
         initializeLineGraph()
+        addLineGraphData()
     }
     
     // MARK: Private Methods
@@ -32,21 +33,11 @@ internal class CustomLineGraphViewController: UIViewController {
     
     private func addLineGraphData() {
         let dataPoints = [
-            LineGraphData(x: 4, y: 0),
-            LineGraphData(x: 6, y: 2),
-            LineGraphData(x: 8, y: 6.5),
-            LineGraphData(x: 20, y: 8),
-            LineGraphData(x: 30, y: 8)
+            LineGraphData(x: 0, y: 0),
+            LineGraphData(x: 20, y: 8)
         ]
         
-        let dataPoints2 = [
-            LineGraphData(x: 4, y: 0),
-            LineGraphData(x: 20, y: 8),
-            LineGraphData(x: 30, y: 8)
-        ]
-        
-        lineGraph.drawLine(title: "First Data", data: dataPoints, color: .red, lineWidth: 2)
-        lineGraph.drawLine(title: "Second Data", data: dataPoints2, color: .cyan, lineWidth: 2, animateWithDuration: 1)
+        lineGraph.drawLine(title: "Fist Data", data: dataPoints, color: .magenta, lineWidth: 1.5, animateWithDuration: 0.6)
     }
     
     // MARK: IBAction
