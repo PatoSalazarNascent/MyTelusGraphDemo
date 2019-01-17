@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class DrawableView: UIView {
+internal class DrawableView: UIView {
     
     // MARK: Properties
     
@@ -10,7 +10,7 @@ public class DrawableView: UIView {
     
     // MARK: Internal custom Initializer Methods
     
-    public func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
+    internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
         
         self.verticalAxisValues = verticalAxisValues
         self.horizontalAxisValues = horizontalAxisValues
@@ -18,7 +18,7 @@ public class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    public func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
 //        guard let xValues = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
 //            fatalError("x or y min or max value are missing and line can't be created")
@@ -78,7 +78,7 @@ public class DrawableView: UIView {
 //        }
     }
     
-    public func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
+    internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
         guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
             fatalError("x or y min or max values are missing and line can't be created")
@@ -128,11 +128,11 @@ public class DrawableView: UIView {
         }
     }
     
-    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
+    internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, dataLimitType: AxisType) {
         createDataLimitView(dataLimit: dataLimit, color: color, dataLimitType: dataLimitType)
     }
     
-    public func clearDrawableView() {
+    internal func clearDrawableView() {
         if let sublayers = layer.sublayers {
             for sublayer in sublayers {
                 sublayer.removeAllAnimations()

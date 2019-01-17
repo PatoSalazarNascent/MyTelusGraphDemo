@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Toolkit
 
-public class GraphMetaDataView: BaseView {
+internal class GraphMetaDataView: BaseView {
     
     // MARK: Properties
     
@@ -13,13 +13,13 @@ public class GraphMetaDataView: BaseView {
     
     // MARK: Internal Methods
     
-    public func bindMetaData(iconColor: UIColor, text: String) {
+    internal func bindMetaData(iconColor: UIColor, text: String) {
         
         icon.backgroundColor = iconColor
         label.text = text
     }
     
-    public func bindMetaData(iconImage: String, text: String) {
+    internal func bindMetaData(iconImage: String, text: String) {
         
         let image = UIImageView(image: UIImage(named: iconImage))
         

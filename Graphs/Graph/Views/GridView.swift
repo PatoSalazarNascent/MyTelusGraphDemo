@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class GridView: UIView {
+internal class GridView: UIView {
     
     // MARK: Properties
     

@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Toolkit
 
-public class HorizontalAxisView: BaseView, AxisView {
+internal class HorizontalAxisView: BaseView, AxisView {
     
     // MARK: IBOUtlets
     
@@ -15,7 +15,7 @@ public class HorizontalAxisView: BaseView, AxisView {
         
     // MARK: Internal Methods
     
-    public func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
+    internal func bindInitialNumericSegment(minValue: String, segmentValue: String, unitOfMeasure: String?) {
         self.minValue.text = "\(minValue)\(unitOfMeasure ?? "")"
         self.value.text = "\(segmentValue)\(unitOfMeasure ?? "")"
         
@@ -23,14 +23,14 @@ public class HorizontalAxisView: BaseView, AxisView {
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
-    public func bindNumericSegment(value: String, unitOfMeasure: String?) {
+    internal func bindNumericSegment(value: String, unitOfMeasure: String?) {
         self.value.text = "\(value)\(unitOfMeasure ?? "")"
         self.minValue.isHidden = true
         
         valueTrailingConstraint.constant = self.value.intrinsicContentSize.width / 2
     }
     
-    public func bindCategoryValue(value: String) {
+    internal func bindCategoryValue(value: String) {
         self.value.text = value
         self.minValue.isHidden = true
         

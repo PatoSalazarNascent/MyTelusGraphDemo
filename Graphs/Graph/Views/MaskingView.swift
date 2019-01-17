@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public class MaskingView: UIView {
+internal class MaskingView: UIView {
     
     // MARK: Properties
     
@@ -10,14 +10,12 @@ public class MaskingView: UIView {
     
     // MARK: Internal Methods
     
-    public func initMaskingView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
+    internal func initMaskingView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
         self.verticalAxisValues = verticalAxisValues
         self.horizontalAxisValues = horizontalAxisValues
     }
     
-
-    
-    public func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
+    internal func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
         guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
             fatalError("x or y min or max value are missing and fill can't be created")
         }
@@ -65,7 +63,7 @@ public class MaskingView: UIView {
         }
     }
     
-    public func clearMaskingView() {
+    internal func clearMaskingView() {
         layer.mask = nil
         backgroundColor = .clear
     }
