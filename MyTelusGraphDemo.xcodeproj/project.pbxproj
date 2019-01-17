@@ -46,6 +46,7 @@
 		440AB48321EE3F0200C4239B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB602821CE002F00C7068A /* BaseView.swift */; };
 		440AB48521EE3F0800C4239B /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E77A421E77C3C008CE962 /* StringHelper.swift */; };
 		440AB48721EF81F000C4239B /* CoreAnimationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB48621EF81F000C4239B /* CoreAnimationListener.swift */; };
+		440AB48A21F04CB500C4239B /* ShapesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB48921F04CB500C4239B /* ShapesHelper.swift */; };
 		443455F521DFBD8C00A91FBF /* CustomLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */; };
 		443455F721DFBECD00A91FBF /* CustomBarGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
@@ -169,6 +170,7 @@
 		440AB47421EE3EDF00C4239B /* ToolkitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolkitTests.swift; sourceTree = "<group>"; };
 		440AB47621EE3EDF00C4239B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		440AB48621EF81F000C4239B /* CoreAnimationListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationListener.swift; sourceTree = "<group>"; };
+		440AB48921F04CB500C4239B /* ShapesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesHelper.swift; sourceTree = "<group>"; };
 		443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineGraphViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarGraphController.swift; sourceTree = "<group>"; };
 		443E77A421E77C3C008CE962 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
@@ -379,6 +381,14 @@
 			path = ToolkitTests;
 			sourceTree = "<group>";
 		};
+		440AB48821F04C9000C4239B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				440AB48921F04CB500C4239B /* ShapesHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		443455F321DFBD7100A91FBF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		443E77A621E79E4B008CE962 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				440AB48821F04C9000C4239B /* Helper */,
 				440AB31D21ECEB2500C4239B /* Enums */,
 				440AB31F21ECEB2500C4239B /* Models */,
 				440AB32921ECEB2500C4239B /* nibFiles */,
@@ -825,6 +836,7 @@
 				440AB44821EE3D7600C4239B /* Enums.swift in Sources */,
 				440AB44A21EE3D8200C4239B /* BarGraphData.swift in Sources */,
 				440AB45B21EE3DE500C4239B /* BarGraphView.swift in Sources */,
+				440AB48A21F04CB500C4239B /* ShapesHelper.swift in Sources */,
 				440AB44C21EE3D8D00C4239B /* CategoryGraphAxisConfig.swift in Sources */,
 				440AB44D21EE3D9200C4239B /* LineGraph.swift in Sources */,
 				440AB44B21EE3D8900C4239B /* NumericGraphAxisConfig.swift in Sources */,

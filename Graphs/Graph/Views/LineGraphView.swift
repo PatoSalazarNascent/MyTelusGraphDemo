@@ -26,6 +26,11 @@ public class LineGraphView: BaseView {
     
     public func initializeLineGraph(_ graph: LineGraph, gridType: GridType) {
         
+        // Resolve dependencies for LineGraph
+        
+        // Drawer Helper
+        let shapesHelper = ShapesHelper()
+        
         // horizontal and vertical values
         let verticalAxisValues = (min: graph.yConfig.minValue, max: graph.yConfig.maxValue)
         let horizontalAxisValues = (min: graph.xConfig.minValue, max: graph.xConfig.maxValue)
@@ -34,7 +39,7 @@ public class LineGraphView: BaseView {
         graphView.gridView.initGridView(verticalSegmentsCount: graph.yConfig.numberOfSegments, horizontalSegmentsCount: graph.xConfig.numberOfSegments, type: gridType)
         
         // gives basic data to drawable view
-        graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)
+        graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues, shapesHelper: shapesHelper)
         
         // give basic data to masking view
         graphView.maskingView.initMaskingView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)

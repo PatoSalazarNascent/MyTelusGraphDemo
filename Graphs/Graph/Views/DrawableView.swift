@@ -1,19 +1,22 @@
 import Foundation
 import UIKit
+import Toolkit
 
 internal class DrawableView: UIView {
     
     // MARK: Properties
     
+    private var shapesHelper: ShapesHelper!
     private var verticalAxisValues: (min: Int, max: Int)?
     private var horizontalAxisValues: (min: Int, max: Int)?
     
     // MARK: Internal custom Initializer Methods
     
-    internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
+    internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int), shapesHelper: ShapesHelper) {
         
         self.verticalAxisValues = verticalAxisValues
         self.horizontalAxisValues = horizontalAxisValues
+        self.shapesHelper = shapesHelper
     }
     
     // MARK: Internal Methods
@@ -92,38 +95,28 @@ internal class DrawableView: UIView {
         let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
         let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
         
-        // create path
-        let path = UIBezierPath()
-
-        for (index, dataPoint) in sortData.enumerated() {
-            
-            // data points needs to be adjusted against min values for correspondent axes
-            // to address case when axes don't start at zero
+        // create cgPoints from x and y coodinates
+        let coordinates = sortData.map { dataPoint -> CGPoint in
             let xCoord = (CGFloat(dataPoint.x) - CGFloat(xValues.min)) * xDistance
             let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yValues.min)) * yDistance)
             
-            if index == 0 {
-                path.move(to: CGPoint(x: xCoord, y: yCoord))
-            } else {
-                path.addLine(to: CGPoint(x: xCoord, y: yCoord))
-            }
+            return CGPoint(x: xCoord, y: yCoord)
         }
-        
-        // Create Shape layer that will use path to display it in view
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = lineWidth
-        shapeLayer.path = path.cgPath
-        
+    
+        // create shape
+        let shapeLayer = shapesHelper.getLineShape(from: coordinates, color: color, lineWidth: lineWidth)
+                
         layer.addSublayer(shapeLayer)
         
         // animate if neccesary
-        
         if animated {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0
             animation.duration = duration
+            animation.delegate = CoreAnimationListener { _ in
+                // we could pass a completion parameter to trigger something in the UI
+                shapeLayer.removeAllAnimations()
+            }
             shapeLayer.add(animation, forKey: nil)
         }
     }
