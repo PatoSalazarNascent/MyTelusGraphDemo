@@ -1,10 +1,10 @@
 import UIKit
 
-internal class ShapesHelper {
+public class ShapesHelper {
     
     // MARK: Internal Methods
     
-    internal func getLineShape(from coords: [CGPoint], color: UIColor, lineWidth: CGFloat) -> CAShapeLayer {
+    public func getLineShape(from coords: [CGPoint], color: UIColor, lineWidth: CGFloat) -> CAShapeLayer {
         
         let path = UIBezierPath()
         
@@ -26,7 +26,7 @@ internal class ShapesHelper {
         return shapeLayer
     }
     
-    internal func getRectShape(from rect: CGRect, color: UIColor) -> CAShapeLayer {
+    public func getRectShape(from rect: CGRect, color: UIColor) -> CAShapeLayer {
         
         let path = UIBezierPath(rect: rect)
                 
