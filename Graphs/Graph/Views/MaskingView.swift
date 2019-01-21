@@ -5,27 +5,16 @@ internal class MaskingView: UIView {
     
     // MARK: Properties
     
-    private var verticalAxisValues: (min: Int, max: Int)?
-    private var horizontalAxisValues: (min: Int, max: Int)?
+    private var verticalAxisValues: (min: Int, max: Int)!
+    private var horizontalAxisValues: (min: Int, max: Int)!
     
     private var xDistance: CGFloat {
-        
-        guard let xValues = horizontalAxisValues else {
-            fatalError("x min or max values are missing and line can't be created")
-        }
-        
-        return frame.width / CGFloat(xValues.max - xValues.min)
+        return frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
     }
     
     private var yDistance: CGFloat {
-        
-        guard let yValues = verticalAxisValues else {
-            fatalError("y min or max values are missing and line can't be created")
-        }
-        
-        return frame.height / CGFloat(yValues.max - yValues.min)
+        return frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
     }
-    
     
     // MARK: Internal Methods
     
@@ -35,10 +24,7 @@ internal class MaskingView: UIView {
     }
     
     internal func addMaskingFill(data: [LineGraphData], color: UIColor, animate: Bool, duration: CFTimeInterval) {
-        guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
-            fatalError("x or y min or max value are missing and fill can't be created")
-        }
-        
+
         let sortedData = data.sorted(by: { $1.x > $0.x })
         
         if let lastXDataPoint = sortedData.last?.x {
@@ -47,8 +33,8 @@ internal class MaskingView: UIView {
             
             for (index, dataPoint) in sortedData.enumerated() {
                 
-                let xCoord = (CGFloat(dataPoint.x) - CGFloat(xValues.min)) * xDistance
-                let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yValues.min)) * yDistance)
+                let xCoord = (CGFloat(dataPoint.x) - CGFloat(horizontalAxisValues.min)) * xDistance
+                let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
                 
                 if index == 0 {
                     path.move(to: CGPoint(x: xCoord, y: yCoord))
@@ -57,7 +43,7 @@ internal class MaskingView: UIView {
                 }
             }
             
-             let lastXCoord = (CGFloat(lastXDataPoint) - CGFloat(xValues.min)) * xDistance
+             let lastXCoord = (CGFloat(lastXDataPoint) - CGFloat(horizontalAxisValues.min)) * xDistance
             
             path.addLine(to: CGPoint(x: lastXCoord, y: frame.height))
             path.addLine(to: CGPoint(x: CGFloat(data.first?.x ?? 0.0), y: frame.height))

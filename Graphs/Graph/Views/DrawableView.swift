@@ -7,25 +7,15 @@ internal class DrawableView: UIView {
     // MARK: Properties
     
     private var shapesHelper: ShapesHelper!
-    private var verticalAxisValues: (min: Int, max: Int)?
-    private var horizontalAxisValues: (min: Int, max: Int)?
+    private var verticalAxisValues: (min: Int, max: Int)!
+    private var horizontalAxisValues: (min: Int, max: Int)!
     
     private var xDistance: CGFloat {
-        
-        guard let xValues = horizontalAxisValues else {
-            fatalError("x min or max values are missing and line can't be created")
-        }
-        
-        return frame.width / CGFloat(xValues.max - xValues.min)
+        return frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
     }
     
     private var yDistance: CGFloat {
-        
-        guard let yValues = verticalAxisValues else {
-            fatalError("y min or max values are missing and line can't be created")
-        }
-        
-        return frame.height / CGFloat(yValues.max - yValues.min)
+        return frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
     }
     
     // MARK: Internal custom Initializer Methods
@@ -107,8 +97,8 @@ internal class DrawableView: UIView {
         
         // create cgPoints from x and y coodinates
         let coordinates = sortData.map { dataPoint -> CGPoint in
-            let xCoord = (CGFloat(dataPoint.x) - CGFloat(xValues.min)) * xDistance
-            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yValues.min)) * yDistance)
+            let xCoord = (CGFloat(dataPoint.x) - CGFloat(horizontalAxisValues.min)) * xDistance
+            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
             
             return CGPoint(x: xCoord, y: yCoord)
         }
