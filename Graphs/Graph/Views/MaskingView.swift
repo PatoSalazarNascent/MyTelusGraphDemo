@@ -8,6 +8,25 @@ internal class MaskingView: UIView {
     private var verticalAxisValues: (min: Int, max: Int)?
     private var horizontalAxisValues: (min: Int, max: Int)?
     
+    private var xDistance: CGFloat {
+        
+        guard let xValues = horizontalAxisValues else {
+            fatalError("x min or max values are missing and line can't be created")
+        }
+        
+        return frame.width / CGFloat(xValues.max - xValues.min)
+    }
+    
+    private var yDistance: CGFloat {
+        
+        guard let yValues = verticalAxisValues else {
+            fatalError("y min or max values are missing and line can't be created")
+        }
+        
+        return frame.height / CGFloat(yValues.max - yValues.min)
+    }
+    
+    
     // MARK: Internal Methods
     
     internal func initMaskingView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int)) {
@@ -23,10 +42,7 @@ internal class MaskingView: UIView {
         let sortedData = data.sorted(by: { $1.x > $0.x })
         
         if let lastXDataPoint = sortedData.last?.x {
-            
-            let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
-            let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
-            
+                        
             let path = UIBezierPath()
             
             for (index, dataPoint) in sortedData.enumerated() {

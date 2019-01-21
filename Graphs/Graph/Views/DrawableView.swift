@@ -10,6 +10,24 @@ internal class DrawableView: UIView {
     private var verticalAxisValues: (min: Int, max: Int)?
     private var horizontalAxisValues: (min: Int, max: Int)?
     
+    private var xDistance: CGFloat {
+        
+        guard let xValues = horizontalAxisValues else {
+            fatalError("x min or max values are missing and line can't be created")
+        }
+        
+        return frame.width / CGFloat(xValues.max - xValues.min)
+    }
+    
+    private var yDistance: CGFloat {
+        
+        guard let yValues = verticalAxisValues else {
+            fatalError("y min or max values are missing and line can't be created")
+        }
+        
+        return frame.height / CGFloat(yValues.max - yValues.min)
+    }
+    
     // MARK: Internal custom Initializer Methods
     
     internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int), shapesHelper: ShapesHelper) {
@@ -83,17 +101,9 @@ internal class DrawableView: UIView {
     
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
-        guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
-            fatalError("x or y min or max values are missing and line can't be created")
-        }
-        
         // make sure that the data is sorted by the x data points in ascending order
         // to match dependent x axis requirements
         let sortData = data.sorted(by: { $1.x > $0.x })
-        
-        // divide available space into segments in relation with axis values
-        let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
-        let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
         
         // create cgPoints from x and y coodinates
         let coordinates = sortData.map { dataPoint -> CGPoint in
@@ -126,9 +136,6 @@ internal class DrawableView: UIView {
         guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
             fatalError("x or y min or max values are missing and dataLimit can't be created")
         }
-        
-        let xDistance = frame.width / CGFloat(xValues.max - xValues.min)
-        let yDistance = frame.height / CGFloat(yValues.max - yValues.min)
         
         var rect: CGRect {
             if axis == .vertical {
