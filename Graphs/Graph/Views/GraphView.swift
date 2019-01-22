@@ -91,6 +91,24 @@ public class GraphView: BaseView {
             }
         }
     }
+    
+    public func createCategoryAxis(config: CategoryGraphAxisConfig, type: AxisType) {
+        
+        let categoryValuesWithPadding = config.categoryValues + [""]
+        
+        let categoryValues = (type == .horizontal ? categoryValuesWithPadding : categoryValuesWithPadding.reversed())
+        
+        for value in categoryValues {
+            
+            let axisView: AxisView = type == .horizontal ? HorizontalAxisView() : VerticalAxisView()
+            
+            axisView.bindCategoryValue(value: value)
+            
+            if let stackview = type == .horizontal ? horizontalAxis : verticalAxis, let view = axisView as? UIView {
+                stackview.addArrangedSubview(view)
+            }
+        }
+    }
 
     // MARK: Private Methods
     

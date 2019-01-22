@@ -3,26 +3,27 @@ import UIKit
 import Toolkit
 
 public class LineGraphView: BaseView, GraphViewProtocol {
+
     
     // MARK: Properties
     
-    private var verticalAxisFormatter: ((Double) -> String?)?
-    private var horizontalAxisFormatter: ((Double) -> String?)?
+//    private var verticalAxisFormatter: ((Double) -> String?)?
+//    private var horizontalAxisFormatter: ((Double) -> String?)?
     
     // MARK: IBOutlet
     
-    @IBOutlet public weak var graphView: GraphView!
+    @IBOutlet private weak var graphView: GraphView!
     
     // MARK: Internal Methods
     
-    public func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
-        
-        if axis == .vertical {
-            verticalAxisFormatter = formatter
-        } else {
-            horizontalAxisFormatter = formatter
-        }
-    }
+//    public func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
+//
+//        if axis == .vertical {
+//            verticalAxisFormatter = formatter
+//        } else {
+//            horizontalAxisFormatter = formatter
+//        }
+//    }
     
     public func initializeLineGraph(_ graph: LineGraph, gridType: GridType) {
         
@@ -58,5 +59,37 @@ public class LineGraphView: BaseView, GraphViewProtocol {
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
-    }    
+    }
+    
+    public func setCustomFont(font: UIFont) {
+        graphView.setCustomFont(font: font)
+    }
+    
+    public func setGridColor(color: UIColor?) {
+        graphView.setGridColor(color: color)
+    }
+    
+    public func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
+        graphView.setGraphBackgroundColor(color: color, alpha: alpha)
+    }
+    
+    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, axis: AxisType) {
+        graphView.addDataLimit(dataLimit: dataLimit, color: color, axis: axis)
+    }
+    
+    public func addGraphFill(data: [LineGraphData], color: UIColor) {
+        graphView.addGraphFill(data: data, color: color)
+    }
+    
+    public func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
+        graphView.addGraphFill(data: data, color: color, animateWithDuration: duration)
+    }
+    
+    public func clearGraphData() {
+        graphView.clearGraphData()
+    }
+    
+    public func resetGraph() {
+        graphView.resetGraph()
+    }
 }

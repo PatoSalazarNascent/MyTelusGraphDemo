@@ -60,7 +60,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Bar Graph" image="library" selectedImage="bars" id="vJe-Br-u2J" userLabel="Library"/>
                     <connections>
-                        <outlet property="simpleBarGraph" destination="aPC-wl-HGM" id="ZbI-nj-qPc"/>
+                        <outlet property="graphView" destination="aPC-wl-HGM" id="rYb-Zm-iuW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf4-RJ-QLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,7 +137,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Line Graph" image="lineGraph" selectedImage="lineGraph" id="6T9-3Z-NZ3" userLabel="Custom"/>
                     <connections>
-                        <outlet property="barGraph" destination="aPC-wl-HGM" id="ACn-9R-YQK"/>
                         <outlet property="lineGraph" destination="xIi-bb-WwP" id="wxl-MX-d5d"/>
                     </connections>
                 </viewController>
