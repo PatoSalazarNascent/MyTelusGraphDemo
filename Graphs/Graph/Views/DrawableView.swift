@@ -11,14 +11,6 @@ internal class DrawableView: UIView {
     private var verticalAxisValues: (min: Int, max: Int)!
     private var horizontalAxisValues: (min: Int, max: Int)!
     
-    private var xDistance: CGFloat {
-        return frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
-    }
-    
-    private var yDistance: CGFloat {
-        return frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
-    }
-    
     // MARK: Internal custom Initializer Methods
     
     internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int), shapesHelper: ShapesHelper, animationHelper: CABasicAnimationHelper) {
@@ -33,8 +25,9 @@ internal class DrawableView: UIView {
     
     internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
-        //var timeOffset: Double = animationType == .sequence ? 0.2 : 0
-
+        let xDistance = frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
+        let yDistance = frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
+        
         for (index, dataPoint) in data.enumerated() {
 
             let xCoord = (CGFloat(index + 1)) * xDistance
@@ -68,12 +61,15 @@ internal class DrawableView: UIView {
     
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
+        let xDistance = frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
+        let yDistance = frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
+        
         // make sure that the data is sorted by the x data points in ascending order
         // to match dependent x axis requirements
-        let sortData = data.sorted(by: { $1.x > $0.x })
+        let sortedData = data.sorted(by: { $1.x > $0.x })
         
         // create cgPoints from x and y coodinates
-        let coordinates = sortData.map { dataPoint -> CGPoint in
+        let coordinates = sortedData.map { dataPoint -> CGPoint in
             let xCoord = (CGFloat(dataPoint.x) - CGFloat(horizontalAxisValues.min)) * xDistance
             let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
             
@@ -93,16 +89,15 @@ internal class DrawableView: UIView {
     
     internal func addDataLimit(dataLimit: LineGraphData, color: UIColor, axis: AxisType) {
         
-        guard let xValues = horizontalAxisValues, let yValues = verticalAxisValues else {
-            fatalError("x or y min or max values are missing and dataLimit can't be created")
-        }
+        let xDistance = frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
+        let yDistance = frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
         
         var rect: CGRect {
             if axis == .vertical {
-                let xCoord = (CGFloat(dataLimit.x) - CGFloat(xValues.min)) * xDistance
+                let xCoord = (CGFloat(dataLimit.x) - CGFloat(horizontalAxisValues.min)) * xDistance
                 return CGRect(x: xCoord, y: 0, width: 1.5, height: bounds.height)
             } else {
-                let yCoord = (CGFloat(dataLimit.y) - CGFloat(yValues.min)) * yDistance
+                let yCoord = (CGFloat(dataLimit.y) - CGFloat(verticalAxisValues.min)) * yDistance
                 return CGRect(x: 0, y: yCoord, width: bounds.width, height: 1.5)
             }
         }
