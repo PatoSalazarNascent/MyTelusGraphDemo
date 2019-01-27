@@ -23,22 +23,20 @@ internal class CustomBarGraphController: UIViewController {
         
         let yAxis = NumericGraphAxisConfig(minValue: 0, maxValue: 10, numberOfSegments: 5, unitOfMeasure: nil, title: "Some Title")
         
-        let xAxis = CategoryGraphAxisConfig(categoryValues: ["Pato", "Jules", "Elias", "Grandma"], title: "Another Title")
+        let xAxis = CategoryGraphAxisConfig(categoryValues: ["Pato", "Jules"], title: "Another Title")
         
         let barGraph = BarGraph(yConfig: yAxis, xConfig: xAxis)
         
-        graphView.initializeBarGraph(graph: barGraph, gridType: .none)
+        graphView.initializeBarGraph(graph: barGraph, gridType: .vertical)
     }
     
     private func addData() {
         
         let graphData = [
-            BarGraphData(x: "Pato", y: 0),
-            BarGraphData(x: "Jules", y: 10),
-            BarGraphData(x: "Elias", y: 6),
-            BarGraphData(x: "Grandma", y: 7.5)
+            BarGraphData(x: "Pato", y: 5),
+            BarGraphData(x: "Jules", y: 10)
         ]
         
-        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 15, withAnimationDuration: 1.5, animationType: .sequence)
+        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 15, withAnimationDuration: 1.5, animationType: .none)
     }
 }

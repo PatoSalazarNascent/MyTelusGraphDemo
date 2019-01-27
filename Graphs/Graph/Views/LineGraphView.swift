@@ -2,28 +2,13 @@ import Foundation
 import UIKit
 import Toolkit
 
-public class LineGraphView: BaseView, GraphViewProtocol {
-
-    
-    // MARK: Properties
-    
-//    private var verticalAxisFormatter: ((Double) -> String?)?
-//    private var horizontalAxisFormatter: ((Double) -> String?)?
+public class LineGraphView: BaseView, WithGraphViewProtocol {
     
     // MARK: IBOutlet
     
-    @IBOutlet private weak var graphView: GraphView!
+    @IBOutlet public weak var graphView: GraphView!
     
-    // MARK: Internal Methods
-    
-//    public func addFormatter(_ formatter: @escaping ((Double) -> String?), for axis: AxisType) {
-//
-//        if axis == .vertical {
-//            verticalAxisFormatter = formatter
-//        } else {
-//            horizontalAxisFormatter = formatter
-//        }
-//    }
+    // MARK: Public Methods
     
     public func initializeLineGraph(_ graph: LineGraph, gridType: GridType) {
         
@@ -31,6 +16,7 @@ public class LineGraphView: BaseView, GraphViewProtocol {
         
         // Drawer Helper
         let shapesHelper = ShapesHelper()
+        let animationHelper = CABasicAnimationHelper()
         
         // horizontal and vertical values
         let verticalAxisValues = (min: graph.yConfig.minValue, max: graph.yConfig.maxValue)
@@ -40,7 +26,7 @@ public class LineGraphView: BaseView, GraphViewProtocol {
         graphView.gridView.initGridView(verticalSegmentsCount: graph.yConfig.numberOfSegments, horizontalSegmentsCount: graph.xConfig.numberOfSegments, type: gridType)
         
         // gives basic data to drawable view
-        graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues, shapesHelper: shapesHelper)
+        graphView.drawableView.initDrawableView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues, shapesHelper: shapesHelper, animationHelper: animationHelper)
         
         // publico masking view
         graphView.maskingView.initMaskingView(verticalAxisValues: verticalAxisValues, horizontalAxisValues: horizontalAxisValues)
@@ -59,37 +45,5 @@ public class LineGraphView: BaseView, GraphViewProtocol {
     
     public func drawLine(title: String, data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animateWithDuration duration: CFTimeInterval) {
         graphView.drawableView.drawLine(data: data, color: color, lineWidth: lineWidth, animated: true, duration: duration)
-    }
-    
-    public func setCustomFont(font: UIFont) {
-        graphView.setCustomFont(font: font)
-    }
-    
-    public func setGridColor(color: UIColor?) {
-        graphView.setGridColor(color: color)
-    }
-    
-    public func setGraphBackgroundColor(color: UIColor?, alpha: CGFloat) {
-        graphView.setGraphBackgroundColor(color: color, alpha: alpha)
-    }
-    
-    public func addDataLimit(dataLimit: LineGraphData, color: UIColor, axis: AxisType) {
-        graphView.addDataLimit(dataLimit: dataLimit, color: color, axis: axis)
-    }
-    
-    public func addGraphFill(data: [LineGraphData], color: UIColor) {
-        graphView.addGraphFill(data: data, color: color)
-    }
-    
-    public func addGraphFill(data: [LineGraphData], color: UIColor, animateWithDuration duration: CFTimeInterval) {
-        graphView.addGraphFill(data: data, color: color, animateWithDuration: duration)
-    }
-    
-    public func clearGraphData() {
-        graphView.clearGraphData()
-    }
-    
-    public func resetGraph() {
-        graphView.resetGraph()
     }
 }

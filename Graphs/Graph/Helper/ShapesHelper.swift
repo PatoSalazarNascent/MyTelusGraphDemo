@@ -37,4 +37,16 @@ public class ShapesHelper {
         
         return shapeLayer
     }
+    
+    public func getRectShape(from rect: CGRect, withRoundedCorners corners: UIRectCorner, radius: CGFloat, color: UIColor) -> CAShapeLayer {
+        
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.fillColor = color.cgColor
+        
+        shapeLayer.path = path.cgPath
+        
+        return shapeLayer
+    }
 }

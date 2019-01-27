@@ -6,6 +6,7 @@ internal class DrawableView: UIView {
     
     // MARK: Properties
     
+    private var animationHelper: CABasicAnimationHelper!
     private var shapesHelper: ShapesHelper!
     private var verticalAxisValues: (min: Int, max: Int)!
     private var horizontalAxisValues: (min: Int, max: Int)!
@@ -20,73 +21,49 @@ internal class DrawableView: UIView {
     
     // MARK: Internal custom Initializer Methods
     
-    internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int), shapesHelper: ShapesHelper) {
+    internal func initDrawableView(verticalAxisValues: (min: Int, max: Int), horizontalAxisValues: (min: Int, max: Int), shapesHelper: ShapesHelper, animationHelper: CABasicAnimationHelper) {
         
         self.verticalAxisValues = verticalAxisValues
         self.horizontalAxisValues = horizontalAxisValues
         self.shapesHelper = shapesHelper
+        self.animationHelper = animationHelper
     }
     
     // MARK: Internal Methods
     
     internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
-//        guard let xValues = horizontalAxisMaxValue, let yMinValue = verticalAxisMinValue, let yMaxValue = verticalAxisMaxValue else {
-//            fatalError("x or y min or max value are missing and line can't be created")
-//        }
-//
-//        let xDistance = frame.width / CGFloat(xMaxValue + 1)
-//        let yDistance = frame.height / CGFloat(yMaxValue - yMinValue)
-//
-//        var timeOffset: Double = animationType == .sequence ? 0.2 : 0
-//
-//        for (index, dataPoint) in data.enumerated() {
-//
-//            let xCoord = (CGFloat(index + 1)) * xDistance
-//            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(yMinValue)) * yDistance)
-//
-//            let roundRect = CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord)
-//
-//            let path = UIBezierPath(roundedRect: roundRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 2, height: 2))
-//
-//            let shapeLayer = CAShapeLayer()
-//            shapeLayer.fillColor = color.cgColor
-//
-//            if animationType == .sequence {
-//                shapeLayer.opacity = 0
-//            } else {
-//                shapeLayer.opacity = 1
-//            }
-//
-//            shapeLayer.path = path.cgPath
-//
-//            layer.addSublayer(shapeLayer)
-//
-//            // animate it
-//
+        //var timeOffset: Double = animationType == .sequence ? 0.2 : 0
+
+        for (index, dataPoint) in data.enumerated() {
+
+            let xCoord = (CGFloat(index + 1)) * xDistance
+            let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
+
+            let rect = CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord)
+
+            let shapeLayer = shapesHelper.getRectShape(from: rect, withRoundedCorners: [.topLeft, .topRight], radius: 2, color: color)
+
+            layer.addSublayer(shapeLayer)
+
+            // animate it
+
 //            if animated {
 //
 //                let translateAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-//                translateAnimation.fromValue = frame.height - yCoord
-//                translateAnimation.toValue = 0
-//                translateAnimation.duration = duration
+//                translateAnimation.fromValue = frame.height
+//                translateAnimation.toValue = -(frame.height - yCoord)
+//                //translateAnimation.isRemovedOnCompletion = false
+//                translateAnimation.fillMode = .forwards
+//                translateAnimation.duration = 3
 //                translateAnimation.beginTime = CACurrentMediaTime() + timeOffset
 //                shapeLayer.add(translateAnimation, forKey: nil)
-//
-//                let fadingAnimation = CABasicAnimation(keyPath: "opacity")
-//                fadingAnimation.fromValue = 0
-//                fadingAnimation.toValue = 1
-//                fadingAnimation.duration = duration
-//                fadingAnimation.beginTime = CACurrentMediaTime() + timeOffset
-//                fadingAnimation.fillMode = .forwards
-//                fadingAnimation.isRemovedOnCompletion = false
-//                shapeLayer.add(fadingAnimation, forKey: nil)
 //
 //                if animationType == .sequence {
 //                    timeOffset += 0.05
 //                }
 //            }
-//        }
+        }
     }
     
     internal func drawLine(data: [LineGraphData], color: UIColor, lineWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
@@ -110,14 +87,7 @@ internal class DrawableView: UIView {
         
         // animate if neccesary
         if animated {
-            let animation = CABasicAnimation(keyPath: "strokeEnd")
-            animation.fromValue = 0
-            animation.duration = duration
-            animation.delegate = CoreAnimationListener { _ in
-                // we could pass a completion parameter to trigger something in the UI
-                shape.removeAllAnimations()
-            }
-            shape.add(animation, forKey: nil)
+            animationHelper.addStrokeEndAnimation(to: shape, duration: duration)
         }
     }
     

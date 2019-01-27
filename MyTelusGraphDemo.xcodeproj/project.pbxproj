@@ -36,7 +36,7 @@
 		440AB45C21EE3DE900C4239B /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB33821ECEB2500C4239B /* GridView.swift */; };
 		440AB45D21EE3DEE00C4239B /* GraphMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB33921ECEB2500C4239B /* GraphMetaDataView.swift */; };
 		440AB45E21EE3E1100C4239B /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB33B21ECEB2500C4239B /* AxisView.swift */; };
-		440AB45F21EE3E1400C4239B /* GraphViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB33C21ECEB2500C4239B /* GraphViewProtocol.swift */; };
+		440AB45F21EE3E1400C4239B /* WithGraphViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB33C21ECEB2500C4239B /* WithGraphViewProtocol.swift */; };
 		440AB46E21EE3EDF00C4239B /* Toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440AB46521EE3EDF00C4239B /* Toolkit.framework */; };
 		440AB47521EE3EDF00C4239B /* ToolkitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB47421EE3EDF00C4239B /* ToolkitTests.swift */; };
 		440AB47721EE3EDF00C4239B /* Toolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 440AB46721EE3EDF00C4239B /* Toolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +49,7 @@
 		440AB48A21F04CB500C4239B /* ShapesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440AB48921F04CB500C4239B /* ShapesHelper.swift */; };
 		443455F521DFBD8C00A91FBF /* CustomLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */; };
 		443455F721DFBECD00A91FBF /* CustomBarGraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */; };
+		44A369DF21F7B1ED001A2F02 /* CABasicAnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A369DE21F7B1ED001A2F02 /* CABasicAnimationHelper.swift */; };
 		44BB5FD921CD4F3100C7068A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BB5FD821CD4F3100C7068A /* AppDelegate.swift */; };
 		44BB5FDE21CD4F3100C7068A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDC21CD4F3100C7068A /* Main.storyboard */; };
 		44BB5FE021CD4F3200C7068A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BB5FDF21CD4F3200C7068A /* Assets.xcassets */; };
@@ -156,7 +157,7 @@
 		440AB33821ECEB2500C4239B /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		440AB33921ECEB2500C4239B /* GraphMetaDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphMetaDataView.swift; sourceTree = "<group>"; };
 		440AB33B21ECEB2500C4239B /* AxisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
-		440AB33C21ECEB2500C4239B /* GraphViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewProtocol.swift; sourceTree = "<group>"; };
+		440AB33C21ECEB2500C4239B /* WithGraphViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithGraphViewProtocol.swift; sourceTree = "<group>"; };
 		440AB42B21EE3D3500C4239B /* Graphs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Graphs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		440AB42D21EE3D3600C4239B /* Graphs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphs.h; sourceTree = "<group>"; };
 		440AB42E21EE3D3600C4239B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		443455F421DFBD8C00A91FBF /* CustomLineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineGraphViewController.swift; sourceTree = "<group>"; };
 		443455F621DFBECD00A91FBF /* CustomBarGraphController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarGraphController.swift; sourceTree = "<group>"; };
 		443E77A421E77C3C008CE962 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		44A369DE21F7B1ED001A2F02 /* CABasicAnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABasicAnimationHelper.swift; sourceTree = "<group>"; };
 		44BB5FD521CD4F3100C7068A /* MyTelusGraphDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTelusGraphDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BB5FD821CD4F3100C7068A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44BB5FDD21CD4F3100C7068A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -337,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				440AB33B21ECEB2500C4239B /* AxisView.swift */,
-				440AB33C21ECEB2500C4239B /* GraphViewProtocol.swift */,
+				440AB33C21ECEB2500C4239B /* WithGraphViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				440AB48921F04CB500C4239B /* ShapesHelper.swift */,
+				44A369DE21F7B1ED001A2F02 /* CABasicAnimationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -830,11 +833,12 @@
 				440AB45521EE3DC800C4239B /* MaskingView.swift in Sources */,
 				440AB45721EE3DD500C4239B /* DrawableView.swift in Sources */,
 				440AB45621EE3DD100C4239B /* GraphView.swift in Sources */,
-				440AB45F21EE3E1400C4239B /* GraphViewProtocol.swift in Sources */,
+				440AB45F21EE3E1400C4239B /* WithGraphViewProtocol.swift in Sources */,
 				440AB44921EE3D7E00C4239B /* BarGraph.swift in Sources */,
 				440AB45E21EE3E1100C4239B /* AxisView.swift in Sources */,
 				440AB44821EE3D7600C4239B /* Enums.swift in Sources */,
 				440AB44A21EE3D8200C4239B /* BarGraphData.swift in Sources */,
+				44A369DF21F7B1ED001A2F02 /* CABasicAnimationHelper.swift in Sources */,
 				440AB45B21EE3DE500C4239B /* BarGraphView.swift in Sources */,
 				440AB48A21F04CB500C4239B /* ShapesHelper.swift in Sources */,
 				440AB44C21EE3D8D00C4239B /* CategoryGraphAxisConfig.swift in Sources */,
