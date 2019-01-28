@@ -25,7 +25,9 @@ internal class DrawableView: UIView {
     
     internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
         
-        let xDistance = frame.width / CGFloat(horizontalAxisValues.max - horizontalAxisValues.min)
+        let padding = 1
+        
+        let xDistance = frame.width / CGFloat(horizontalAxisValues.max + padding)
         let yDistance = frame.height / CGFloat(verticalAxisValues.max - verticalAxisValues.min)
         
         for (index, dataPoint) in data.enumerated() {
@@ -33,7 +35,7 @@ internal class DrawableView: UIView {
             let xCoord = (CGFloat(index + 1)) * xDistance
             let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
 
-            let rect = CGRect(x: xCoord - (barWidth / 2), y: yCoord, width: barWidth, height: frame.height - yCoord)
+            let rect = CGRect(x: xCoord - (barWidth / 2), y: frame.height, width: barWidth, height: frame.height - yCoord)
 
             let shapeLayer = shapesHelper.getRectShape(from: rect, withRoundedCorners: [.topLeft, .topRight], radius: 2, color: color)
 
@@ -41,21 +43,16 @@ internal class DrawableView: UIView {
 
             // animate it
 
-//            if animated {
-//
-//                let translateAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-//                translateAnimation.fromValue = frame.height
-//                translateAnimation.toValue = -(frame.height - yCoord)
-//                //translateAnimation.isRemovedOnCompletion = false
-//                translateAnimation.fillMode = .forwards
-//                translateAnimation.duration = 3
-//                translateAnimation.beginTime = CACurrentMediaTime() + timeOffset
-//                shapeLayer.add(translateAnimation, forKey: nil)
-//
-//                if animationType == .sequence {
-//                    timeOffset += 0.05
-//                }
-//            }
+            if animated {
+
+                let translateAnimation = CABasicAnimation(keyPath: "transform.translation.y")
+                translateAnimation.fromValue = 0
+                translateAnimation.toValue = -(frame.height - yCoord)
+                translateAnimation.isRemovedOnCompletion = false
+                translateAnimation.fillMode = .forwards
+                translateAnimation.duration = duration
+                shapeLayer.add(translateAnimation, forKey: nil)
+            }
         }
     }
     

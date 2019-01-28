@@ -37,6 +37,6 @@ internal class CustomBarGraphController: UIViewController {
             BarGraphData(x: "Jules", y: 10)
         ]
         
-        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 15, withAnimationDuration: 1.5, animationType: .none)
+        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 15, withAnimationDuration: 0.3, animationType: .none)
     }
 }
