@@ -27,7 +27,7 @@ internal class CustomBarGraphController: UIViewController {
         
         let barGraph = BarGraph(yConfig: yAxis, xConfig: xAxis)
         
-        graphView.initializeBarGraph(graph: barGraph, gridType: .vertical)
+        graphView.initializeBarGraph(graph: barGraph, gridType: .vertical, sorted: .byCategoryDesc)
     }
     
     private func addData() {
@@ -37,6 +37,6 @@ internal class CustomBarGraphController: UIViewController {
             BarGraphData(x: "Jules", y: 10)
         ]
         
-        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 15, withAnimationDuration: 0.3, animationType: .none)
+        graphView.drawBars(title: "Some Shit", data: graphData, color: UIColor.cyan, barWidth: 20)
     }
 }

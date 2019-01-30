@@ -92,9 +92,20 @@ public class GraphView: BaseView {
         }
     }
     
-    public func createCategoryAxis(config: CategoryGraphAxisConfig, type: AxisType) {
+    public func createCategoryAxis(config: CategoryGraphAxisConfig, type: AxisType, sorted: CategorySorting) {
         
-        let categoryValuesWithPadding = config.categoryValues + [""]
+        var sortedCategories: [String] {
+            switch sorted {
+            case .byCategoryAsc:
+                return config.categoryValues.sorted(by: { $1 > $0 })
+            case .byCategoryDesc:
+                return config.categoryValues.sorted(by: { $1 < $0 })
+            case .byDefault:
+                return config.categoryValues
+            }
+        }
+        
+        let categoryValuesWithPadding = sortedCategories + [""]
         
         let categoryValues = (type == .horizontal ? categoryValuesWithPadding : categoryValuesWithPadding.reversed())
         

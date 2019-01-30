@@ -23,7 +23,7 @@ internal class DrawableView: UIView {
     
     // MARK: Internal Methods
     
-    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval, animationType: BarGraphAnimationType) {
+    internal func drawBars(data: [BarGraphData], color: UIColor, barWidth: CGFloat, animated: Bool, duration: CFTimeInterval) {
         
         let padding = 1
         

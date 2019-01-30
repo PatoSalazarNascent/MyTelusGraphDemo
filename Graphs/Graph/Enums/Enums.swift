@@ -1,8 +1,3 @@
-public enum GraphType {
-    case lineGraph
-    case barGraph
-}
-
 public enum AxisType {
     case vertical
     case horizontal
@@ -15,8 +10,8 @@ public enum GridType {
     case none
 }
 
-public enum BarGraphAnimationType {
-    case sequence
-    case sameTime
-    case none
+public enum CategorySorting {
+    case byCategoryDesc
+    case byCategoryAsc
+    case byDefault
 }
