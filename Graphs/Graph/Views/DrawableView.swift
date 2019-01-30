@@ -35,7 +35,7 @@ internal class DrawableView: UIView {
             let xCoord = (CGFloat(index + 1)) * xDistance
             let yCoord = frame.height - ((CGFloat(dataPoint.y) - CGFloat(verticalAxisValues.min)) * yDistance)
 
-            let rect = CGRect(x: xCoord - (barWidth / 2), y: frame.height, width: barWidth, height: frame.height - yCoord)
+            let rect = CGRect(x: xCoord - (barWidth / 2), y: animated ? frame.height : yCoord, width: barWidth, height: frame.height - yCoord)
 
             let shapeLayer = shapesHelper.getRectShape(from: rect, withRoundedCorners: [.topLeft, .topRight], radius: 2, color: color)
 
@@ -44,14 +44,7 @@ internal class DrawableView: UIView {
             // animate it
 
             if animated {
-
-                let translateAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-                translateAnimation.fromValue = 0
-                translateAnimation.toValue = -(frame.height - yCoord)
-                translateAnimation.isRemovedOnCompletion = false
-                translateAnimation.fillMode = .forwards
-                translateAnimation.duration = duration
-                shapeLayer.add(translateAnimation, forKey: nil)
+                animationHelper.addVerticalTranslationAnimation(to: shapeLayer, duration: duration, fromValue: 0, toValue: -(frame.height - yCoord))
             }
         }
     }

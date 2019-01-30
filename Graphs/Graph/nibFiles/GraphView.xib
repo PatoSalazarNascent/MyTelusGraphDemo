@@ -47,7 +47,7 @@
                     <rect key="frame" x="110" y="15" width="395" height="388"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="Graphs" customModuleProvider="target">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-Cl-IaP" customClass="DrawableView" customModule="Graphs" customModuleProvider="target">
                     <rect key="frame" x="110" y="15" width="395" height="388"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
